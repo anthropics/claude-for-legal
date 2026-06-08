@@ -1,0 +1,30 @@
+{
+  "mcpServers": {
+    "velvoite": {
+      "type": "http",
+      "url": "https://mcp.velvoite.eu/mcp",
+      "title": "Velvoite",
+      "description": "EU finreg corpus + live Finnish statute data (Finlex) + PRH company register. Optional for regulatory depth — skills work without it.",
+      "headers": {
+        "X-API-Key": "${VELVOITE_API_KEY}"
+      }
+    },
+    "Slack": {
+      "type": "http",
+      "url": "https://mcp.slack.com/mcp",
+      "title": "Slack",
+      "description": "Post alerts and digests."
+    },
+    "Google Drive": {
+      "type": "http",
+      "url": "https://drivemcp.googleapis.com/mcp/v1",
+      "title": "Google Drive",
+      "description": "Store and retrieve documents."
+    }
+  },
+  "recommendedCategories": [
+    "legal-research",
+    "documents",
+    "chat"
+  ]
+}

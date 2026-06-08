@@ -1,0 +1,9 @@
+{
+  "name": "eu-legal",
+  "version": "0.1.0",
+  "description": "EU legal operations for regulated financial institutions — commercial contracts, privacy/GDPR, AI Act, employment, corporate governance, and regulatory compliance powered by the Velvoite EU finreg corpus.",
+  "author": {
+    "name": "Silly Pilot Oy",
+    "url": "https://velvoite.eu"
+  }
+}
