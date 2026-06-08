@@ -1,5 +1,14 @@
 {
   "mcpServers": {
+    "Velvoite": {
+      "type": "http",
+      "url": "https://mcp.velvoite.eu/mcp",
+      "title": "Velvoite",
+      "description": "EU AI Act and GDPR corpus — risk classifications, obligations by actor role (provider/deployer), enforcement decisions, and CJEU case law via EUR-Lex CELLAR. Requires VELVOITE_API_KEY.",
+      "headers": {
+        "X-API-Key": "${VELVOITE_API_KEY}"
+      }
+    },
     "Slack": {
       "type": "http",
       "url": "https://mcp.slack.com/mcp",
