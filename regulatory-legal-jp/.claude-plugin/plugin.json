@@ -1,0 +1,8 @@
+{
+  "name": "regulatory-legal-jp",
+  "version": "1.0.0",
+  "description": "e-Gov法令検索API・官報・省庁別RSSを監視し、パブコメ期限・新旧対照表・ギャップ管理を行い、規制動向ダイジェストを生成する日本の規制法務プラグイン。",
+  "author": {
+    "name": "Anthropic"
+  }
+}

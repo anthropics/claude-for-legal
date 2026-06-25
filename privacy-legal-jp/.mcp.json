@@ -1,0 +1,37 @@
+{
+  "mcpServers": {
+    "e-Gov法令検索": {
+      "type": "http",
+      "url": "https://elaws.e-gov.go.jp/mcp/v1",
+      "title": "e-Gov法令検索",
+      "description": "法令条文の検索・参照。個人情報保護法、マイナンバー法、電気通信事業法等の条文取得。"
+    },
+    "PPC（個人情報保護委員会）": {
+      "type": "http",
+      "url": "https://mcp.ppc.go.jp/mcp/v1",
+      "title": "PPC（個人情報保護委員会）",
+      "description": "個人情報保護委員会の告示、ガイドライン、Q&A、漏えい等報告様式の取得。"
+    },
+    "Slack": {
+      "type": "http",
+      "url": "https://mcp.slack.com/mcp",
+      "title": "Slack",
+      "description": "メッセージ検索、チャンネル閲覧、ワークスペース全体のディスカッション検索。"
+    },
+    "Google Drive": {
+      "type": "http",
+      "url": "https://drivemcp.googleapis.com/mcp/v1",
+      "title": "Google Drive",
+      "description": "Google Driveからの文書検索、読み取り、取得。"
+    }
+  },
+  "recommendedCategories": [
+    "privacy-management",
+    "data-protection",
+    "legal-document-management",
+    "email",
+    "documents",
+    "chat",
+    "compliance"
+  ]
+}

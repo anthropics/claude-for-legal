@@ -122,6 +122,114 @@
       "author": {
         "name": "Thomson Reuters"
       }
+    },
+    {
+      "name": "commercial-legal-jp",
+      "displayName": "Commercial Legal (Japan)",
+      "source": "./commercial-legal-jp",
+      "description": "日本の企業間取引契約をプレイブックに基づきレビューし、下請法・反社チェック・印紙税判定を行い、稟議制度に沿ったエスカレーションとステークホルダー向けサマリーを生成する商事法務プラグイン。",
+      "author": {
+        "name": "Anthropic"
+      }
+    },
+    {
+      "name": "employment-legal-jp",
+      "displayName": "Employment Legal (Japan)",
+      "source": "./employment-legal-jp",
+      "description": "解雇権濫用法理に基づく退職・解雇レビュー、就業規則の法令適合性監査、36協定・労使協定管理、ハラスメント対策、労働審判準備を行い、日本の厳格な雇用保護法制に対応する労働法務プラグイン。",
+      "author": {
+        "name": "Anthropic"
+      }
+    },
+    {
+      "name": "corporate-legal-jp",
+      "displayName": "Corporate Legal (Japan)",
+      "source": "./corporate-legal-jp",
+      "description": "会社法に基づく三種のガバナンスモデルに対応し、取締役会議事録・株主総会対応・書面決議・商業登記管理・M&Aクロージングチェックリスト・企業結合届出を支援する会社法務プラグイン。",
+      "author": {
+        "name": "Anthropic"
+      }
+    },
+    {
+      "name": "legal-builder-hub-jp",
+      "displayName": "Legal Builder Hub (Japan)",
+      "source": "./legal-builder-hub-jp",
+      "description": "日本法対応のコミュニティスキルの検索・評価・インストールを行い、弁護士法第72条ガードレールと日本法適合性検証ゲートを備えたメタプラグイン。",
+      "author": {
+        "name": "Anthropic"
+      }
+    },
+    {
+      "name": "privacy-legal-jp",
+      "displayName": "Privacy Legal (Japan)",
+      "source": "./privacy-legal-jp",
+      "description": "個人情報保護法（APPI）に基づく処理活動のトリアージ、PIA作成、委託契約レビュー、開示等請求対応、越境移転評価、マイナンバー法コンプライアンス、外部送信規律チェック、PPC報告書ドラフトを行い、ポリシー監視と規制ギャップ分析を提供する個人情報保護プラグイン。",
+      "author": {
+        "name": "Anthropic"
+      }
+    },
+    {
+      "name": "litigation-legal-jp",
+      "displayName": "Litigation Legal (Japan)",
+      "source": "./litigation-legal-jp",
+      "description": "日本の民事訴訟ポートフォリオを管理し、要件事実チャート・時系列整理・証人尋問準備・訴訟書面作成・和解手続支援・民事保全・民事執行を支援する訴訟法務プラグイン。弁護士（企業内弁護士含む）・法律事務所・独立開業弁護士の実務に適応。",
+      "author": {
+        "name": "Anthropic"
+      }
+    },
+    {
+      "name": "product-legal-jp",
+      "displayName": "Product Legal (Japan)",
+      "source": "./product-legal-jp",
+      "description": "景品表示法・特商法・薬機法を中心とする日本の消費者保護法制に基づき、プロダクトローンチレビュー、広告表示チェック、景品規制判定、定期購入コンプライアンス、機能リスク評価を行うプロダクト法務プラグイン。",
+      "author": {
+        "name": "Anthropic"
+      }
+    },
+    {
+      "name": "regulatory-legal-jp",
+      "displayName": "Regulatory Legal (Japan)",
+      "source": "./regulatory-legal-jp",
+      "description": "e-Gov法令検索API・官報・省庁別RSSを監視し、パブコメ期限・新旧対照表・ギャップ管理を行い、規制動向ダイジェストを生成する日本の規制法務プラグイン。",
+      "author": {
+        "name": "Anthropic"
+      }
+    },
+    {
+      "name": "ai-governance-legal-jp",
+      "displayName": "AI Governance Legal (Japan)",
+      "source": "./ai-governance-legal-jp",
+      "description": "AI事業者ガイドラインの7原則に基づくAIガバナンス評価、著作権法第30条の4の適用分析、AIインベントリ管理、ベンダーAI条項レビューを行うAIガバナンス法務プラグイン。",
+      "author": {
+        "name": "Anthropic"
+      }
+    },
+    {
+      "name": "ip-legal-jp",
+      "displayName": "IP Legal (Japan)",
+      "source": "./ip-legal-jp",
+      "description": "JPO（特許庁）を中心とした商標クリアランス、FTOトリアージ、侵害対応、職務発明レビュー、不正競争防止法トリアージ、発信者情報開示請求を行う知的財産法務プラグイン。",
+      "author": {
+        "name": "Anthropic"
+      }
+    },
+    {
+      "name": "law-student-jp",
+      "displayName": "Law Student (Japan)",
+      "source": "./law-student-jp",
+      "description": "司法試験・予備試験対策、判例分析、論文答案練習、条文素読、論点整理、まとめノート作成を行い、法科大学院生・予備試験受験生の学習を支援する法学生プラグイン。",
+      "author": {
+        "name": "Anthropic"
+      }
+    },
+    {
+      "name": "legal-clinic-jp",
+      "displayName": "Legal Clinic (Japan)",
+      "source": "./legal-clinic-jp",
+      "description": "法科大学院リーガルクリニックの運営を支援し、弁護士法第72条に基づく指導弁護士監督下での学生活動、依頼者インテーク、期限管理、学期末引継ぎを行うリーガルクリニックプラグイン。",
+      "author": {
+        "name": "Anthropic"
+      }
     }
   ]
 }

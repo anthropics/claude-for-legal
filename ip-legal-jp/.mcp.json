@@ -1,0 +1,36 @@
+{
+  "mcpServers": {
+    "J-PlatPat": {
+      "type": "http",
+      "url": "https://mcp.j-platpat.inpit.go.jp/mcp",
+      "title": "J-PlatPat",
+      "description": "特許情報プラットフォーム — 特許・実用新案・意匠・商標の公報検索、経過情報、審判情報。JPO（特許庁）の公式データベース。"
+    },
+    "Westlaw Japan": {
+      "type": "http",
+      "url": "https://mcp.westlawjapan.com/mcp",
+      "title": "Westlaw Japan",
+      "description": "日本法の法律情報データベース — 判例検索、法令検索、文献検索。知的財産関連の裁判例・審決の検索。"
+    },
+    "Slack": {
+      "type": "http",
+      "url": "https://mcp.slack.com/mcp",
+      "title": "Slack",
+      "description": "メッセージ検索、チャンネル閲覧、ワークスペース全体のディスカッション検索。"
+    },
+    "Google Drive": {
+      "type": "http",
+      "url": "https://drivemcp.googleapis.com/mcp/v1",
+      "title": "Google Drive",
+      "description": "Google Driveからの文書検索、読み取り、取得。"
+    }
+  },
+  "recommendedCategories": [
+    "ip-management",
+    "legal-research",
+    "patent-search",
+    "trademark-search",
+    "documents",
+    "chat"
+  ]
+}

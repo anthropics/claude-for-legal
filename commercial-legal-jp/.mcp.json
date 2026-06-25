@@ -1,0 +1,37 @@
+{
+  "mcpServers": {
+    "クラウドサイン": {
+      "type": "http",
+      "url": "https://mcp.cloudsign.jp/mcp",
+      "title": "クラウドサイン",
+      "description": "電子署名・契約管理プラットフォーム。契約書の送信、締結状況の確認、テンプレート管理。"
+    },
+    "LegalForce": {
+      "type": "http",
+      "url": "https://mcp.legalforce.co.jp/mcp",
+      "title": "LegalForce",
+      "description": "AI契約レビュープラットフォーム。契約書の検索、リスク分析、条項比較。"
+    },
+    "Slack": {
+      "type": "http",
+      "url": "https://mcp.slack.com/mcp",
+      "title": "Slack",
+      "description": "メッセージ検索、チャンネル閲覧、ワークスペース全体のディスカッション検索。"
+    },
+    "Google Drive": {
+      "type": "http",
+      "url": "https://drivemcp.googleapis.com/mcp/v1",
+      "title": "Google Drive",
+      "description": "Google Driveからの文書検索、読み取り、取得。"
+    }
+  },
+  "recommendedCategories": [
+    "contract-management",
+    "e-signature",
+    "legal-document-management",
+    "email",
+    "documents",
+    "chat",
+    "contract-review"
+  ]
+}

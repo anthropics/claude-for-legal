@@ -1,0 +1,8 @@
+{
+  "name": "ai-governance-legal-jp",
+  "version": "1.0.0",
+  "description": "AI事業者ガイドラインの7原則に基づくAIガバナンス評価、著作権法第30条の4の適用分析、AIインベントリ管理、ベンダーAI条項レビューを行うAIガバナンス法務プラグイン。",
+  "author": {
+    "name": "Anthropic"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "legal-builder-hub-jp",
+  "version": "1.0.0",
+  "description": "日本法対応のコミュニティスキルの検索・評価・インストールを行い、弁護士法第72条ガードレールと日本法適合性検証ゲートを備えたメタプラグイン。",
+  "author": {
+    "name": "Anthropic"
+  }
+}

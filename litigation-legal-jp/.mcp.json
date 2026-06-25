@@ -1,0 +1,42 @@
+{
+  "mcpServers": {
+    "Slack": {
+      "type": "http",
+      "url": "https://mcp.slack.com/mcp",
+      "title": "Slack",
+      "description": "メッセージ検索、チャンネル閲覧、ワークスペース全体のディスカッション検索。"
+    },
+    "Google Drive": {
+      "type": "http",
+      "url": "https://drivemcp.googleapis.com/mcp/v1",
+      "title": "Google Drive",
+      "description": "Google Driveからの文書検索、読み取り、取得。"
+    },
+    "Westlaw Japan": {
+      "type": "http",
+      "url": "https://mcp.westlawjapan.com/mcp",
+      "title": "Westlaw Japan",
+      "description": "ウエストロー・ジャパン — 日本の判例・法令・文献の検索・閲覧プラットフォーム。"
+    },
+    "D1-Law": {
+      "type": "http",
+      "url": "https://mcp.d1-law.com/mcp",
+      "title": "D1-Law",
+      "description": "第一法規 D1-Law — 判例・法令・文献データベース。判例全文、法令沿革、要旨検索。"
+    },
+    "Everlaw": {
+      "type": "http",
+      "url": "https://api.everlaw.com/v1/mcp",
+      "title": "Everlaw",
+      "description": "eDiscoveryプラットフォーム — クロスボーダー案件での文書管理・レビュー。"
+    }
+  },
+  "recommendedCategories": [
+    "legal-research",
+    "case-law",
+    "court-analytics",
+    "ediscovery",
+    "documents",
+    "chat"
+  ]
+}

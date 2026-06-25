@@ -1,0 +1,49 @@
+{
+  "mcpServers": {
+    "CloudSign": {
+      "type": "http",
+      "url": "https://api.cloudsign.jp/mcp",
+      "title": "クラウドサイン",
+      "description": "電子契約の送信・締結状況の確認・契約書検索。"
+    },
+    "Slack": {
+      "type": "http",
+      "url": "https://mcp.slack.com/mcp",
+      "title": "Slack",
+      "description": "メッセージ検索、チャンネル閲覧、ワークスペース内の議論検索。"
+    },
+    "Google Drive": {
+      "type": "http",
+      "url": "https://drivemcp.googleapis.com/mcp/v1",
+      "title": "Google Drive",
+      "description": "Google Driveのドキュメント検索・閲覧。"
+    },
+    "Box": {
+      "type": "http",
+      "url": "https://mcp.box.com/mcp",
+      "title": "Box",
+      "description": "データルーム・文書管理。"
+    },
+    "iManage": {
+      "type": "http",
+      "url": "https://cloudimanage.com/mcp/work",
+      "title": "iManage",
+      "description": "iManageのコンテンツへのガバナンス付きアクセス — 文書はiManage内に留まり、アクセスは権限に基づき監査可能。"
+    },
+    "Definely": {
+      "type": "http",
+      "url": "https://mcp.uk.definely.com/api/proxy/core-mcp",
+      "title": "Definely",
+      "description": "契約書構造の確定的解析 — 定義解決、相互参照検証、依存関係マッピング、構造差分。"
+    }
+  },
+  "recommendedCategories": [
+    "legal-document-management",
+    "virtual-data-room",
+    "contract-review",
+    "board-governance",
+    "documents",
+    "chat",
+    "email"
+  ]
+}

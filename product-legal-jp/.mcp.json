@@ -1,0 +1,41 @@
+{
+  "mcpServers": {
+    "Slack": {
+      "type": "http",
+      "url": "https://mcp.slack.com/mcp",
+      "title": "Slack",
+      "description": "メッセージ検索、チャンネル閲覧、ワークスペース全体の議論検索。"
+    },
+    "Google Drive": {
+      "type": "http",
+      "url": "https://drivemcp.googleapis.com/mcp/v1",
+      "title": "Google Drive",
+      "description": "Google Driveからドキュメントを検索・閲覧・取得。"
+    },
+    "Linear": {
+      "type": "http",
+      "url": "https://mcp.linear.app/mcp",
+      "title": "Linear",
+      "description": "課題管理・プロジェクト管理。"
+    },
+    "Atlassian": {
+      "type": "http",
+      "url": "https://mcp.atlassian.com/v1/sse",
+      "title": "Atlassian",
+      "description": "Jira課題・Confluenceページ。"
+    },
+    "Asana": {
+      "type": "http",
+      "url": "https://mcp.asana.com/sse",
+      "title": "Asana",
+      "description": "タスク・プロジェクト管理。"
+    }
+  },
+  "recommendedCategories": [
+    "project-management",
+    "issue-tracking",
+    "documents",
+    "chat",
+    "email"
+  ]
+}
