@@ -127,7 +127,7 @@
       "name": "singapore-court-legal",
       "displayName": "MikeROS",
       "source": "./external_plugins/singapore-court-legal",
-      "description": "Grounded answers on Singapore civil court procedure (Rules of Court 2021) via the MikeROS connector — cites governing rules, attaches operator-verified case authorities where they apply, surfaces relevance-gated reasoning chains, abstains honestly out of scope. Single-question, durable multi-turn, and structured guided situation analysis. Not legal advice.",
+      "description": "Deterministic, proof-carrying resolver for Singapore civil court procedure (Rules of Court 2021) via the MikeROS connector — determines which ROC rule controls, the required sequence, and whether a step is compliant, with a proof or honest abstention (abstain-to-source for uncompiled Practice Directions/Forms). Cites governing rules with operator-verified case authorities where they attach; never fabricates a rule, sequence, or citation. Resolve a procedural position — not interpretation, drafting, or strategy. Not legal advice.",
       "author": {
         "name": "Reshuffle.AI Pte. Ltd."
       }
