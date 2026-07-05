@@ -19,7 +19,7 @@
   <img src="docs/assets/hero.png" alt="Claude for Legal 中国法版本 — 着陆页 Hero" width="800">
 </p>
 
-本仓库所有内容可通过**两种方式**使用：安装为 [Claude Code](https://claude.com/product/claude-code) 插件，或通过 [Claude Managed Agents API](https://docs.claude.com/en/api/managed-agents) 部署在你自己的工作流引擎后台。同一套 system prompt，同一套技能——你选择在哪里运行。
+本仓库所有内容可通过**两种方式**使用：安装为 [Claude Code](https://claude.com/product/claude-code) 插件，或通过 [Claude Managed Agents API](https://docs.anthropic.com/en/api/managed-agents) 部署在你自己的工作流引擎后台。同一套 system prompt，同一套技能——你选择在哪里运行。
 
 ## 在 Claude Code 中安装
 
