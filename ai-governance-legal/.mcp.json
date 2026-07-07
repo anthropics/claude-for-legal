@@ -11,6 +11,12 @@
       "url": "https://drivemcp.googleapis.com/mcp/v1",
       "title": "Google Drive",
       "description": "Search, read, and fetch documents from Google Drive."
+    },
+    "Ansvar Gateway": {
+      "type": "http",
+      "url": "https://gateway.ansvar.eu/mcp",
+      "title": "Ansvar Gateway",
+      "description": "EU AI Act and adjacent digital regulation served verbatim at provision level (AI Act, GDPR, CRA, DORA, NIS2, Machinery Regulation), with jurisdiction-scoped search across 28 audited jurisdictions in Europe and the United States — every result carries an item-level source citation (source URL, publisher, license); fails closed instead of answering without a source."
     }
   },
   "recommendedCategories": [
