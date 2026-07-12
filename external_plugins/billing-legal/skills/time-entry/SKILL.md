@@ -9,7 +9,7 @@ description: >
 argument-hint: "[--client <slug>] [--matter <slug>] [--date YYYY-MM-DD]"
 ---
 
-# /billing:time-entry
+# /billing-legal:time-entry
 
 ## When this runs
 
@@ -19,7 +19,7 @@ Attorney needs to log a time entry manually, outside of the end-of-session billi
 
 ### 1. Read config
 
-Read `~/.claude/plugins/config/claude-for-legal/billing/CLAUDE.md`. If `[PLACEHOLDER]` values are present, stop and direct to `/billing:cold-start-interview`.
+Read `~/.claude/plugins/config/claude-for-legal/billing/CLAUDE.md`. If `[PLACEHOLDER]` values are present, stop and direct to `/billing-legal:cold-start-interview`.
 
 Get `billing_data_path` from config.
 
@@ -137,6 +137,7 @@ On confirmation, generate an entry ID (`te-YYYY-MMDD-NNN` where NNN is zero-padd
   session_minutes_actual: null
   ai_cost_usd: null
   notes: "[notes or null]"
+  activity_log: null
 ```
 
 After writing, confirm:
@@ -172,6 +173,6 @@ notes: "[notes or null]"
 
 ## What this skill does not do
 
-- Generate invoices — use `/billing:invoice-generate`
-- Review pending entries — use `/billing:wip-review`
-- Set hourly rates — use `/billing:rate-card`
+- Generate invoices — use `/billing-legal:invoice-generate`
+- Review pending entries — use `/billing-legal:wip-review`
+- Set hourly rates — use `/billing-legal:rate-card`

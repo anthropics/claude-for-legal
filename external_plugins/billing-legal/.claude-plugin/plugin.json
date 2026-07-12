@@ -1,6 +1,6 @@
 {
   "name": "billing-legal",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Time tracking and billing for attorneys using the claude-for-legal ecosystem. Captures billable time per client and matter in 6-minute increments, supports multi-attorney firms, generates printable invoice exhibits, and provides WIP review and budget tracking.",
   "author": {
     "name": "Eric Tetzlaff",

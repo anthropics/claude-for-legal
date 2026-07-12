@@ -9,15 +9,15 @@ description: >
 argument-hint: "[--month YYYY-MM to scope to a specific month]"
 ---
 
-# /billing:billing-summary
+# /billing-legal:billing-summary
 
-Runs the same analysis as the billing-summary agent but as an on-demand slash command. For automated monthly runs, use Windows Task Scheduler (or your OS equivalent) to run `claude -p "/billing:billing-summary"` on a local process that can access the billing data path. Do not use `/schedule` — that feature runs cloud routines without access to your local or shared filesystem.
+Runs the same analysis as the billing-summary agent but as an on-demand slash command. For automated monthly runs, use Windows Task Scheduler (or your OS equivalent) to run `claude -p "/billing-legal:billing-summary"` on a local process that can access the billing data path. Do not use `/schedule` — that feature runs cloud routines without access to your local or shared filesystem.
 
 ## Instructions
 
 ### 1. Read config
 
-Read `~/.claude/plugins/config/claude-for-legal/billing/CLAUDE.md`. Get `billing_data_path`. If `[PLACEHOLDER]` values are present, stop: "Run `/billing:cold-start-interview` first."
+Read `~/.claude/plugins/config/claude-for-legal/billing/CLAUDE.md`. Get `billing_data_path`. If `[PLACEHOLDER]` values are present, stop: "Run `/billing-legal:cold-start-interview` first."
 
 ### 2. Determine scope
 
@@ -56,11 +56,11 @@ Check for:
 ---
 
 **Action needed:**
-- [ ] [Client] — [N] approved entries totaling $[amount] ready to invoice → `/billing:invoice-generate [slug]`
+- [ ] [Client] — [N] approved entries totaling $[amount] ready to invoice → `/billing-legal:invoice-generate [slug]`
 - [ ] [Client] — budget at [pct]% ($[amount] of $[cap]) — consider flagging to client
-- [ ] [N] entries older than 30 days not reviewed → `/billing:wip-review`
+- [ ] [N] entries older than 30 days not reviewed → `/billing-legal:wip-review`
 
-Run `/billing:billing-report` for the full breakdown.
+Run `/billing-legal:billing-report` for the full breakdown.
 ```
 
 If nothing is outstanding, say so explicitly — an all-clear is useful information.
@@ -68,5 +68,5 @@ If nothing is outstanding, say so explicitly — an all-clear is useful informat
 ## What this skill does not do
 
 - Modify the register — it reads and reports only
-- Invoice clients — use `/billing:wip-review` then `/billing:invoice-generate`
-- Replace `/billing:billing-report` — this is a digest; billing-report gives the full per-client and per-attorney breakdown
+- Invoice clients — use `/billing-legal:wip-review` then `/billing-legal:invoice-generate`
+- Replace `/billing-legal:billing-report` — this is a digest; billing-report gives the full per-client and per-attorney breakdown

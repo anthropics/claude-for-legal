@@ -9,7 +9,7 @@ description: >
 argument-hint: "[section name, or describe what you want to change]"
 ---
 
-# /billing:customize
+# /billing-legal:customize
 
 ## When this runs
 
@@ -20,7 +20,7 @@ The user wants to change something in their billing configuration without re-run
 ### 1. Read config
 
 Read `~/.claude/plugins/config/claude-for-legal/billing/CLAUDE.md`. Get `billing_data_path`. If `[PLACEHOLDER]` values are present, stop:
-> You haven't run setup yet. Run `/billing:cold-start-interview` first — customize is for adjusting a profile you already have.
+> You haven't run setup yet. Run `/billing-legal:cold-start-interview` first — customize is for adjusting a profile you already have.
 
 ### 2. Show the customizable map
 
@@ -50,10 +50,10 @@ Billing data
 
 Attorneys — [N configured]
   • [attorney name]: $[rate]/hr, [increment]h increment
-  • [Run /billing:rate-card to manage rates and overrides]
+  • [Run /billing-legal:rate-card to manage rates and overrides]
 
 Clients — [N configured]
-  • [Run /billing:rate-card --client <slug> to manage client settings]
+  • [Run /billing-legal:rate-card --client <slug> to manage client settings]
 
 What would you like to change?
 ```
@@ -72,7 +72,7 @@ On user input, identify the section and field. Show the current value, ask for t
 
 - **Budget warning threshold:** "The billing panel will warn at [new pct]% of a client's budget cap going forward."
 
-- **Disabling the billing panel:** "The end-of-session prompt will no longer appear. You'll need to run `/billing:billing-status` or `/billing:time-entry` manually to log time. I'll remove both the Stop hook and the UserPromptSubmit hook from your settings.json — leaving either in place would keep creating timer files in `.sessions/` or producing stale block decisions. Want me to remove both? [Y/n]"
+- **Disabling the billing panel:** "The end-of-session prompt will no longer appear. You'll need to run `/billing-legal:billing-status` or `/billing-legal:time-entry` manually to log time. I'll remove both the Stop hook and the UserPromptSubmit hook from your settings.json — leaving either in place would keep creating timer files in `.sessions/` or producing stale block decisions. Want me to remove both? [Y/n]"
 
 - **Enabling the billing panel (was disabled):** Walk through the hook setup (same as cold-start Phase 6).
 
@@ -82,7 +82,7 @@ If the user wants to change the firm name or address, note: "Firm name is shared
 
 ### 5. Close
 
-> Done. Your next output will reflect the change. Run `/billing:customize` anytime to adjust.
+> Done. Your next output will reflect the change. Run `/billing-legal:customize` anytime to adjust.
 
 ---
 

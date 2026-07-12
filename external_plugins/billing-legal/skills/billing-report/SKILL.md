@@ -8,7 +8,7 @@ description: >
 argument-hint: "[--client <slug>] [--attorney <slug>] [--month YYYY-MM] [--wip] [--invoice <id>]"
 ---
 
-# /billing:billing-report
+# /billing-legal:billing-report
 
 ## When this runs
 
@@ -193,6 +193,6 @@ Show the full content of a previously issued invoice — reconstructed from the 
 
 ## What this skill does not do
 
-- Generate or modify invoices — use `/billing:invoice-generate` and `/billing:wip-review`
+- Generate or modify invoices — use `/billing-legal:invoice-generate` and `/billing-legal:wip-review`
 - Send reports anywhere — outputs are in-conversation only; copy/paste to share
 - Show reports for time before this plugin was installed — only entries in `time-register.yaml` are visible

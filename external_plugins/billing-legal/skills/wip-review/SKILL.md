@@ -8,7 +8,7 @@ description: >
 argument-hint: "[--client <slug>] [--attorney <slug>] [--matter <slug>] [--all]"
 ---
 
-# /billing:wip-review
+# /billing-legal:wip-review
 
 ## When this runs
 
@@ -28,13 +28,13 @@ Parse `$ARGUMENTS`:
 - `--matter <slug>`: show only entries for that matter slug
 - `--all`: show all pending and approved entries across all clients and attorneys
 
-If no arguments, default to: entries for the currently active matter's client (same detection logic as `/billing:billing-status`). If no active matter, show all pending entries.
+If no arguments, default to: entries for the currently active matter's client (same detection logic as `/billing-legal:billing-status`). If no active matter, show all pending entries.
 
 ### 3. Load entries
 
 Read `[billing_data_path]/time-register.yaml`. Filter to entries with `status: pending` or `status: approved` matching the scope.
 
-If no entries match: "No pending entries found for [scope]. Run `/billing:time-entry` to add entries, or check a different scope."
+If no entries match: "No pending entries found for [scope]. Run `/billing-legal:time-entry` to add entries, or check a different scope."
 
 ### 4. Display the WIP table
 
@@ -85,7 +85,7 @@ Wait for input.
 Set all `pending` entries in scope to `approved`. Confirm the count before writing:
 > Approve [N] entries totaling [Nh] / $[total]? [Y/n]
 
-After writing: "✓ [N] entries approved — ready for invoice generation via `/billing:invoice-generate [client-slug]`."
+After writing: "✓ [N] entries approved — ready for invoice generation via `/billing-legal:invoice-generate [client-slug]`."
 
 ---
 
@@ -138,13 +138,13 @@ Written down: [N] entries  (reduced by $[amount])
 Written off:  [N] entries  (removed $[amount])
 Still pending: [N] entries
 
-Ready to invoice: [N] entries for [Client(s)] — run `/billing:invoice-generate [client-slug]`
+Ready to invoice: [N] entries for [Client(s)] — run `/billing-legal:invoice-generate [client-slug]`
 ```
 
 ---
 
 ## What this skill does not do
 
-- Generate invoices — use `/billing:invoice-generate`
+- Generate invoices — use `/billing-legal:invoice-generate`
 - Delete entries — entries are never deleted; write-off is the closest equivalent
 - Handle entries that are already `billed` — those are closed; contact billing counsel if a billed entry needs correction

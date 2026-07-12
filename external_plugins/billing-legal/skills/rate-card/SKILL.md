@@ -8,7 +8,7 @@ description: >
 argument-hint: "[--attorney <slug>] [--client <slug>] [list | set | override]"
 ---
 
-# /billing:rate-card
+# /billing-legal:rate-card
 
 ## When this runs
 
@@ -64,15 +64,17 @@ Output:
 
 ### `set --attorney <slug>`
 
-Update an attorney's default rate or billing increment.
+Update an attorney's default rate, billing increment, or LEDES timekeeper settings.
 
 1. Read `[billing_data_path]/attorneys/[slug].yaml`. If not found, list available attorneys.
-2. Show current values.
-3. Ask what to change: rate, increment, or both.
+2. Show current values including `timekeeper_id` and `timekeeper_classification` if set.
+3. Ask what to change: rate, increment, timekeeper ID, timekeeper classification, or any combination.
+   - **Timekeeper ID:** "Timekeeper ID (used in LEDES exports — typically a bar number or firm-assigned ID; press enter to use attorney slug as default)"
+   - **Timekeeper classification:** "Timekeeper classification (AT = attorney, PA = paralegal, OF = of counsel, CL = law clerk — default: AT)"
 4. Write updated YAML. Confirm before writing.
 
 After writing:
-> Rate updated for [name]. New entries will use the new rate. Existing pending entries are not affected — to adjust them, use `/billing:wip-review`.
+> Updated for [name]. New entries will use the updated settings. Existing pending entries are not affected — to adjust them, use `/billing-legal:wip-review`.
 
 ---
 
@@ -93,11 +95,13 @@ Also ask: "Is this a special billing arrangement for this client?"
 
 ### `override --client <slug>`
 
-Update client-level settings: billing arrangement, budget cap, retainer balance.
+Update client-level settings: billing arrangement, budget cap, retainer balance, and LEDES client ID.
 
 1. Read `[billing_data_path]/clients/[slug].yaml`. If not found, offer to create a new client profile.
-2. Show current values.
-3. Ask what to change.
+2. Show current values including `ledes_client_id` if set.
+3. Ask what to change. Include:
+   - **LEDES client ID:** "LEDES client ID (the ID this client uses in their e-billing system, e.g., `ACME-001`. Press enter to use the default derived from the client slug.)"
+   - If provided, write `ledes_client_id: [value]` to the client YAML.
 
 **Changing arrangement to flat-fee:**
 > Setting a flat-fee arrangement means the billing panel will still track time for your records, but will not show hourly calculations. The flat amount should be set as the budget cap. Confirm?
@@ -125,6 +129,6 @@ Update client-level settings: billing arrangement, budget cap, retainer balance.
 
 ## What this skill does not do
 
-- Create attorney profiles from scratch — that's in `/billing:cold-start-interview`
-- Create client profiles from scratch — that's in `/billing:time-entry` (on first entry for a new client) or `/billing:customize`
-- Show or generate invoices — use `/billing:invoice-generate`
+- Create attorney profiles from scratch — that's in `/billing-legal:cold-start-interview`
+- Create client profiles from scratch — that's in `/billing-legal:time-entry` (on first entry for a new client) or `/billing-legal:customize`
+- Show or generate invoices — use `/billing-legal:invoice-generate`

@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(gh api *)",
-      "Bash(git -C /c/dev/claude-for-legal remote -v)",
-      "Bash(git -C /c/dev/claude-for-legal branch --show-current)"
-    ]
-  }
-}

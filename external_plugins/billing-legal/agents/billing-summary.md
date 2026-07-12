@@ -3,7 +3,7 @@ name: billing-summary
 description: >
   Agent that reads the time register, computes a WIP summary, and posts a billing
   digest. Invocable on demand. For recurring automation, use a local scheduler
-  (e.g. Windows Task Scheduler) that runs "claude -p /billing:billing-summary" —
+  (e.g. Windows Task Scheduler) that runs "claude -p /billing-legal:billing-summary" —
   billing data is on the local or shared filesystem and must be accessible to the
   process that runs the command. Do not use /schedule (cloud routines).
   Trigger phrases: "billing summary", "what's my WIP", "monthly billing".
@@ -19,14 +19,14 @@ Unbilled time accumulates silently. This agent reads the register, surfaces what
 
 ## Invocation and scheduling
 
-Run on demand with `/billing:billing-summary`.
+Run on demand with `/billing-legal:billing-summary`.
 
 For recurring automation, use a **local** scheduler — billing data lives on the local or shared filesystem and the process that runs the command must be able to read it. `/schedule` creates cloud routines that run in a remote environment without filesystem access and will not work here.
 
 **Windows Task Scheduler** (recommended for monthly runs):
 1. Open Task Scheduler → Create Basic Task
 2. Set the trigger: monthly, first day of the month
-3. Action: Start a program → `claude` with arguments `-p "/billing:billing-summary"`
+3. Action: Start a program → `claude` with arguments `-p "/billing-legal:billing-summary"`
 4. Ensure the task runs under a user account that has access to the billing data path
 
 No scheduling mechanism is bundled with the plugin — invoking the skill or agent is the only built-in trigger.
@@ -74,18 +74,18 @@ Total unbilled WIP: $[total]
 ---
 
 **Action needed:**
-- [ ] [Client] — [N] approved entries totaling $[amount] ready to invoice → `/billing:invoice-generate [slug]`
+- [ ] [Client] — [N] approved entries totaling $[amount] ready to invoice → `/billing-legal:invoice-generate [slug]`
 - [ ] [Client] — budget at [pct]% ([amount] of [cap]) — consider flagging to client
-- [ ] [N] entries older than 30 days not yet reviewed → `/billing:wip-review`
+- [ ] [N] entries older than 30 days not yet reviewed → `/billing-legal:wip-review`
 
-Run `/billing:billing-report` for the full breakdown.
+Run `/billing-legal:billing-report` for the full breakdown.
 ```
 
 If nothing is outstanding (rare), post a brief all-clear rather than nothing — so attorneys know the agent ran.
 
 ## What this agent does NOT do
 
-- Invoice clients — that requires attorney review and approval via `/billing:wip-review` and `/billing:invoice-generate`
+- Invoice clients — that requires attorney review and approval via `/billing-legal:wip-review` and `/billing-legal:invoice-generate`
 - Make billing decisions — it surfaces data, not judgment
 - Send invoices — the attorney copies the generated Markdown to their invoicing system
 - Modify the register — it reads and reports only

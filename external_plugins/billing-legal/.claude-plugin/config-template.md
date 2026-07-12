@@ -18,7 +18,7 @@ do not rely on this file being auto-loaded.
 # Billing Practice Profile
 
 *This file is written by the cold-start interview on first run. Until then, it's
-a template. If you're seeing `[PLACEHOLDER]` values below, run `/billing:cold-start-interview`.*
+a template. If you're seeing `[PLACEHOLDER]` values below, run `/billing-legal:cold-start-interview`.*
 
 *Once populated: edit this file directly. Every skill reads it before doing anything.*
 
@@ -47,7 +47,7 @@ a template. If you're seeing `[PLACEHOLDER]` values below, run `/billing:cold-st
 
 ## Attorneys
 
-*One entry per attorney who uses this plugin. Slug is lowercase-hyphenated. Add or update via `/billing:rate-card` or directly here.*
+*One entry per attorney who uses this plugin. Slug is lowercase-hyphenated. Add or update via `/billing-legal:rate-card` or directly here.*
 
 ```yaml
 # attorneys/[slug].yaml — created by cold-start-interview for each attorney
@@ -80,6 +80,24 @@ a template. If you're seeing `[PLACEHOLDER]` values below, run `/billing:cold-st
 **Billing panel at end of session:** [PLACEHOLDER — enabled | disabled]
 **Auto-detect active matter:** [PLACEHOLDER — enabled | disabled]
 **Budget warning threshold:** [PLACEHOLDER — 75 (percent)]
+
+---
+
+## LEDES export
+
+**LEDES export:** [PLACEHOLDER — enabled | disabled]
+**Default timekeeper classification:** [PLACEHOLDER — AT | PA | OF | CL]
+
+*(LEDES 1998B is the standard format required by most corporate legal departments and insurance companies for e-billing submission. Run `/billing-legal:ledes-export --invoice <id>` after generating an invoice exhibit. Set per-attorney timekeeper IDs and per-client LEDES client IDs via `/billing-legal:rate-card`.)*
+
+---
+
+## Activity logging
+
+**Activity logging:** [PLACEHOLDER — enabled | disabled]
+**Activity log on invoice:** [PLACEHOLDER — enabled | disabled]
+
+*(When enabled, a PostToolUse hook silently records which documents were opened or edited during each session. The log appears in the billing panel at session end to help write accurate narratives, and is stored in the time register entry. If "Activity log on invoice" is enabled, a collapsed audit trail section is included in invoice exhibits.)*
 
 ---
 

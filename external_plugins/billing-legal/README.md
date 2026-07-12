@@ -4,6 +4,14 @@
 
 Attorneys spend billable time working inside Claude Code — reviewing contracts, drafting correspondence, researching matters. `billing-legal` captures that time automatically, associates it with the right client and matter, and generates printable invoice exhibits when billing period closes. It sits alongside your existing claude-for-legal plugins and follows the same file-based, config-driven architecture.
 
+## Install
+
+```
+claude plugin install https://github.com/emtcmca/claude-for-legal-billing
+```
+
+Then run `/billing-legal:cold-start-interview` to set up.
+
 ---
 
 ## What it does
@@ -16,7 +24,9 @@ Attorneys spend billable time working inside Claude Code — reviewing contracts
 - **Billing reports** — WIP dashboards, client billing history, attorney utilization, budget status, and AI cost summaries.
 - **Budget warnings** — Panel warns at configurable thresholds (default 75% and 90%) when a client is approaching their budget cap.
 - **Multi-attorney support** — All attorneys point to the same shared folder (OneDrive, network drive). Each attorney has their own rate card; the register is shared.
-- **Billing digest agent** — On-demand agent surfaces outstanding WIP, stale entries, and budget alerts. Run manually with `/billing:billing-summary`. For monthly automation, use Windows Task Scheduler to run `claude -p "/billing:billing-summary"` — billing data is on the local filesystem and must be accessed by a local process, not a cloud routine.
+- **Billing digest agent** — On-demand agent surfaces outstanding WIP, stale entries, and budget alerts. Run manually with `/billing-legal:billing-summary`. For monthly automation, use Windows Task Scheduler to run `claude -p "/billing-legal:billing-summary"` — billing data is on the local filesystem and must be accessed by a local process, not a cloud routine.
+- **LEDES 1998B export** — Generates a machine-readable LEDES 1998B file from any invoice for submission to corporate legal department e-billing systems (Serengeti, TyMetrix, Legal Tracker, and similar). Run `/billing-legal:ledes-export --invoice <id>` after generating an invoice exhibit.
+- **Activity audit trail** — An optional PostToolUse hook silently logs which documents were edited, created, or read during each session. At billing time, the session panel shows you the files touched to help write a specific narrative. The log is stored in the time register entry and can be included in invoice exhibits as a collapsed audit trail section — providing the evidence of AI-assisted work that billing reviewers increasingly require.
 
 ---
 
@@ -83,14 +93,14 @@ If the CLI command isn't available in your version of Claude Code, add the plugi
 }
 ```
 
-> To verify registration: open a new Claude Code session and type `/billing:cold-start-interview`. If Claude doesn't recognize the command, the path in `enabledPlugins` doesn't point to the folder containing `.claude-plugin/plugin.json` — double-check the path.
+> To verify registration: open a new Claude Code session and type `/billing-legal:cold-start-interview`. If Claude doesn't recognize the command, the path in `enabledPlugins` doesn't point to the folder containing `.claude-plugin/plugin.json` — double-check the path.
 
 ### Step 3 — Run setup
 
 In a new Claude Code session, run:
 
 ```
-/billing:cold-start-interview
+/billing-legal:cold-start-interview
 ```
 
 This is the only command you need. The interview takes 10–15 minutes and sets up everything:
@@ -117,7 +127,7 @@ C:\Users\[name]\OneDrive - FirmName\Billing\claude-for-legal\billing\
 
 **Step 2 — First attorney runs cold-start.** The first attorney to set up the plugin configures the shared folder path. This creates the `attorneys/`, `clients/`, and register files in the shared location.
 
-**Step 3 — Additional attorneys run cold-start, point to the same path.** Each subsequent attorney runs `/billing:cold-start-interview` on their own machine. When asked for the billing data location, they enter the same shared folder path used in Step 2. Their attorney profile is added to the shared `attorneys/` folder.
+**Step 3 — Additional attorneys run cold-start, point to the same path.** Each subsequent attorney runs `/billing-legal:cold-start-interview` on their own machine. When asked for the billing data location, they enter the same shared folder path used in Step 2. Their attorney profile is added to the shared `attorneys/` folder.
 
 **Important:** Two attorneys should not log time simultaneously if they're writing to the same YAML file within the same second. In practice this is rare — but for firms with very high concurrency needs (5+ attorneys billing simultaneously), a database-backed solution is a better fit than the file-based approach.
 
@@ -154,14 +164,14 @@ The panel only fires when a legal matter is active (i.e., you've run a skill lik
 
 **Automatic:** When you switch matters in another plugin (e.g., `/commercial-legal:matter-workspace switch new-client-nda`), billing auto-detects the new client if "Auto-detect active matter" is enabled.
 
-**Manual:** Run `/billing:billing-status --client [slug]` to see the status for a specific client, or type **switch client** inside the billing panel.
+**Manual:** Run `/billing-legal:billing-status --client [slug]` to see the status for a specific client, or type **switch client** inside the billing panel.
 
 ### Logging time manually
 
 For time spent outside Claude Code — phone calls, in-person meetings, court appearances, or work in other tools:
 
 ```
-/billing:time-entry
+/billing-legal:time-entry
 ```
 
 The skill walks you through selecting the client, matter, date, hours, rate, and narrative. It also checks for potential double-billing: if the same attorney already has an entry for the same client, matter, and date, you'll be warned before the entry is saved. The check is date-level — entries do not store start/end times, so overlap detection within a day is not possible.
@@ -173,10 +183,10 @@ The skill walks you through selecting the client, matter, date, hours, rate, and
 ### Setting and updating rates
 
 ```
-/billing:rate-card list                         # See all configured rates
-/billing:rate-card set --attorney alice-jones   # Update Alice's default rate
-/billing:rate-card override --attorney alice-jones --client acme-corp  # Client-specific rate
-/billing:rate-card override --client beta-llp   # Update a client's billing arrangement
+/billing-legal:rate-card list                         # See all configured rates
+/billing-legal:rate-card set --attorney alice-jones   # Update Alice's default rate
+/billing-legal:rate-card override --attorney alice-jones --client acme-corp  # Client-specific rate
+/billing-legal:rate-card override --client beta-llp   # Update a client's billing arrangement
 ```
 
 **Billing arrangements:**
@@ -194,7 +204,7 @@ The skill walks you through selecting the client, matter, date, hours, rate, and
 Before generating an invoice, review pending entries:
 
 ```
-/billing:wip-review --client acme-corp
+/billing-legal:wip-review --client acme-corp
 ```
 
 For each entry you can:
@@ -210,9 +220,9 @@ Nothing moves to an invoice without explicit approval here.
 After approving entries via `wip-review`:
 
 ```
-/billing:invoice-generate acme-corp
-/billing:invoice-generate acme-corp --period 2026-05          # Just May 2026
-/billing:invoice-generate acme-corp --matter acme-msa-2026    # One matter only
+/billing-legal:invoice-generate acme-corp
+/billing-legal:invoice-generate acme-corp --period 2026-05          # Just May 2026
+/billing-legal:invoice-generate acme-corp --matter acme-msa-2026    # One matter only
 ```
 
 This generates a Markdown file at:
@@ -277,18 +287,18 @@ billing@hartley.law
 ### Billing reports
 
 ```
-/billing:billing-report                          # WIP dashboard (all clients)
-/billing:billing-report --client acme-corp       # Full history for one client
-/billing:billing-report --attorney alice-jones   # Utilization summary
-/billing:billing-report --month 2026-05          # All activity in May 2026
-/billing:billing-report --invoice INV-2026-007   # Review a specific invoice
+/billing-legal:billing-report                          # WIP dashboard (all clients)
+/billing-legal:billing-report --client acme-corp       # Full history for one client
+/billing-legal:billing-report --attorney alice-jones   # Utilization summary
+/billing-legal:billing-report --month 2026-05          # All activity in May 2026
+/billing-legal:billing-report --invoice INV-2026-007   # Review a specific invoice
 ```
 
 ### Checking current status
 
 ```
-/billing:billing-status                          # Quick status for active client
-/billing:billing-status --client acme-corp       # Status for a specific client
+/billing-legal:billing-status                          # Quick status for active client
+/billing-legal:billing-status --client acme-corp       # Status for a specific client
 ```
 
 ---
@@ -306,12 +316,14 @@ All user data lives at the billing data path configured during cold-start (defau
 │   ├── acme-corp.yaml         # Client profile: billing contact, arrangement, budget
 │   └── beta-llp.yaml
 ├── .sessions/
-│   └── alice-jones_abc123     # Per-session timer: [attorney-slug]_[session-id]
-│                              # Created by UserPromptSubmit hook, deleted on log/skip
+│   ├── alice-jones_abc123     # Per-session timer: [attorney-slug]_[session-id]
+│   └── alice-jones_abc123_activity  # Activity log for the same session (if enabled)
+│                              # Both created by hooks, deleted on log/skip
 ├── time-register.yaml         # All time entries — append-only, never delete
 ├── invoice-register.yaml      # Index of issued invoices
 └── invoices/
     ├── INV-2026-001.md        # Invoice exhibit — printable Markdown
+    ├── INV-2026-001.ledes     # LEDES 1998B export (generated on demand)
     └── INV-2026-002.md
 ```
 
@@ -325,6 +337,8 @@ name: Alice Jones
 email: alice@firm.com
 default_rate: 350
 billing_increment: 0.1    # 0.1 = 6-minute minimum; 0.2 = 12-minute
+timekeeper_id: aj001      # used in LEDES exports; falls back to slug if absent
+timekeeper_classification: AT  # AT=attorney, PA=paralegal, OF=of counsel, CL=clerk
 rate_overrides:
   acme-corp: 325
 ```
@@ -340,6 +354,7 @@ arrangement: hourly
 budget_cap: 15000
 budget_billed: 6820
 retainer_balance: 1680
+ledes_client_id: ACME-001  # client's ID in their e-billing system; falls back to slug
 notes: Prefers monthly invoices. Budget warning at 75%.
 ```
 
@@ -362,7 +377,111 @@ notes: Prefers monthly invoices. Budget warning at 75%.
   session_minutes_actual: 46
   ai_cost_usd: 0.14
   notes: null
+  activity_log:
+    - "2026-05-21T14:23Z|Edit|vendor-nda-redline.docx"
+    - "2026-05-21T14:31Z|Write|acme-markup-notes.md"
+    - "2026-05-21T14:45Z|Read|acme-msa-background.pdf"
 ```
+
+---
+
+## LEDES 1998B Export
+
+Many corporate legal departments and insurance companies require invoices in LEDES 1998B format for their e-billing systems. After generating an invoice exhibit with `/billing-legal:invoice-generate`, run:
+
+```
+/billing-legal:ledes-export --invoice INV-2026-007
+```
+
+This generates a `.ledes` file at `[billing_data_path]/invoices/INV-2026-007.ledes`. You can also export by client and period without a finalized invoice:
+
+```
+/billing-legal:ledes-export --client acme-corp --period 2026-05
+```
+
+### Setting up LEDES identifiers
+
+Most e-billing systems require specific IDs that match their internal records. Set these once — they're stored in your attorney and client YAML files.
+
+**Timekeeper ID and classification (per attorney):**
+```
+/billing-legal:rate-card set --attorney alice-jones
+```
+- **Timekeeper ID:** your firm-assigned ID or bar number (falls back to attorney slug if not set)
+- **Timekeeper classification:** AT (attorney), PA (paralegal), OF (of counsel), CL (law clerk)
+
+**LEDES client ID (per client):**
+```
+/billing-legal:rate-card override --client acme-corp
+```
+- **LEDES client ID:** the ID the client uses in their e-billing system (e.g., `ACME-001`). Falls back to the client slug uppercased if not set.
+
+### LEDES format overview
+
+The output is a pipe-delimited plain text file following the LEDES 1998B spec:
+
+```
+LEDES1998B[]
+INVOICE_DATE|INVOICE_NUMBER|CLIENT_ID|...|TIMEKEEPER_CLASSIFICATION[]
+20260601|INV-2026-007|ACME-001|...|AT[]
+20260601|INV-2026-007|ACME-001|...|AT[]
+```
+
+Write-off entries are excluded (zero-dollar lines are not valid in LEDES format). Flat-fee entries are included with their tracked hours.
+
+---
+
+## Activity Audit Trail
+
+Billing reviewers for AI-assisted work increasingly require evidence that the time was genuinely spent on the matter. The activity audit trail provides this.
+
+### How it works
+
+When activity logging is enabled, a lightweight PostToolUse hook silently records every file that was edited, created, or read during a session. At the end of the session, the billing panel shows you the list:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  SESSION BILLING  Acme Corp  /  acme-msa-2026                   │
+│  Session: 46 min  →  0.8h                                       │
+│  Alice Jones  ·  $350/hr  →  $280.00                            │
+│─────────────────────────────────────────────────────────────────│
+│  Documents touched this session:                                │
+│  · vendor-nda-redline.docx  (edited ×2)                         │
+│  · acme-markup-notes.md  (created)                              │
+│  · acme-msa-background.pdf  (read)                              │
+│─────────────────────────────────────────────────────────────────│
+│  Describe the work (required for billing):                      │
+│  > Reviewed vendor NDA redline; drafted markup on...            │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+The document list helps you write a specific, accurate narrative. It's also stored in the time register entry as `activity_log`.
+
+### Audit trail in invoice exhibits
+
+When `Activity log on invoice: enabled` is set, a collapsed audit trail section is included in the invoice `.md` file after each matter's time entries:
+
+```markdown
+<details>
+<summary>AI session activity — audit trail</summary>
+
+| Time | Action | Document |
+|---|---|---|
+| 2026-05-21 14:23 | Edited | vendor-nda-redline.docx |
+| 2026-05-21 14:31 | Created | acme-markup-notes.md |
+
+</details>
+```
+
+The `<details>` block keeps it accessible without cluttering the invoice. Most Markdown renderers (GitHub, VS Code, browser-based viewers) render it as a collapsed section that clients or reviewers can expand.
+
+### Privacy note
+
+The activity log stores only filenames (not full paths) in the time register. It never records file contents. The log is stored locally in `[billing_data_path]/.sessions/` during the session and moved to the time register entry when time is logged. It is deleted from `.sessions/` on log or skip.
+
+### Enabling activity logging
+
+Enable it during cold-start setup, or run `/billing-legal:customize` to toggle it on. The hook is registered in your Claude Code `settings.json` alongside the existing billing hooks.
 
 ---
 
@@ -419,27 +538,29 @@ The ABA's formal opinions are at [americanbar.org](https://www.americanbar.org).
 
 | Command | What it does |
 |---|---|
-| `/billing:cold-start-interview` | First-time setup |
-| `/billing:cold-start-interview --redo` | Re-run full setup |
-| `/billing:billing-status` | Show active client status |
-| `/billing:billing-status --session-end` | Trigger end-of-session panel manually |
-| `/billing:billing-status --client <slug>` | Show status for specific client |
-| `/billing:time-entry` | Log time manually |
-| `/billing:rate-card list` | View all rates |
-| `/billing:rate-card set --attorney <slug>` | Update attorney rate |
-| `/billing:rate-card override --attorney <slug> --client <slug>` | Client-specific rate |
-| `/billing:rate-card override --client <slug>` | Update client arrangement/budget |
-| `/billing:wip-review` | Review pending entries (active client) |
-| `/billing:wip-review --client <slug>` | Review entries for specific client |
-| `/billing:wip-review --all` | Review all pending entries firm-wide |
-| `/billing:invoice-generate <slug>` | Generate invoice exhibit |
-| `/billing:invoice-generate <slug> --period YYYY-MM` | Invoice for one month |
-| `/billing:billing-report` | WIP dashboard |
-| `/billing:billing-report --client <slug>` | Client history |
-| `/billing:billing-report --attorney <slug>` | Attorney utilization |
-| `/billing:billing-report --month YYYY-MM` | Monthly activity |
-| `/billing:billing-report --invoice <id>` | Review issued invoice |
-| `/billing:customize` | Change one setting |
+| `/billing-legal:cold-start-interview` | First-time setup |
+| `/billing-legal:cold-start-interview --redo` | Re-run full setup |
+| `/billing-legal:billing-status` | Show active client status |
+| `/billing-legal:billing-status --session-end` | Trigger end-of-session panel manually |
+| `/billing-legal:billing-status --client <slug>` | Show status for specific client |
+| `/billing-legal:time-entry` | Log time manually |
+| `/billing-legal:rate-card list` | View all rates |
+| `/billing-legal:rate-card set --attorney <slug>` | Update attorney rate |
+| `/billing-legal:rate-card override --attorney <slug> --client <slug>` | Client-specific rate |
+| `/billing-legal:rate-card override --client <slug>` | Update client arrangement/budget |
+| `/billing-legal:wip-review` | Review pending entries (active client) |
+| `/billing-legal:wip-review --client <slug>` | Review entries for specific client |
+| `/billing-legal:wip-review --all` | Review all pending entries firm-wide |
+| `/billing-legal:invoice-generate <slug>` | Generate invoice exhibit |
+| `/billing-legal:invoice-generate <slug> --period YYYY-MM` | Invoice for one month |
+| `/billing-legal:billing-report` | WIP dashboard |
+| `/billing-legal:billing-report --client <slug>` | Client history |
+| `/billing-legal:billing-report --attorney <slug>` | Attorney utilization |
+| `/billing-legal:billing-report --month YYYY-MM` | Monthly activity |
+| `/billing-legal:billing-report --invoice <id>` | Review issued invoice |
+| `/billing-legal:ledes-export --invoice <id>` | Export invoice to LEDES 1998B format |
+| `/billing-legal:ledes-export --client <slug> --period YYYY-MM` | Export by client and period |
+| `/billing-legal:customize` | Change one setting |
 
 ---
 
@@ -448,22 +569,33 @@ The ABA's formal opinions are at [americanbar.org](https://www.americanbar.org).
 ```
 Work on matter in Claude Code
         ↓
+[Activity log hook records file operations silently]
+        ↓
 Session ends → billing panel appears
+  (shows documents touched to help write narrative)
         ↓
 Type narrative → [log]
         ↓
 Entry saved to time-register.yaml (status: pending)
+  activity_log stored with the entry
         ↓
 [End of billing period]
         ↓
-/billing:wip-review --client [slug]
+/billing-legal:wip-review --client [slug]
   → approve / write down / write off
         ↓
-/billing:invoice-generate [slug]
+/billing-legal:invoice-generate [slug]
         ↓
 invoices/INV-YYYY-NNN.md created
+  (includes collapsed audit trail if enabled)
         ↓
 Copy into your billing system / attach to client invoice
+        ↓
+[If client requires e-billing submission]
+        ↓
+/billing-legal:ledes-export --invoice INV-YYYY-NNN
+        ↓
+invoices/INV-YYYY-NNN.ledes → upload to client's e-billing portal
 ```
 
 ---
@@ -473,9 +605,9 @@ Copy into your billing system / attach to client invoice
 If you start solo and later want to move to a shared folder:
 
 1. Copy your existing billing data folder to the new shared location
-2. Run `/billing:customize`
+2. Run `/billing-legal:customize`
 3. Update the "Data path" to the new shared path
-4. Each other attorney runs `/billing:cold-start-interview` on their machine and enters the same shared path
+4. Each other attorney runs `/billing-legal:cold-start-interview` on their machine and enters the same shared path
 
 ---
 

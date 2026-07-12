@@ -9,7 +9,7 @@
       "command_template": "powershell -NoProfile -NonInteractive -File \"[billing_data_path]/hooks/session-start.ps1\""
     },
     "Stop": {
-      "description": "Blocks session close when billing is enabled, a per-session timer file exists at .sessions/[attorney-slug]_[session-id], and a legal matter is active. Outputs {\"decision\":\"block\",\"reason\":\"...\"} (including the timer file path) to prompt Claude to run /billing:billing-status --session-end.",
+      "description": "Blocks session close when billing is enabled, a per-session timer file exists at .sessions/[attorney-slug]_[session-id], and a legal matter is active. Outputs {\"decision\":\"block\",\"reason\":\"...\"} (including the timer file path) to prompt Claude to run /billing-legal:billing-status --session-end.",
       "command_template": "powershell -NoProfile -NonInteractive -File \"[billing_data_path]/hooks/billing-stop.ps1\""
     }
   }
