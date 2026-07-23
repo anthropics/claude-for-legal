@@ -11,6 +11,12 @@
       "url": "https://drivemcp.googleapis.com/mcp/v1",
       "title": "Google Drive",
       "description": "Search, read, and fetch documents from Google Drive."
+    },
+    "Digital Policy Alert": {
+      "type": "http",
+      "url": "https://mcp.digitalpolicyalert.org/mcp",
+      "title": "Digital Policy Alert",
+      "description": "Independent, source-cited record of 23,000+ digital-economy regulations — AI governance, data protection, content moderation, digital taxes — across 100+ jurisdictions."
     }
   },
   "recommendedCategories": [

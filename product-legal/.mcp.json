@@ -29,6 +29,12 @@
       "url": "https://mcp.asana.com/sse",
       "title": "Asana",
       "description": "Tasks and project tracking."
+    },
+    "Digital Policy Alert": {
+      "type": "http",
+      "url": "https://mcp.digitalpolicyalert.org/mcp",
+      "title": "Digital Policy Alert",
+      "description": "Independent, source-cited record of 23,000+ digital-economy regulations — AI governance, data protection, content moderation, digital taxes — across 100+ jurisdictions."
     }
   },
   "recommendedCategories": [
