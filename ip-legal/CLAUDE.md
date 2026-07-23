@@ -56,6 +56,7 @@ before doing anything. Fix something here and it's fixed everywhere.*
 | IP management system (Anaqua, CPA Global, PatSnap, Clarivate, etc.) | [PLACEHOLDER ✓/✗] | Portfolio tracked in `portfolio.yaml` by hand; renewal-watcher runs against that register |
 | Legal research (CourtListener, Descrybe) | [PLACEHOLDER ✓/✗] | Manual research — the skill will tell you which cases to pull |
 | Patent research (Solve Intelligence) | [PLACEHOLDER ✓/✗] | FTO and prior-art skills work from user-supplied references; no automated literature pull |
+| Primary-source patent, trademark and design data, classifications and examination guidelines (Patent Connector) | [PLACEHOLDER ✓/✗] | Patent and trademark status, prosecution history, PTAB, assignments, classification lookups and MPEP/TMEP/EPO guidance come from user-supplied PDFs or are pulled by hand |
 | Document storage (Drive / SharePoint / Box) | [PLACEHOLDER ✓/✗] | User uploads agreements and exhibits directly for each review |
 | Slack | [PLACEHOLDER ✓/✗] | Alerts and summaries delivered inline instead of posted |
 

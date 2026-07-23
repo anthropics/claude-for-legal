@@ -82,6 +82,7 @@ The legal research connectors in this plugin aren't just data sources — they'r
 Ships with connectors configured in `.mcp.json`:
 
 - **Solve Intelligence** — patent and non-patent literature search, SEP technical standards, prior art, claim analysis
+- **Patent Connector** - primary-source patent, trademark and design data from first-party office APIs (USPTO, EPO, DPMA, EUIPO, USPTO TSDR, IP Australia, Japan/JPO, Taiwan/TIPO): patent search, claims, full text, drawings, legal status, families, continuity, prosecution history, file wrappers and PDFs, office actions, PTAB, assignments, prior-art citations; trademark status for the US, EU, Australia, Japan and Taiwan, plus registered designs for the EU, Australia and Japan. Plus built-in CPC/IPC/FI classifications and the examination guidelines of the USPTO, EPO, EUIPO, WIPO, Japan, Korea, Australia and Germany, with semantic search and no credentials needed
 - **CourtListener** — U.S. court opinions, PACER dockets, citation verification
 - **Descrybe** — primary law research by concept or wording, citation treatment, quoted-language verification
 - **Slack** — search messages, read channels, find discussions

@@ -6,6 +6,12 @@
       "title": "Solve Intelligence",
       "description": "Patent workflows — search patent and non-patent literature, legal texts, SEP technical standards, prior art, claim analysis."
     },
+    "Patent Connector": {
+      "type": "http",
+      "url": "https://mcp.patent.dev/mcp",
+      "title": "Patent Connector",
+      "description": "Authoritative patent, trademark and design data from first-party office APIs (USPTO, EPO, DPMA, EUIPO, USPTO TSDR, IP Australia, Japan/JPO, Taiwan/TIPO): patent search, claims, full text, drawings, legal status, families, continuity, prosecution history, file wrappers and PDFs, office actions, PTAB, assignments, prior-art citations; trademark status for the US, EU, Australia, Japan and Taiwan; registered designs for the EU, Australia and Japan. Built-in CPC/IPC/FI classifications and multi-office examination guidelines with semantic search, no extra credentials."
+    },
     "CourtListener": {
       "type": "http",
       "url": "https://mcp.courtlistener.com/",

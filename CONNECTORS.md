@@ -30,6 +30,7 @@ Connectors shipped in the default `.mcp.json` of each plugin:
 | **Definely** | commercial-legal, corporate-legal |
 | **iManage** | commercial-legal, corporate-legal |
 | **Solve Intelligence** | corporate-legal, ip-legal |
+| **Patent Connector** | ip-legal |
 | **TopCounsel** | commercial-legal, corporate-legal, litigation-legal |
 | **Box** | corporate-legal |
 | **Ironclad** | commercial-legal |
@@ -50,8 +51,6 @@ See the `.mcp.json` in each plugin directory for the authoritative list.
 These would make specific plugins significantly more useful. If you build or operate one, see "How to submit" above.
 
 - **IP management systems** (Anaqua, Clarivate IPfolio, AppColl, Patrix, Alt Legal, FoundationIP) — full docket sync for `ip-legal` portfolio tracking
-- **USPTO by customer number** — full portfolio status and deadlines, not just per-application lookup
-- **USPTO TSDR / Trademark Status** — trademark status and deadlines for `ip-legal` brand management
 - **Jira / Linear / Asana for OSS requests** — `ip-legal` OSS clearance can monitor and respond to incoming tickets
 - **Thomson Reuters** (CoCounsel, Practical Law, Westlaw) — research and drafting for every plugin
 - **SS&C Intralinks / Datasite** — VDR access for `corporate-legal` diligence
