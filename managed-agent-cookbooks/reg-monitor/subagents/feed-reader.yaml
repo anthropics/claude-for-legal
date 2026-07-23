@@ -50,8 +50,8 @@ tools:
             - "*.europa.eu"
             - "*.gov.uk"
           # Extend at deploy time via your feed configuration if your team
-          # subscribes to a paid regulatory feed (e.g., Bloomberg Law) or uses
-          # direct agency RSS. Keep the list tight — this is the boundary.
+          # subscribes to a paid regulatory feed or uses direct agency RSS.
+          # Keep the list tight — this is the boundary.
           max_redirects: 2
           block_private_networks: true
 

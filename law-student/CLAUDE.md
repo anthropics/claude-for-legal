@@ -170,7 +170,7 @@ The log is per-plugin, not per-matter, so a cite verified for one matter doesn't
 **School:** [PLACEHOLDER]
 **Bar jurisdiction (target):** [PLACEHOLDER]
 **Bar date (target):** [PLACEHOLDER]
-**Prep course:** [PLACEHOLDER — Barbri / Themis / Kaplan / self / N/A]
+**Prep course:** [PLACEHOLDER — commercial prep course name / self / N/A]
 
 ---
 

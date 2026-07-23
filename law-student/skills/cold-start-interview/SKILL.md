@@ -222,7 +222,7 @@ Then walk the categories below, capturing what the student has. More is always b
 - Old exams from the same professors (especially same-professor; those are highest signal)
 - Syllabi for current classes
 - Reading assignments / casebooks for current classes
-- Practice MBE question sets with answer explanations (Barbri/Themis/Kaplan — full sets if you have them)
+- Practice MBE question sets with answer explanations (from your prep course — full sets if you have them)
 - Bar prep course outlines if you're at that stage
 
 **Class specifics:**

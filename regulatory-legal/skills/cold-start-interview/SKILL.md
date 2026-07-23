@@ -251,7 +251,7 @@ If yes: configure as enrichment layer on top of free feeds. If no: free feeds ar
 
 **Step 3: Manual entry fallback**
 
-> If you ever see something in Law360, a newsletter, or from outside counsel that you want to run through the system — just paste it in and I'll diff it against your policies and track any gaps. You don't need a feed subscription for that to work.
+> If you ever see something in a legal news service, a newsletter, or from outside counsel that you want to run through the system — just paste it in and I'll diff it against your policies and track any gaps. You don't need a feed subscription for that to work.
 
 Record in the config that manual entry is enabled.
 

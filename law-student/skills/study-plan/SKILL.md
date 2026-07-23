@@ -33,7 +33,7 @@ It also gives downstream skills (bar-prep, flashcards, drill, irac) a shared sch
 
 A plan is opinion, not doctrine. The skill states clearly what's an estimate:
 
-- **Time-per-topic estimates** are general guidance (based on typical Barbri/Themis/Kaplan weightings). Flag them as estimates — the student's real pace will differ.
+- **Time-per-topic estimates** are general guidance (based on typical commercial prep-course weightings). Flag them as estimates — the student's real pace will differ.
 - **Subject weightings** are derived from the student's own reported weak subjects and session history. Confident.
 - **High-yield-topic prioritization in cram mode** is based on multi-year bar exam release patterns (MBE/MEE subject frequency). Flag any "this is definitely on the exam" claim as `[UNCERTAIN — past frequency is not a prediction]`.
 
@@ -87,11 +87,11 @@ For (3) semester: ask for the term-end date as the anchor.
 
 ### Step 2.5: Supplement vs. replace (prep-course users)
 
-If `~/.claude/plugins/config/claude-for-legal/law-student/CLAUDE.md` → `Prep course` is **Barbri**, **Themis**, **Kaplan**, or any other structured prep course (i.e., NOT `self` or `N/A`), the student already has a prep-course calendar. This skill's plan must choose one of two roles — it cannot run a full parallel curriculum alongside the prep course without burning the student out.
+If `~/.claude/plugins/config/claude-for-legal/law-student/CLAUDE.md` → `Prep course` names a structured commercial prep course (i.e., is NOT `self` or `N/A`), the student already has a prep-course calendar. This skill's plan must choose one of two roles — it cannot run a full parallel curriculum alongside the prep course without burning the student out.
 
 Ask, one question, wait:
 
-> Your profile says you're on [Barbri / Themis / Kaplan]. They publish a day-by-day calendar with every subject and task scheduled. Two ways this plan can work — pick one:
+> Your profile says you're on [prep course name]. They publish a day-by-day calendar with every subject and task scheduled. Two ways this plan can work — pick one:
 >
 > 1. **Supplement.** The prep course is your primary curriculum. This plan fills gaps: extra MBE drilling on your weak subjects, targeted essay practice, flashcard loops on the topics you're missing. I won't rebuild the prep-course calendar; I'll layer on top of it.
 > 2. **Replace.** You're not following the prep-course calendar (maybe because its pacing doesn't work for your life). I'll build the whole plan — subjects, hours, phases, schedule — and you drop the prep-course calendar.
@@ -244,5 +244,5 @@ On the next `/law-student:study-plan --update` run (or when any skill detects th
 
 - **Guarantee you pass.** The plan is a scaffold. The work is on you.
 - **Predict the exam.** Cram mode uses historical subject frequency; high-yield ≠ guaranteed-tested.
-- **Replace your prep course schedule.** If you're on Barbri/Themis/Kaplan, this plan can supplement — don't run two full curricula against each other. Use one as primary.
+- **Replace your prep course schedule.** If you're on a commercial prep course, this plan can supplement — don't run two full curricula against each other. Use one as primary.
 - **Schedule your life.** Hours available is what you tell me. If you overstate, the plan will break in week 2. Be honest.
