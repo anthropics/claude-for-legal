@@ -1,5 +1,5 @@
 name: renewal-repo-reader
-model: claude-opus-4-7
+model: claude-opus-4-8
 system:
   text: |
     You read UNTRUSTED contract metadata and clauses from the deploying team's

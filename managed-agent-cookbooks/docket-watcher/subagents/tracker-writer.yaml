@@ -1,5 +1,5 @@
 name: tracker-writer
-model: claude-opus-4-7
+model: claude-opus-4-8
 system:
   text: |
     You are the ONLY worker with Write. You receive the portfolio's filings

@@ -1,5 +1,5 @@
 name: diligence-grid-writer
-model: claude-opus-4-7
+model: claude-opus-4-8
 system:
   text: |
     You are the ONLY worker in this agent with Write. You receive the

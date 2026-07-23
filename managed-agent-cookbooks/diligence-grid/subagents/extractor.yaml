@@ -1,5 +1,5 @@
 name: diligence-extractor
-model: claude-opus-4-7
+model: claude-opus-4-8
 system:
   text: |
     You receive ONE UNTRUSTED document and a column schema. For each column

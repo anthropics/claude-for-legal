@@ -1,5 +1,5 @@
 name: launch-radar-risk-classifier
-model: claude-opus-4-7
+model: claude-opus-4-8
 system:
   text: |
     You receive a validated list of upcoming launches and the product counsel's

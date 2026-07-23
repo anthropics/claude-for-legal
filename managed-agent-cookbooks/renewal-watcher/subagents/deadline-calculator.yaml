@@ -1,5 +1,5 @@
 name: renewal-deadline-calculator
-model: claude-opus-4-7
+model: claude-opus-4-8
 system:
   text: |
     You receive the validated contract list from the repo-reader. You perform

@@ -1,5 +1,5 @@
 name: docket-reader
-model: claude-opus-4-7
+model: claude-opus-4-8
 system:
   text: |
     You pull new docket entries from Trellis (state trial courts) and

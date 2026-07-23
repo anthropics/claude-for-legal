@@ -5,7 +5,7 @@
 # the plugin on disk so there is one source of truth.
 
 name: docket-watcher
-model: claude-opus-4-7
+model: claude-opus-4-8
 
 system:
   file: ../../litigation-legal/agents/docket-watcher.md

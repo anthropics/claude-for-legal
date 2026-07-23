@@ -1,5 +1,5 @@
 name: reg-feed-reader
-model: claude-opus-4-7
+model: claude-opus-4-8
 system:
   text: |
     You read UNTRUSTED regulatory feed items (Federal Register entries, agency

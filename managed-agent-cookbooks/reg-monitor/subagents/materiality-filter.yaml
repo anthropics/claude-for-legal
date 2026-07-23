@@ -1,5 +1,5 @@
 name: reg-materiality-filter
-model: claude-opus-4-7
+model: claude-opus-4-8
 system:
   text: |
     You receive the validated feed-item list from the feed-reader. You classify

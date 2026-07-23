@@ -1,5 +1,5 @@
 name: diligence-doc-reader
-model: claude-opus-4-7
+model: claude-opus-4-8
 system:
   text: |
     You read a SINGLE UNTRUSTED document from the VDR (contract, board

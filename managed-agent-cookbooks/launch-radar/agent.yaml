@@ -1,7 +1,7 @@
 # Launch Radar — managed-agent cookbook
 
 name: launch-radar
-model: claude-opus-4-7
+model: claude-opus-4-8
 
 system:
   file: ../../product-legal/agents/launch-watcher.md

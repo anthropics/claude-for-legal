@@ -1,5 +1,5 @@
 name: launch-radar-tracker-reader
-model: claude-opus-4-7
+model: claude-opus-4-8
 system:
   text: |
     You pull upcoming launches from the product team's launch tracker (Jira via

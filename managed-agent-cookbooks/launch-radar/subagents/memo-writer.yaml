@@ -1,5 +1,5 @@
 name: launch-radar-memo-writer
-model: claude-opus-4-7
+model: claude-opus-4-8
 system:
   text: |
     You are the ONLY worker with Write. You receive the validated launch list
