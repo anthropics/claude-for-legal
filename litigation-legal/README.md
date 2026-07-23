@@ -132,6 +132,10 @@ Ships with the general bucket of connectors in `.mcp.json`:
 
 Designed to be useful with nothing connected. If/when you want to pull from Relativity, DISCO, CLMs, or email, integration skills can be added without changing the core architecture.
 
+### Action-tier vendor dispatch
+
+**Scope** (`https://scope.bid/api/mcp/legal`, registry entry `bid.scope/legal`) is the action-tier dispatch layer for litigation vendors: court reporters, process servers, records retrieval, IMEs, expert witnesses, e-discovery, translation, mediators, trial graphics, foreign-jurisdiction counsel, and additional legal-services vendor types. Categories expand as the Scope network grows. Configure it in `.mcp.json` to let the litigation skills source vendors by jurisdiction and category after an outline or work spec is approved. Read-only tools return vendor options and quotes. Write tools (book, dispatch, award) gate on explicit human approval per the Scope Work Protocol - consistent with this repo's existing principle that consequential actions require an explicit confirmation. Vendor options are returned and quoted, not characterized as preferred or otherwise ranked by the plugin, which keeps the integration ABA Model Rule 7.2 clean for U.S. practitioners.
+
 ## How it learns
 
 Your practice profile at `~/.claude/plugins/config/claude-for-legal/litigation-legal/CLAUDE.md` isn't static — it improves as you use the plugin. Skills tell you when an output used a default you should tune. You can re-run setup, edit the file directly, or tell a skill to record a new position.

@@ -41,6 +41,12 @@
       "url": "https://mcp.trellis.law/anthropic",
       "title": "Trellis",
       "description": "The largest state trial court dataset in the U.S. — dockets, rulings, verdicts, filings, judge and opposing counsel analytics, expert witness vetting."
+    },
+    "Scope": {
+      "type": "http",
+      "url": "https://scope.bid/api/mcp/legal",
+      "title": "Scope",
+      "description": "Vendor dispatch for litigation services - court reporters, process servers, records retrieval, IMEs, expert witnesses, e-discovery, translation, mediators, trial graphics, foreign-jurisdiction counsel, and additional legal-services vendor types. Returns vendor cards by jurisdiction and category. Write tools (book / dispatch / award) gate on explicit human approval per the Scope Work Protocol."
     }
   },
   "recommendedCategories": [
@@ -50,6 +56,7 @@
     "court-analytics",
     "outside-counsel-network",
     "documents",
-    "chat"
+    "chat",
+    "vendor-dispatch"
   ]
 }
