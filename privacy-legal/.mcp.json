@@ -11,6 +11,12 @@
       "url": "https://drivemcp.googleapis.com/mcp/v1",
       "title": "Google Drive",
       "description": "Search, read, and fetch documents from Google Drive."
+    },
+    "Ansvar Gateway": {
+      "type": "http",
+      "url": "https://gateway.ansvar.eu/mcp",
+      "title": "Ansvar Gateway",
+      "description": "GDPR and European data-protection law served verbatim at article level — the EU regulations corpus plus national implementations, supervisory-authority guidance, and data-protection case law — every result carries an item-level source citation (source URL, publisher, license); fails closed instead of answering without a source."
     }
   },
   "recommendedCategories": [
