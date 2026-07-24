@@ -14,8 +14,6 @@ import json
 import sys
 from pathlib import Path
 
-import jsonschema
-
 
 def _load(path: Path):
     text = path.read_text()
@@ -29,6 +27,8 @@ def main() -> int:
     if len(sys.argv) != 3:
         print(__doc__, file=sys.stderr)
         return 2
+    import jsonschema
+
     instance = _load(Path(sys.argv[1]))
     schema = _load(Path(sys.argv[2]))
     try:
