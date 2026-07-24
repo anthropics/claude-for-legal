@@ -42,6 +42,7 @@ Connectors shipped in the default `.mcp.json` of each plugin:
 | **Linear** | product-legal |
 | **Atlassian (Jira)** | product-legal |
 | **Asana** | product-legal |
+| **LawAI Gov Hub** | ai-governance-legal, regulatory-legal |
 
 See the `.mcp.json` in each plugin directory for the authoritative list.
 

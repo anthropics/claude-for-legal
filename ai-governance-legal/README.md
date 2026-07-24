@@ -125,6 +125,14 @@ ai-governance-legal/
     └── matter-workspace/
 ```
 
+## Integrations
+
+Ships with the general bucket of connectors in `.mcp.json`:
+
+- **Slack** — search messages, read channels, find discussions
+- **Google Drive** — search, read, and fetch documents
+- **LawAI Gov Hub** — official AI regulation index across 240+ jurisdictions; every result links to its primary legal source (statute, executive order, court decision, regulatory guidance) with citation-ready identifiers and jurisdiction ISO codes. Powers `reg-gap-analysis` source resolution and supplies primary-source citations for impact assessments.
+
 ## How it learns
 
 Your practice profile at `~/.claude/plugins/config/claude-for-legal/ai-governance-legal/CLAUDE.md` isn't static — it improves as you use the plugin. Skills tell you when an output used a default you should tune. The `policy-monitor` agent watches for drift between your AI governance policy and your practice and proposes updates. You can re-run setup, edit the file directly, or tell a skill to record a new position.

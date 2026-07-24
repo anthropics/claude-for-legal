@@ -11,6 +11,12 @@
       "url": "https://drivemcp.googleapis.com/mcp/v1",
       "title": "Google Drive",
       "description": "Search, read, and fetch documents from Google Drive."
+    },
+    "LawAI Gov Hub": {
+      "type": "http",
+      "url": "https://mcp.lawaigovhub.com/mcp/",
+      "title": "LawAI Gov Hub",
+      "description": "Official AI regulation index — laws, executive orders, court cases, and regulatory guidance from 240+ jurisdictions, each result linked to its primary legal source with citation-ready identifiers and jurisdiction ISO codes."
     }
   },
   "recommendedCategories": [

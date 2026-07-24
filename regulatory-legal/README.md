@@ -53,6 +53,7 @@ Ships with the general bucket of connectors in `.mcp.json`:
 
 - **Slack** — search messages, read channels, find discussions
 - **Google Drive** — search, read, and fetch documents
+- **LawAI Gov Hub** — official AI regulation index across 240+ jurisdictions; every result links to its primary legal source (statute, executive order, court decision, regulatory guidance) with citation-ready identifiers and jurisdiction ISO codes
 
 Additional regulatory feed connectors can be added when partner URLs are available. Direct regulator RSS/email as fallback.
 
