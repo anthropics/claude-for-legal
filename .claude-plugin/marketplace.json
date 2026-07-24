@@ -122,6 +122,14 @@
       "author": {
         "name": "Thomson Reuters"
       }
+    },
+    {
+      "name": "education-legal",
+      "source": "./education-legal",
+      "description": "K-12 education law: reviews IEPs and 504 plans against IDEA and Section 504, runs district compliance audits, walks the IDEA discipline framework for manifestation determinations, drafts FERPA records responses within statutory windows, handles Title IX grievance procedure under the version operative for the district, and prepares due process complaints. Federal baseline encoded in the skills; state variance in the practice profile.",
+      "author": {
+        "name": "Anthropic"
+      }
     }
   ]
 }

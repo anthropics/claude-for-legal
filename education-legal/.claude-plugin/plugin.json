@@ -1,0 +1,8 @@
+{
+  "name": "education-legal",
+  "version": "1.0.0",
+  "description": "K-12 education law: IEP and 504 plan review, manifestation determinations under the IDEA discipline framework, FERPA records responses within statutory windows, Title IX grievance procedure, due process complaints, and district compliance audits. Federal baseline encoded in the skills, state variance in the practice profile.",
+  "author": {
+    "name": "Anthropic"
+  }
+}
