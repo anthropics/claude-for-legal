@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "arguman-legal": {
+      "type": "http",
+      "url": "https://mcp.arguman.ai/mcp",
+      "title": "arguman.ai — Turkish Legal Research",
+      "description": "Multilingual hybrid search and citation lookup across Yargıtay, Danıştay, AYM, ECtHR (original-language HUDOC), Uyuşmazlık Mahkemesi, and German BGH case law. Turkish queries surface relevant English/French/German judgments via cross-lingual embeddings. Turkish criminal sentence-enforcement calculation included."
+    }
+  }
+}

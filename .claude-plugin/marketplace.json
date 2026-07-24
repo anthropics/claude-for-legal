@@ -122,6 +122,14 @@
       "author": {
         "name": "Thomson Reuters"
       }
+    },
+    {
+      "name": "arguman-legal",
+      "source": "./external_plugins/arguman-legal",
+      "description": "Multilingual legal research across Turkish high courts (Yargıtay, Danıştay, AYM, Uyuşmazlık), ECtHR (original-language HUDOC), and German BGH — nearly 15 million rulings. Cross-lingual semantic search lets Turkish queries surface English/French/German judgments for comparative work. Includes citation network traversal, counter-argument finder, and Turkish criminal sentence-enforcement calculation.",
+      "author": {
+        "name": "arguman.ai"
+      }
     }
   ]
 }

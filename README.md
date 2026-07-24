@@ -144,6 +144,7 @@ law-student/              # Socratic drilling, outlining, IRAC, bar prep, flashc
 legal-builder-hub/        # community skill discovery and install with a trust gate
 external_plugins/         # partner-built plugins maintained by their vendors
   cocounsel-legal/        # Thomson Reuters — Westlaw Deep Research via the CoCounsel Legal MCP
+  arguman-legal/          # arguman.ai — Turkish/ECtHR/BGH case-law search (multilingual)
 managed-agent-cookbooks/  # Claude Managed Agent cookbooks — one dir per scheduled agent
   diligence-grid/
   docket-watcher/
@@ -276,6 +277,7 @@ Plugins under [`external_plugins/`](./external_plugins) are built and maintained
 | Plugin | Built by | What it adds |
 |---|---|---|
 | **[cocounsel-legal](./external_plugins/cocounsel-legal)** | Thomson Reuters | Westlaw Deep Research with fully cited reports — caselaw, statutes, regulations, Practical Law, and secondary sources across up to three U.S. jurisdictions per run. Requires a CoCounsel Legal subscription with the MCP connector enabled. Support: cocounselsupport@tr.com. |
+| **[arguman-legal](./external_plugins/arguman-legal)** | arguman.ai | Multilingual case-law research across Turkish high courts (Yargıtay, Danıştay, AYM, Uyuşmazlık), ECtHR (original-language HUDOC), and German BGH — nearly 15 million rulings. Cross-lingual semantic search lets Turkish queries surface English/French/German judgments for comparative work. Includes citation network traversal, counter-argument finder, and Turkish criminal sentence-enforcement calculation. OAuth 2.1 (PKCE + Dynamic Client Registration). Support: iletisim@arguman.ai. |
 
 ## The trust layer for community legal skills
 
@@ -306,6 +308,7 @@ These plugins ship connectors for the systems legal teams live in. A connector g
 | **Slack** | Read channels, search, send messages and canvases | all plugins | Your workspace |
 | **Google Drive** | Read docs, sheets, slides; fetch by link | all plugins | Your account |
 | **CoCounsel Legal (Thomson Reuters)** | Westlaw Deep Research — cited reports across caselaw, statutes, regulations, Practical Law | `cocounsel-legal` | Customer subscription; OAuth |
+| **arguman.ai** | Multilingual Turkish/ECtHR/BGH case-law search, citation network, counter-argument finder, Turkish infaz calculation | `arguman-legal` | Free tier with credits; OAuth 2.1 + PKCE + DCR |
 | **Box** | Read files and folders in VDRs and matter rooms | `corporate-legal` | Your tenant |
 | **Ironclad** | Read the contract register, renewal dates, clauses | `commercial-legal` | Customer subscription |
 | **DocuSign / DocuSign CLM** | Envelope status, executed contracts, CLM metadata | `commercial-legal` | Customer subscription |
@@ -560,6 +563,14 @@ The full map across all plugins. The cold-start interview is the first thing to 
 | Command | Skill | What it does |
 |---|---|---|
 | `/cocounsel-legal:deep-research` | deep-research | Run Westlaw Deep Research — start, poll, and present a fully cited report |
+
+### arguman-legal (arguman.ai)
+
+| Command | Skill | What it does |
+|---|---|---|
+| `/arguman-legal:caselaw-search` | caselaw-search | Multilingual hybrid case-law search with collection mapping, doctrinal translation, and drift detection |
+| `/arguman-legal:citation-network` | citation-network | Build a doctrinal lineage map: anchor → similar → citing rulings |
+| `/arguman-legal:karsi-arguman` | karsi-arguman | Counter-argument finder — stress-test a legal position by surfacing rulings that go the other way |
 
 ## Contributing
 
