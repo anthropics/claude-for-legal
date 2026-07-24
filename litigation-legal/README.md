@@ -57,6 +57,7 @@ Your configuration is stored at `~/.claude/plugins/config/claude-for-legal/litig
 | `/litigation-legal:chronology [slug]` | Build or update a chronology from declared doc sources + uploads — tagged by significance per matter theory |
 | `/litigation-legal:oc-status` | Draft weekly OC status-request emails across the portfolio; Gmail drafts if MCP available |
 | `/litigation-legal:claim-chart` | Build or review an element chart — patent claim chart (infringement / invalidity / review) or civil element chart (any cause of action or defense) with gap detection |
+| `/litigation-legal:boolean-search [--build / --from-cases / --refine]` | Builds, reverse-engineers, refines, or ports a Boolean (Terms-and-Connectors) search for Westlaw — or the arbitration databases (Jus Mundi, Kluwer, ITA) — and hands back a recommended search with wider and narrower alternatives. |
 
 ## Skills
 
@@ -76,6 +77,7 @@ Your configuration is stored at `~/.claude/plugins/config/claude-for-legal/litig
 | **chronology** | Extract dated events from declared doc sources + uploads; de-dupe; tag significance per matter theory |
 | **oc-status** | Weekly portfolio-wide OC status-request email drafter; markdown + Gmail drafts |
 | **claim-chart** | Patent claim chart (infringement / invalidity / review) or civil element chart (any cause of action or defense). Element-by-element mapping, every cell pin-cited, gap detection. Ships with a cause-of-action template library. |
+| **boolean-search** | Writes and refines Boolean (Terms-and-Connectors) searches for the legal research databases. It settles the governing law and the target database before writing a single connector — both change what the right terms and syntax are — then expands each concept with the cognates and synonyms that belong to that body of law. Hand it cases you already know are relevant and it works backward to a search that catches them, with a hit/miss table showing how each candidate does. Every run ends with a recommended search plus wider and narrower alternatives, so you can turn recall up or down. |
 
 ## Interactive commands vs. scheduled agents
 
@@ -143,6 +145,7 @@ Your practice profile at `~/.claude/plugins/config/claude-for-legal/litigation-l
 - `_log.yaml` is the source of truth for portfolio state. Keep it clean.
 - Matter history is append-only. If something was wrong, note the correction as a new entry — don't edit the past.
 - Closed matters stay in `_log.yaml` (searchable history). `/portfolio-status` filters them out of active rollups by default.
+- **International arbitration:** `boolean-search` carries the arbitration research databases (Jus Mundi, Kluwer Arbitration, ITA Law) and investment-treaty vocabulary alongside the litigation databases, so it serves arbitration research today. A dedicated `arbitration-legal` plugin (Redfern Schedules, IBA Art. 3.3 requests, Art. 9.2 objections) is a possible future addition; for now the Boolean-search capability lives here.
 
 ## Inline marker conventions
 
