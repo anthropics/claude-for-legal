@@ -11,6 +11,12 @@
       "url": "https://drivemcp.googleapis.com/mcp/v1",
       "title": "Google Drive",
       "description": "Search, read, and fetch documents from Google Drive."
+    },
+    "Neimo": {
+      "type": "http",
+      "url": "https://mcp.neimo.ai/api/mcp",
+      "title": "Neimo",
+      "description": "Look up children's digital safety regulations across 200+ markets: consent ages, parental consent, data protection, and enforcement."
     }
   },
   "recommendedCategories": [

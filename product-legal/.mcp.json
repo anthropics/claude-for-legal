@@ -29,6 +29,12 @@
       "url": "https://mcp.asana.com/sse",
       "title": "Asana",
       "description": "Tasks and project tracking."
+    },
+    "Neimo": {
+      "type": "http",
+      "url": "https://mcp.neimo.ai/api/mcp",
+      "title": "Neimo",
+      "description": "Look up children's digital safety regulations across 200+ markets: consent ages, parental consent, data protection, and enforcement."
     }
   },
   "recommendedCategories": [
