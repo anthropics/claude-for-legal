@@ -122,6 +122,15 @@
       "author": {
         "name": "Thomson Reuters"
       }
+    },
+    {
+      "name": "letra-da-lei",
+      "displayName": "Letra da Lei",
+      "source": "./external_plugins/letra-da-lei",
+      "description": "The Brazilian legal platform — search and cite legislation and case law with article-level citations and verified sources, plus skills to draft litigation documents grounded in verified law.",
+      "author": {
+        "name": "Letra da Lei"
+      }
     }
   ]
 }

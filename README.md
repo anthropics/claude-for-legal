@@ -144,6 +144,7 @@ law-student/              # Socratic drilling, outlining, IRAC, bar prep, flashc
 legal-builder-hub/        # community skill discovery and install with a trust gate
 external_plugins/         # partner-built plugins maintained by their vendors
   cocounsel-legal/        # Thomson Reuters — Westlaw Deep Research via the CoCounsel Legal MCP
+  letra-da-lei/           # Letra da Lei — Brazilian legislation + case law and litigation drafting via the Letra da Lei MCP
 managed-agent-cookbooks/  # Claude Managed Agent cookbooks — one dir per scheduled agent
   diligence-grid/
   docket-watcher/
@@ -276,6 +277,7 @@ Plugins under [`external_plugins/`](./external_plugins) are built and maintained
 | Plugin | Built by | What it adds |
 |---|---|---|
 | **[cocounsel-legal](./external_plugins/cocounsel-legal)** | Thomson Reuters | Westlaw Deep Research with fully cited reports — caselaw, statutes, regulations, Practical Law, and secondary sources across up to three U.S. jurisdictions per run. Requires a CoCounsel Legal subscription with the MCP connector enabled. Support: cocounselsupport@tr.com. |
+| **[letra-da-lei](./external_plugins/letra-da-lei)** | Letra da Lei | The Brazilian legal platform — article-level search across federal legislation **and case law** (STF, STJ, TST, CARF, and state IRDRs) with in-force-status checks and verified source links, plus drafting skills for litigation documents (initial petitions, answers, appeals, judicial reasoning). Free; OAuth login, no subscription. Support: suporte@letradalei.com. |
 
 ## The trust layer for community legal skills
 
@@ -560,6 +562,16 @@ The full map across all plugins. The cold-start interview is the first thing to 
 | Command | Skill | What it does |
 |---|---|---|
 | `/cocounsel-legal:deep-research` | deep-research | Run Westlaw Deep Research — start, poll, and present a fully cited report |
+
+### letra-da-lei (Letra da Lei)
+
+| Command | Skill | What it does |
+|---|---|---|
+| `/letra-da-lei:pesquisa-juridica` | pesquisa-juridica | Search and cite Brazilian federal legislation and case law via the MCP — skill-base loaded by the others |
+| `/letra-da-lei:peticao-inicial` | peticao-inicial | Draft a petição inicial (CPC art. 319) with verified legal grounding |
+| `/letra-da-lei:contestacao` | contestacao | Draft a contestação (CPC arts. 335–342) — preliminary defenses, merits, counterclaim |
+| `/letra-da-lei:fundamentacao-judicial` | fundamentacao-judicial | Structure judicial reasoning against CPC art. 489 § 1º |
+| `/letra-da-lei:analise-processual-minuta` | analise-processual-minuta | Diagnose the procedural stage and draft the fitting filing (reply, appeals, enforcement, autonomous actions) |
 
 ## Contributing
 

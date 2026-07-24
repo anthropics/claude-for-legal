@@ -1,0 +1,10 @@
+{
+  "name": "letra-da-lei",
+  "displayName": "Letra da Lei",
+  "version": "0.2.0",
+  "description": "A plataforma jurídica brasileira — pesquise legislação e jurisprudência com citações em nível de artigo/precedente e fontes verificáveis, e redija peças processuais (petição inicial, contestação, recursos, fundamentação) com base legal verificada.",
+  "author": {
+    "name": "Letra da Lei",
+    "email": "suporte@letradalei.com"
+  }
+}

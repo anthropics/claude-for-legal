@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "letra-da-lei": {
+      "type": "http",
+      "url": "https://mcp.letradalei.com/mcp",
+      "title": "Letra da Lei"
+    }
+  }
+}
