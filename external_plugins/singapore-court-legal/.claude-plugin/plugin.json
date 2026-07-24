@@ -1,0 +1,10 @@
+{
+  "name": "singapore-court-legal",
+  "displayName": "MikeROS",
+  "version": "0.3.0",
+  "description": "Deterministic, proof-carrying resolver for Singapore civil court procedure (Rules of Court 2021) via the MikeROS connector — determines which ROC rule controls, the required sequence, and whether a step is compliant, with a proof or honest abstention (abstain-to-source where control passes to an uncompiled Practice Direction or Form). Cites governing rules with operator-verified case authorities where they attach; never fabricates a rule, sequence, or citation. Use to resolve a procedural position — not for interpretation, drafting, or strategy. Not legal advice.",
+  "author": {
+    "name": "Reshuffle.AI Pte. Ltd.",
+    "email": "contact@reshuffleai.com"
+  }
+}
