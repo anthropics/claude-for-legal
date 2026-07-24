@@ -260,8 +260,14 @@ absolutely, or start a clock that cannot be stopped.
 Categorize the disclosure status:
 
 **🔴 Likely barred:**
-- Publicly disclosed, sold, or offered for sale **more than 12 months ago**
-  in the US — 35 U.S.C. § 102(b) one-year grace period has run
+- Disclosed, sold, or offered for sale **more than 12 months before the
+  (anticipated) filing date** in the US — under post-AIA **35 U.S.C.
+  § 102(a)(1)** this is prior art. The **§ 102(b)(1)** grace period excepts
+  only the **inventor's own** (or inventor-derived) disclosures; a **third
+  party's** independent disclosure is § 102(a)(1) prior art *immediately, with
+  no grace period.* *(Pre-AIA § 102(b) — a true one-year statutory bar —
+  applies only to applications with an effective filing date before
+  March 16, 2013.)*
 - **Any** public disclosure, anywhere, before filing — absolute novelty bar in
   the EU, China, Japan, and most countries outside the US. If the business
   cares about foreign rights, this is potentially fatal even if US is still
