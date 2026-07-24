@@ -1,5 +1,11 @@
 {
   "mcpServers": {
+    "ARBI": {
+      "type": "http",
+      "url": "https://mcp.www.arbidocs.com/",
+      "title": "ARBI",
+      "description": "Semantic search and document retrieval from your ARBI workspace — hybrid dense/sparse search across encrypted documents with provenance on every result."
+    },
     "Slack": {
       "type": "http",
       "url": "https://mcp.slack.com/mcp",

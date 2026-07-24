@@ -122,6 +122,15 @@
       "author": {
         "name": "Thomson Reuters"
       }
+    },
+    {
+      "name": "arbidocs",
+      "displayName": "ARBI",
+      "source": "./external_plugins/arbidocs",
+      "description": "ARBI is an AI-native document workspace for legal teams — encrypted storage (in transit and at rest), hybrid semantic search, and an AI assistant that answers questions about your documents with citations.",
+      "author": {
+        "name": "ARBI"
+      }
     }
   ]
 }

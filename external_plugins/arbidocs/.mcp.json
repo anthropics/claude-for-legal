@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "ARBI": {
+      "type": "http",
+      "url": "https://mcp.www.arbidocs.com/"
+    }
+  }
+}

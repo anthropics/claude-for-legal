@@ -144,6 +144,7 @@ law-student/              # Socratic drilling, outlining, IRAC, bar prep, flashc
 legal-builder-hub/        # community skill discovery and install with a trust gate
 external_plugins/         # partner-built plugins maintained by their vendors
   cocounsel-legal/        # Thomson Reuters — Westlaw Deep Research via the CoCounsel Legal MCP
+  arbidocs/               # ARBI — encrypted workspace search and AI Q&A via the ARBI MCP
 managed-agent-cookbooks/  # Claude Managed Agent cookbooks — one dir per scheduled agent
   diligence-grid/
   docket-watcher/
@@ -276,6 +277,7 @@ Plugins under [`external_plugins/`](./external_plugins) are built and maintained
 | Plugin | Built by | What it adds |
 |---|---|---|
 | **[cocounsel-legal](./external_plugins/cocounsel-legal)** | Thomson Reuters | Westlaw Deep Research with fully cited reports — caselaw, statutes, regulations, Practical Law, and secondary sources across up to three U.S. jurisdictions per run. Requires a CoCounsel Legal subscription with the MCP connector enabled. Support: cocounselsupport@tr.com. |
+| **[arbidocs](./external_plugins/arbidocs)** | ARBI | AI-native document workspace for legal teams with encryption in transit and at rest — hybrid semantic search across your own uploaded documents with citation provenance, and an AI assistant that answers questions grounded in your files. Requires an ARBI account; sign up at arbidocs.com. Support: support@arbi.city. |
 
 ## The trust layer for community legal skills
 
@@ -306,6 +308,7 @@ These plugins ship connectors for the systems legal teams live in. A connector g
 | **Slack** | Read channels, search, send messages and canvases | all plugins | Your workspace |
 | **Google Drive** | Read docs, sheets, slides; fetch by link | all plugins | Your account |
 | **CoCounsel Legal (Thomson Reuters)** | Westlaw Deep Research — cited reports across caselaw, statutes, regulations, Practical Law | `cocounsel-legal` | Customer subscription; OAuth |
+| **ARBI** | Encrypted document workspace — hybrid semantic search and AI Q&A with citations | `arbidocs` | ARBI account; sign up at arbidocs.com |
 | **Box** | Read files and folders in VDRs and matter rooms | `corporate-legal` | Your tenant |
 | **Ironclad** | Read the contract register, renewal dates, clauses | `commercial-legal` | Customer subscription |
 | **DocuSign / DocuSign CLM** | Envelope status, executed contracts, CLM metadata | `commercial-legal` | Customer subscription |
@@ -560,6 +563,13 @@ The full map across all plugins. The cold-start interview is the first thing to 
 | Command | Skill | What it does |
 |---|---|---|
 | `/cocounsel-legal:deep-research` | deep-research | Run Westlaw Deep Research — start, poll, and present a fully cited report |
+
+### arbidocs (ARBI)
+
+| Command | Skill | What it does |
+|---|---|---|
+| `/arbidocs:search` | search | Search workspace documents using hybrid semantic + keyword search and return cited chunks |
+| `/arbidocs:ask` | ask | Ask the ARBI AI assistant a question about workspace documents and return a cited answer |
 
 ## Contributing
 
