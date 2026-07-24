@@ -64,3 +64,55 @@ These would make specific plugins significantly more useful. If you build or ope
 ## Questions
 
 Open an issue on this repo. For partnership or integration questions, see the contact on each plugin's README.
+## Crivo eDiscovery
+
+**Vendor:** Celeric Discovery · support@celericdiscovery.com  
+**MCP URL:** `https://mcp.crivo.legal/sse`  
+**Auth:** OAuth 2.0 Authorization Code Grant  
+**Plugins:** `litigation-legal`  
+**Access:** Customer subscription (Crivo account required)
+
+### Tools
+
+| Tool | Description |
+|------|-------------|
+| `search_documents` | Full-text and semantic search across a matter corpus. Boolean syntax, custodian/date/responsiveness/AI score filters. |
+| `get_document` | Retrieve a document by control number — metadata, coding, all AI results, extracted text. |
+| `list_documents` | Paginated document list with filter support. |
+| `get_document_audit` | Full per-document AI audit chain — every tool run, model version, matter description, timestamp. Court-producible under SDNY 2025 discoverability standard. |
+| `get_privilege_log` | FRCP 26(b)(5) privilege log — date, author, recipients, privilege basis, description. |
+| `get_workspace_stats` | Corpus statistics — totals, AI coverage, custodian breakdown, review velocity. |
+| `get_productions` | Production summary — Bates ranges, document counts, dates, status. |
+| `get_ai_methodology_report` | FRCP 26(f) AI disclosure report — tools deployed, model versions, matter description history, human review rate, defensibility checklist. |
+| `run_ai_review` | Run Review AI — responsiveness designation with confidence and rationale. |
+| `run_privilege_check` | Run Privilege AI — privilege type, confidence, triggering citation, draft log entry. |
+| `ask_corpus` | Natural language question against the corpus — cited answer grounded in collected documents only. No hallucinated citations. |
+| `confirm_human_review` | ABA Opinion 512 human oversight record — reviewer identity and timestamp per document. |
+
+### Configuration
+
+```json
+{
+  "mcpServers": {
+    "crivo-ediscovery": {
+      "type": "url",
+      "url": "https://mcp.crivo.legal/sse",
+      "name": "crivo-ediscovery",
+      "description": "Crivo eDiscovery — search corpus, run AI review/privilege/ask, access privilege logs, productions, and AI Methodology Reports",
+      "auth": {
+        "type": "oauth2",
+        "authorizationUrl": "https://mcp.crivo.legal/oauth/authorize",
+        "tokenUrl": "https://mcp.crivo.legal/oauth/token",
+        "scopes": ["documents:read", "ai:run", "reports:read", "productions:read"]
+      },
+      "subscription": "customer"
+    }
+  }
+}
+```
+
+### Notes
+- Every tool call requires `workspace_id` — scoped to a specific matter
+- SSO: users logged into Crivo authorize without re-entering credentials
+- All AI answers grounded in collected, chain-of-custody-verified corpus only
+- Anthropic zero-retention policy applies

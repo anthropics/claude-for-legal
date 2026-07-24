@@ -53,3 +53,16 @@
     "chat"
   ]
 }
+"crivo-ediscovery": {
+      "type": "url",
+      "url": "https://mcp.crivo.legal/sse",
+      "name": "crivo-ediscovery",
+      "description": "Crivo eDiscovery — search corpus, run AI review/privilege/ask, access privilege logs and AI Methodology Reports",
+      "auth": {
+        "type": "oauth2",
+        "authorizationUrl": "https://mcp.crivo.legal/oauth/authorize",
+        "tokenUrl": "https://mcp.crivo.legal/oauth/token",
+        "scopes": ["documents:read", "ai:run", "reports:read", "productions:read"]
+      },
+      "subscription": "customer"
+    }

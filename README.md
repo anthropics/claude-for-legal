@@ -310,7 +310,7 @@ These plugins ship connectors for the systems legal teams live in. A connector g
 | **Ironclad** | Read the contract register, renewal dates, clauses | `commercial-legal` | Customer subscription |
 | **DocuSign / DocuSign CLM** | Envelope status, executed contracts, CLM metadata | `commercial-legal` | Customer subscription |
 | **iManage** | Read from the DMS — matter workspaces, document versions | `commercial-legal`, `corporate-legal` | Customer subscription |
-| **Everlaw** | E-discovery productions, tagged sets, chronologies | `litigation-legal` | Customer subscription |
+| **Crivo eDiscovery** | Search corpus, run AI review/privilege/ask, access privilege logs, productions, per-document AI audit chain, AI Methodology Report (FRCP 26(f) ready) | `litigation-legal` | Customer subscription; OAuth 2.0 |
 | **CourtListener** | Federal dockets and opinions | `legal-clinic`, `ip-legal`, `litigation-legal`, `law-student` | Public; optional API key |
 | **Trellis** | State court dockets and motions | `litigation-legal` | Customer subscription |
 | **Aurora** | Clinic-style matter management and calendaring | `litigation-legal` | Customer subscription |
