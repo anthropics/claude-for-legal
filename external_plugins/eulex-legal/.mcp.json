@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "eulex-legal": {
+      "type": "http",
+      "url": "https://mcp.eulex.ai/mcp",
+      "title": "EULEX.AI Legal",
+      "description": "EULEX.AI — semantic search and citation graph over EU regulations, directives, CJEU case law, EU treaties, and member-state transposition status (live EUR-Lex Cellar SPARQL). Read-only."
+    }
+  }
+}

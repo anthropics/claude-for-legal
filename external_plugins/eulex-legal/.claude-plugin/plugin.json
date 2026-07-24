@@ -1,0 +1,9 @@
+{
+  "name": "eulex-legal",
+  "version": "0.1.0",
+  "description": "EULEX.AI Legal brings semantic search and a citation graph over EU regulations, directives, CJEU case law, EU treaties, and member-state transposition status (live EUR-Lex Cellar SPARQL) into Claude. Read-only.",
+  "author": {
+    "name": "EULEX.AI",
+    "email": "support@eulex.ai"
+  }
+}
