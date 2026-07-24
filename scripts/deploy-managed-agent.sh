@@ -108,7 +108,7 @@ resolve_manifest() {
   local file="$1" base
   base="$(cd "$(dirname "$file")" && pwd)"
   local json
-  json=$(yaml2json "$file")
+  json=$(yaml2json "$file") || exit 1
   # Expand any {from_plugin: <dir>} into one {path: ...} per skills/* under that dir.
   local fp
   fp=$(jq -r '.skills[]? | select(.from_plugin) | .from_plugin' <<<"$json" | head -1)
@@ -151,7 +151,7 @@ inline_system() {
 create_agent() {
   local file="$1" base json sub_ids skills_json
   base="$(cd "$(dirname "$file")" && pwd)"
-  json=$(resolve_manifest "$file")
+  json=$(resolve_manifest "$file") || exit 1
   json=$(inline_system "$json" "$base")
 
   skills_json="[]"
@@ -166,7 +166,7 @@ create_agent() {
   while IFS= read -r m; do
     [[ -z "$m" ]] && continue
     local out sid sver
-    out=$(create_agent "$base/$m")
+    out=$(create_agent "$base/$m") || exit 1
     sid=${out%% *}; sver=${out##* }
     sub_ids=$(jq --arg i "$sid" --argjson v "$sver" '. + [{type:"agent", id:$i, version:$v}]' <<<"$sub_ids")
   done < <(jq -r '.callable_agents[]?.manifest // empty' <<<"$json")
@@ -199,7 +199,7 @@ if [[ $DRY_RUN -eq 1 ]]; then
   exit 0
 fi
 
-OUT=$(create_agent "$DIR/agent.yaml")
+OUT=$(create_agent "$DIR/agent.yaml") || exit 1
 AGENT_ID=${OUT%% *}
 echo "deployed: $ROLE"
 echo "agent id: $AGENT_ID"
