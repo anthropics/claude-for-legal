@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "redjudicial-legal": {
+      "type": "http",
+      "url": "https://ia.redjudicial.cl/mcp/v1"
+    }
+  }
+}

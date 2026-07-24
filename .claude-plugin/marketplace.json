@@ -122,6 +122,15 @@
       "author": {
         "name": "Thomson Reuters"
       }
+    },
+    {
+      "name": "redjudicial-legal",
+      "displayName": "Red Judicial",
+      "source": "./external_plugins/redjudicial-legal",
+      "description": "Red Judicial brings the Chilean legal corpus into Claude: over 2.5 million court decisions (287,000+ Supreme Court and ~1.4M Courts of Appeals, 2005-present), in-force statutes from BCN / LeyChile, and open-access Chilean doctrine — each result linked to the official source. For Spanish-speaking practitioners in Chile and LATAM.",
+      "author": {
+        "name": "Simpley SpA"
+      }
     }
   ]
 }

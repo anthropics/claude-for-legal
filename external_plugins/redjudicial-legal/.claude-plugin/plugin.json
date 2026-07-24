@@ -1,0 +1,10 @@
+{
+  "name": "redjudicial-legal",
+  "version": "0.1.0",
+  "description": "Red Judicial trae a Claude el corpus legal chileno: más de 2,5 millones de sentencias (287.000+ de la Corte Suprema y ~1,4 millones de Cortes de Apelaciones), Tribunal Constitucional, dictámenes de Contraloría, y jurisprudencia administrativa tributaria, laboral, de mercados financieros, seguridad social, libre competencia, consumidor y ambiental; legislación vigente de BCN/LeyChile y doctrina académica. Primera instancia en incorporación. Para abogados y estudios jurídicos en Chile y América Latina hispanohablante.",
+  "author": {
+    "name": "Simpley SpA",
+    "email": "contacto@redjudicial.cl",
+    "url": "https://redjudicial.cl"
+  }
+}

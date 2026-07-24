@@ -144,6 +144,7 @@ law-student/              # Socratic drilling, outlining, IRAC, bar prep, flashc
 legal-builder-hub/        # community skill discovery and install with a trust gate
 external_plugins/         # partner-built plugins maintained by their vendors
   cocounsel-legal/        # Thomson Reuters — Westlaw Deep Research via the CoCounsel Legal MCP
+  redjudicial-legal/      # Simpley SpA — Chilean Supreme Court, statutes, and doctrine via Red Judicial MCP
 managed-agent-cookbooks/  # Claude Managed Agent cookbooks — one dir per scheduled agent
   diligence-grid/
   docket-watcher/
@@ -276,6 +277,7 @@ Plugins under [`external_plugins/`](./external_plugins) are built and maintained
 | Plugin | Built by | What it adds |
 |---|---|---|
 | **[cocounsel-legal](./external_plugins/cocounsel-legal)** | Thomson Reuters | Westlaw Deep Research with fully cited reports — caselaw, statutes, regulations, Practical Law, and secondary sources across up to three U.S. jurisdictions per run. Requires a CoCounsel Legal subscription with the MCP connector enabled. Support: cocounselsupport@tr.com. |
+| **[redjudicial-legal](./external_plugins/redjudicial-legal)** | Simpley SpA | Chilean legal corpus — over 283,000 Chilean Supreme Court decisions (2005-present), in-force statutes from BCN / LeyChile, and open-access Chilean doctrine. Every result links back to the official source. OAuth 2.0 with Dynamic Client Registration. Support: contacto@redjudicial.cl. |
 
 ## The trust layer for community legal skills
 
@@ -306,6 +308,7 @@ These plugins ship connectors for the systems legal teams live in. A connector g
 | **Slack** | Read channels, search, send messages and canvases | all plugins | Your workspace |
 | **Google Drive** | Read docs, sheets, slides; fetch by link | all plugins | Your account |
 | **CoCounsel Legal (Thomson Reuters)** | Westlaw Deep Research — cited reports across caselaw, statutes, regulations, Practical Law | `cocounsel-legal` | Customer subscription; OAuth |
+| **Red Judicial (Simpley SpA)** | Chilean Supreme Court rulings, in-force statutes, and open-access doctrine — cross-source retrieval with links to the official record | `redjudicial-legal` | Customer subscription; OAuth 2.0 with DCR |
 | **Box** | Read files and folders in VDRs and matter rooms | `corporate-legal` | Your tenant |
 | **Ironclad** | Read the contract register, renewal dates, clauses | `commercial-legal` | Customer subscription |
 | **DocuSign / DocuSign CLM** | Envelope status, executed contracts, CLM metadata | `commercial-legal` | Customer subscription |
@@ -560,6 +563,15 @@ The full map across all plugins. The cold-start interview is the first thing to 
 | Command | Skill | What it does |
 |---|---|---|
 | `/cocounsel-legal:deep-research` | deep-research | Run Westlaw Deep Research — start, poll, and present a fully cited report |
+
+### redjudicial-legal (Simpley SpA)
+
+| Command | Skill | What it does |
+|---|---|---|
+| `/redjudicial-legal:investigar-jurisprudencia` | investigar-jurisprudencia | Search Chilean Supreme Court rulings on a research question |
+| `/redjudicial-legal:buscar-norma` | buscar-norma | Retrieve the in-force text of a Chilean statute or article from BCN / LeyChile |
+| `/redjudicial-legal:resumir-sentencia` | resumir-sentencia | Summarize a Chilean Supreme Court ruling by its `Rol` (case number) |
+| `/redjudicial-legal:analizar-doctrina` | analizar-doctrina | Find Chilean academic doctrine on a legal topic from open-access sources |
 
 ## Contributing
 
