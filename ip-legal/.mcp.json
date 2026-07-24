@@ -6,6 +6,12 @@
       "title": "Solve Intelligence",
       "description": "Patent workflows — search patent and non-patent literature, legal texts, SEP technical standards, prior art, claim analysis."
     },
+    "Patent Client Agents": {
+      "type": "http",
+      "url": "https://mcp.patentclient.com/mcp",
+      "title": "Patent Client Agents",
+      "description": "USPTO and EPO patent + trademark data — application status, prosecution history, office actions, PTAB decisions, patent and trademark assignments, TSDR trademark status and deadlines, fulltext, MPEP, TMEP, CPC."
+    },
     "CourtListener": {
       "type": "http",
       "url": "https://mcp.courtlistener.com/",
