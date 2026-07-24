@@ -41,6 +41,12 @@
       "url": "https://drivemcp.googleapis.com/mcp/v1",
       "title": "Google Drive",
       "description": "Search, read, and fetch documents from Google Drive."
+    },
+    "Contracts AI": {
+      "type": "http",
+      "url": "https://api.contracts.ai/api/mcp/",
+      "title": "Contracts AI",
+      "description": "Search your organization's contract data with plain-language queries, review agreement details, and track upcoming renewals — including expiry risk, key provisions, and counterparty insights within your organization's permissions."
     }
   },
   "recommendedCategories": [

@@ -72,6 +72,7 @@ Ships with connectors configured in `.mcp.json`:
 - **DocuSign** — signature status and envelope tracking
 - **Slack** — search messages, read channels, find discussions (general bucket)
 - **Google Drive** — search, read, and fetch documents (general bucket)
+- **ContractsAI** - plain-language contract search, clause insights, and renewal tracking
 
 With a [CLM] connected: reviews check for prior agreements with the same counterparty, bulk-load the renewal register, create records with review memos attached.
 
