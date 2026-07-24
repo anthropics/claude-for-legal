@@ -26,7 +26,7 @@
     },
     "Definely": {
       "type": "http",
-      "url": "https://mcp.uk.definely.com/api/proxy/core-mcp",
+      "url": "https://mcp.app.definely.com",
       "title": "Definely",
       "description": "Live, deterministic access to contract structure — resolve definitions, validate cross-references, map dependencies, run structural diffs."
     },
