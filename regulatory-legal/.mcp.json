@@ -11,7 +11,13 @@
       "url": "https://drivemcp.googleapis.com/mcp/v1",
       "title": "Google Drive",
       "description": "Search, read, and fetch documents from Google Drive."
-    }
+    },
+    "Zeeker": {
+      "type": "http",
+      "url": "https://mcp.zeeker.sg/mcp",
+      "title": "Zeeker",
+      "description": "Singapore legal datasets — court judgments, PDPC enforcement decisions, government newsrooms, and legal commentaries."
+  }
   },
   "recommendedCategories": [
     "legal-research",
