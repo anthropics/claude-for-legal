@@ -36,6 +36,12 @@
       "title": "Slack",
       "description": "Search messages, read channels, find discussions across your workspace."
     },
+    "SpotDraft": {
+      "type": "http",
+      "url": "https://mcp.us.spotdraft.com/mcp",
+      "title": "SpotDraft",
+      "description": "Search contracts, check status and approvals, look up counterparty history, track legal intakes, and retrieve key terms from your SpotDraft CLM. Connect with your SpotDraft account via OAuth — Claude will prompt you to authorize on first use."
+    },
     "Google Drive": {
       "type": "http",
       "url": "https://drivemcp.googleapis.com/mcp/v1",

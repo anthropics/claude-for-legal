@@ -55,6 +55,7 @@ is the final escalation point. We process roughly [N] agreements per month, most
 | Integration | Status | Fallback if unavailable |
 |---|---|---|
 | CLM (Ironclad, Agiloft, etc.) | [PLACEHOLDER ✓/✗] | Manual record-keeping; renewal-tracker runs against a local register |
+| SpotDraft CLM | [PLACEHOLDER ✓/✗] | Manual counterparty lookup; renewal register filled manually; intakes routed without SpotDraft context |
 | E-signature (DocuSign, etc.) | [PLACEHOLDER ✓/✗] | User routes for signature outside the plugin |
 | Document storage (Drive / SharePoint / Box) | [PLACEHOLDER ✓/✗] | User uploads agreements directly for each review |
 | Slack | [PLACEHOLDER ✓/✗] | Alerts and stakeholder summaries delivered inline instead of posted |

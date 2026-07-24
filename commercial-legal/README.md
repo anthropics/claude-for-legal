@@ -32,6 +32,10 @@ It writes what it learns to `~/.claude/plugins/config/claude-for-legal/commercia
 | `/commercial-legal:cold-start-interview` | Run (or re-run) the cold-start interview |
 | `/commercial-legal:review [file]` | Review a vendor agreement, NDA, or SaaS subscription against your playbook |
 | `/commercial-legal:renewal-tracker` | What's renewing in the next 90 days and when the cancel-by deadlines are |
+| `/commercial-legal:spotdraft-contract-lookup` | Look up prior SpotDraft agreements with a counterparty; key pointers and approval history |
+| `/commercial-legal:spotdraft-renewal-import` | Bulk-import active SpotDraft contracts into the renewal register |
+| `/commercial-legal:spotdraft-intake-triage` | Triage pending SpotDraft legal intakes and route to the right skill |
+| `/commercial-legal:spotdraft-post-review` | Post a review summary as a comment on the SpotDraft contract (write connector) |
 | `/commercial-legal:escalation-flagger` | Route an issue to the right approver and draft the ask |
 | `/commercial-legal:amendment-history [file(s)]` | Trace how a contract has changed across its base agreement and all amendments |
 | `/commercial-legal:review-proposals` | Step through pending playbook update proposals from the monitor agent |
@@ -46,6 +50,10 @@ It writes what it learns to `~/.claude/plugins/config/claude-for-legal/commercia
 | **nda-review** | Fast GREEN/YELLOW/RED triage so legal only reads the NDAs that need it |
 | **saas-msa-review** | Subscription-specific overlay: auto-renewal, price escalation, data exit, SLAs |
 | **renewal-tracker** | Register of cancel-by deadlines, surfaces what's coming |
+| **spotdraft-contract-lookup** | Prior agreements, key pointers, and approval history from SpotDraft CLM |
+| **spotdraft-renewal-import** | Bulk-import active SpotDraft contracts into the renewal register |
+| **spotdraft-intake-triage** | Classify and route pending SpotDraft legal intakes |
+| **spotdraft-post-review** | Post review summary as a SpotDraft contract comment (write connector) |
 | **escalation-flagger** | Matches issues to the escalation matrix, drafts the approver ask |
 | **stakeholder-summary** | Two-paragraph business translation of a legal review |
 | **amendment-history** | Summarizes changes across a base agreement and its amendments, or traces a specific provision to its current controlling language |
@@ -69,11 +77,16 @@ The commands above run when you invoke them — for when you're working a matter
 Ships with connectors configured in `.mcp.json`:
 
 - **Ironclad** — contract lifecycle management
+- **SpotDraft** — contract lifecycle management (US region; OAuth on first use)
 - **DocuSign** — signature status and envelope tracking
 - **Slack** — search messages, read channels, find discussions (general bucket)
 - **Google Drive** — search, read, and fetch documents (general bucket)
 
-With a [CLM] connected: reviews check for prior agreements with the same counterparty, bulk-load the renewal register, create records with review memos attached.
+**SpotDraft auth:** OAuth 2.0 (MCP Authorization spec). When you add the connector and first invoke a SpotDraft tool, Claude prompts you to authorize with your SpotDraft account. No API keys to configure — authorization server is `https://api.us.spotdraft.com`. SSO-enabled workspaces use your organization's SSO in the OAuth flow.
+
+**SpotDraft write tools (opt-in):** The default connector is read-only. To post review comments to SpotDraft (`/commercial-legal:spotdraft-post-review`), add a separate connector in Settings → Connectors with URL `https://mcp.us.spotdraft.com/mcp?enable_write=true` (re-authorize via OAuth). Only `spotdraft-post-review` uses write tools.
+
+With a [CLM] connected: reviews check for prior agreements with the same counterparty, bulk-load the renewal register, create records with review memos attached. With SpotDraft connected, use `/commercial-legal:spotdraft-contract-lookup`, `/commercial-legal:spotdraft-renewal-import`, `/commercial-legal:spotdraft-intake-triage`, and `/commercial-legal:spotdraft-post-review` (write connector required for post-review).
 
 With DocuSign connected: track signature status, route envelopes in approver order.
 
@@ -130,6 +143,10 @@ commercial-legal/
 │   ├── saas-msa-review/
 │   ├── renewal-tracker/
 │   │   └── references/renewal-register.yaml
+│   ├── spotdraft-contract-lookup/
+│   ├── spotdraft-renewal-import/
+│   ├── spotdraft-intake-triage/
+│   ├── spotdraft-post-review/
 │   ├── escalation-flagger/
 │   ├── amendment-history/
 │   ├── matter-workspace/
