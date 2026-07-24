@@ -3,16 +3,20 @@ name: clearance
 description: >
   Trademark clearance first pass — knockout + similar-marks check producing a
   flag list, not a clearance opinion. Use when a new mark is proposed, when
-  asked whether a mark is available or to run a knockout search, or when
+  asked whether a mark is available, or to run a knockout search, or when
   assessing likelihood-of-confusion factors before a full professional search.
   This skill never concludes a mark is clear.
+license: >
+  Nice Classification List information is derived from official World Intellectual
+  Property Organization (WIPO) sources, which are published under a Creative Commons
+  [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/ license).
 argument-hint: "[describe the proposed mark, goods/services, and jurisdictions — or just the mark and I'll ask]"
 ---
 
 # /clearance
 
 **This is a triage, not a clearance opinion.** A trademark clearance opinion
-requires a full professional search and registered trademark counsel's
+requires a full professional search and experienced trademark counsel's
 judgment. A "no obvious conflicts" result means the triage
 didn't find anything — it does not mean the mark is clear. Clients have been
 sued over marks that passed a knockout search.
@@ -56,8 +60,8 @@ decides.
 **Say this at the top of every output. Do not drop it. Do not soften it.**
 
 > **This is a first pass, not a clearance opinion.** A trademark clearance opinion
-> requires a full professional search (TESS, state registries, common law sources,
-> international registries, domain and social, trade dress and design marks where
+> requires a full professional search (federal and state registers, common law sources,
+> international registers, domain and social, trade dress and design marks where
 > relevant) and attorney judgment on likelihood of confusion, which depends on
 > factors a structured triage cannot fully assess. A "no obvious conflicts" result
 > from this skill means the triage didn't find anything — it does not mean the
@@ -158,9 +162,9 @@ to decide whether confusion is likely. That is the attorney's call.
 Read `## Available integrations` from `~/.claude/plugins/config/claude-for-legal/ip-legal/CLAUDE.md`:
 
 - **If a trademark search connector is available** (Solve Intelligence,
-  Descrybe — or any MCP exposing TM-registry search): run a preliminary search
+  Descrybe — or any MCP exposing TM-register search): run a preliminary search
   across the relevant classes and jurisdictions. Attribute every result to its
-  source. Note the date of the search and the scope (which registries, which
+  source. Note the date of the search and the scope (which registers, which
   classes, exact-match vs. fuzzy, design search or not).
 - **If a legal research connector is available** (CourtListener for litigation for case law and TTAB decisions): sweep for reported disputes involving
   the mark or a close variant. Same attribution rule.
@@ -171,8 +175,8 @@ Read `## Available integrations` from `~/.claude/plugins/config/claude-for-legal
 
 Write out, in the output, this exact statement:
 
-> **No database search was run.** This triage did not hit TESS, Solve
-> Intelligence, Descrybe, CourtListener, state registries, Madrid/WIPO, or any
+> **No database search was run.** This triage did not hit USPTO, Solve
+> Intelligence, Descrybe, CourtListener, state registers, Madrid/WIPO, or any
 > common law / unregistered-mark sources. A knockout or full search across those
 > databases is required before any conclusion about availability. The triage
 > below is limited to intrinsic-bar analysis and structured confusion factors
@@ -186,7 +190,7 @@ just labeled honestly.
 Capture:
 
 - **Mark** (exact characters, any stylization)
-- **Source** (TESS registration no., Madrid designation, state registry, case
+- **Source** (USPTO registration no., Madrid designation, state register, case
   citation, domain, social handle — whichever)
 - **Classes / goods-services description** from the register
 - **Owner**
@@ -268,7 +272,7 @@ test that applies:
 - **Second Circuit:** *Polaroid Corp. v. Polarad Electronics Corp.*, 287 F.2d 492
   (2d Cir. 1961) (8 factors).
 - **Ninth Circuit:** *AMF Inc. v. Sleekcraft Boats*, 599 F.2d 341 (9th Cir. 1979)
-  (8 factors).
+  (8 factors). Model jury instruction with additional comments: https://www.ce9.uscourts.gov/jury-instructions/node/244.
 - **Other circuits:** walk through the circuit's named multi-factor test (e.g.,
   *Frisch's Restaurants* in the Sixth Circuit, *Scotch Whisky Association* in the
   Seventh, *Lapp* in the Third).
@@ -305,6 +309,15 @@ Per the decision posture in `~/.claude/plugins/config/claude-for-legal/ip-legal/
   before adoption." Or: "Factors cut both ways; attorney judgment required."
 - Clear space for "no similar marks found in the databases searched" is fine
   *only* if a real search was run; see the no-search fallback above otherwise.
+
+---
+
+## Classes
+
+When "classes" or "Nice classes" are mentioned, this refers to an international classification
+scheme called the Nice Classification. If more information is needed on what specific classes
+include or exclude, consult the official class headings in
+`references/ip-legal-clearance-trademark-class-headings-20260101.md` in the plugin root.
 
 ---
 
@@ -365,7 +378,7 @@ or invests in this mark.
 
 ## Similar marks check
 
-**Sources searched:** [registries and databases hit, with dates — or "no database
+**Sources searched:** [trademark registers and databases hit, with dates — or "no database
 search run; see scope note below."]
 **Scope:** [classes, jurisdictions, exact-vs-fuzzy, design search or not]
 
@@ -385,7 +398,7 @@ to the full professional search — not silently skipped.*
 | [exact] | [registration no. / citation / URL] | [class list] | [owner from record] | [reg/pending/abandoned/cancelled] | [date or "not available"] | [why it matters — exact match / adjacent family] |
 
 *If no search was run:* **No database search was run.** This triage did not hit
-TESS, Solve Intelligence, Descrybe, CourtListener, state registries,
+USPTO, Solve Intelligence, Descrybe, CourtListener, state registers,
 Madrid/WIPO, or any common law / unregistered-mark sources. A knockout or full
 search across those databases is required before any conclusion about availability.
 
@@ -414,7 +427,7 @@ each way.
 ## Recommended next steps
 
 - [specific next step 1 — e.g., "Full professional search across USPTO, state
-  registries, common law sources, EUIPO, and UK IPO before adoption"]
+  registers, common law sources, EUIPO, and UK IPO before adoption"]
 - [specific next step 2 — e.g., "Design-around review of the `APEXLEAF` mark
   in Class 25 if the intent is to proceed"]
 - [specific next step 3 — e.g., "Reframe the mark — current form is descriptive
@@ -474,7 +487,7 @@ End with the next-steps decision tree per CLAUDE.md `## Outputs`. Customize the 
 ## What this skill does not do
 
 - **Conclude a mark is clear.** Ever. The loudest guardrail in the plugin.
-- **Substitute for TESS search, state-registry search, common-law search,
+- **Substitute for USPTO register search, state-register search, common-law search,
   international search, watch-service check, or design-mark search.**
 - **File a trademark application.** Filing is an attorney task; this skill
   informs the decision to file.
