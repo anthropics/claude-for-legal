@@ -11,6 +11,12 @@
       "url": "https://drivemcp.googleapis.com/mcp/v1",
       "title": "Google Drive",
       "description": "Search, read, and fetch documents from Google Drive."
+    },
+    "Global AI Regulation Tracker": {
+      "type": "http",
+      "url": "https://mcp.techieray.com/mcp",
+      "title": "Global AI Regulation Tracker",
+      "description": "Jurisdiction-tagged AI regulation tracking across 238 countries and international bodies \u2014 laws, executive orders, regulatory guidance, and official materials with source URLs. Free tier returns titles and links; full paragraph summaries via subscription key at www.techieray.com/GlobalAIRegulationTracker"
     }
   },
   "recommendedCategories": [
