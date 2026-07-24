@@ -536,6 +536,7 @@ The full map across all plugins. The cold-start interview is the first thing to 
 | `/regulatory-legal:policy-redraft` | policy-redraft | Marked-up policy redraft closing a gap — proposal for the policy owner's review |
 | `/regulatory-legal:comments` | (tracker) | Review open NPRM comment periods and deadlines |
 | `/regulatory-legal:matter-workspace` | matter-workspace | Manage matter workspaces (practice-level) |
+| `/regulatory-legal:eu-sparql-search` | eu-sparql-search | Search EU legislation and CJEU case law via the Cellar SPARQL endpoint (EUR-Lex) |
 | scheduled | reg-change-monitor (agent) | Scheduled regulatory feed sweep with materiality filter |
 
 ### law-student

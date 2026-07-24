@@ -31,6 +31,7 @@ Asks which regulators you watch, connects your policy document folder, learns wh
 | `/regulatory-legal:comments` | Review open NPRM comment periods, log decisions, track deadlines |
 | `/regulatory-legal:policy-redraft` | Proposed marked-up policy redraft that closes a gap — a first draft for internal review, not a direct edit to source documents |
 | `/regulatory-legal:matter-workspace` | Manage matter workspaces (multi-client private practice only) — new, list, switch, close, none |
+| `/regulatory-legal:eu-sparql-search [CELEX \| type \| topic]` | Search EU legislation and CJEU case law via the Publications Office SPARQL endpoint (Cellar / EUR-Lex) |
 | **gap-surfacer** *(reference)* | Shared gap- and comment-tracker framework loaded by `/gaps` and `/comments` |
 
 ## Interactive skills vs. scheduled agents
