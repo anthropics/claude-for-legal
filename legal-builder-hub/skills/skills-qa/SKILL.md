@@ -680,7 +680,11 @@ you would deploy it with confidence.]
   relevant area.
 - **Guarantee performance.** A "Ready" verdict means the skill was designed
   well against the framework. It is not a performance guarantee against your
-  specific inputs and edge cases.
+  specific inputs and edge cases. For quantitative performance scoring
+  against jurisdiction-keyed question banks, see for example the
+  [Pariksha Benchmark](https://github.com/Aritra003/pariksha-benchmark)
+  (Apache-2.0). Design QA and performance scoring answer different
+  questions; neither replaces the other.
 - **Substitute for the installer's trust check.** The installer separately
   inspects hooks, MCP declarations, tool permissions, and network calls before
   any install. This skill's trust-surface parameter complements that check with
