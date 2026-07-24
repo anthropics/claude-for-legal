@@ -30,6 +30,7 @@ Connectors shipped in the default `.mcp.json` of each plugin:
 | **Definely** | commercial-legal, corporate-legal |
 | **iManage** | commercial-legal, corporate-legal |
 | **Solve Intelligence** | corporate-legal, ip-legal |
+| **ArcPrime** | ip-legal |
 | **TopCounsel** | commercial-legal, corporate-legal, litigation-legal |
 | **Box** | corporate-legal |
 | **Ironclad** | commercial-legal |
