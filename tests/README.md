@@ -15,7 +15,12 @@ fixes down as regression tests so they cannot silently reappear.
 ```
 tests/
   README.md                     # this file
-  conftest.py                   # shared fixtures: tmp cookbook trees, sample payloads
+  conftest.py                   # shared fixtures: path-loading the scripts,
+                                #   tmp cookbook trees, handoff payload builders,
+                                #   audit-log isolation
+  test_conftest.py              # checks on the fixtures themselves — that the
+                                #   stock payload really validates and the stock
+                                #   cookbook really lints clean
   test_validate.py              # validate.py — schema pass/fail, YAML+JSON loading,
                                 #   exit codes (0 valid / 1 invalid / 2 usage)
   test_lint_tool_scope.py       # lint-tool-scope.py — orchestrator over-grant
@@ -29,15 +34,16 @@ tests/
                                 #   bash -n syntax smoke; every mktemp -t template
                                 #   ends in X's (#41 regression, including the
                                 #   call site no dry-run can reach)
-  fixtures/
-    cookbooks/                  # minimal synthetic agent.yaml + subagents/ trees
-    payloads/                   # sample handoff/event texts (synthetic only)
 ```
 
 ## Design decisions
 
-- **pytest only; no new runtime dependencies.** The scripts already require
-  `jsonschema` and `pyyaml`; the suite adds nothing beyond `pytest` itself.
+- **pytest only; no new runtime dependencies.** The scripts require
+  `jsonschema` and `pyyaml`, which the suite reuses. `orchestrate.py` also
+  imports `anthropic` at module scope, used in one place — the client
+  constructed inside `run()`, which needs a live session and is out of scope.
+  `conftest.py` satisfies that import with a stand-in that raises if anything
+  tries to build a client, rather than taking on the SDK as a test dependency.
 - **Scripts are imported, not shelled out to, where possible.** `scripts/` is
   not a package, so `conftest.py` loads modules by path via `importlib`. Exit
   codes and CLI behavior get a thin `subprocess` smoke test each; unit tests
@@ -49,6 +55,19 @@ tests/
 - **All fixture data is synthetic.** No client material, no real matter names,
   no content derived from practice — fixtures are minimal invented YAML/JSON
   shaped only to exercise the code paths.
+- **Fixtures are built by factories, not checked in.** Every lint case is the
+  compliant `tools:` block with one thing changed, and every handoff case is a
+  valid blob with one field varied. As files those would be a dozen
+  near-identical trees whose small differences are the entire point. The
+  factories live in `conftest.py` and default to the *passing* case, so a test
+  introduces exactly one violation and can attribute the result to it.
+- **The audit log is isolated, then asserted on.** `orchestrate.AUDIT_PATH` is
+  relative, so an unredirected rejection test writes `out/handoff-audit.jsonl`
+  into whatever directory pytest ran from — the repo root, which gitignores
+  `/outputs/` but not `/out/`. The `orchestrate` fixture is the only way to
+  reach the module and always redirects it under `tmp_path`. The records are
+  then read back rather than discarded: the `raw_len` derivation that #56
+  changed is observable nowhere else.
 - **The `mktemp -t` check covers a gap `test-cookbooks.sh` cannot.** #41 patched
   two `-t` templates in `deploy-managed-agent.sh`. Only one of them — the
   `skillcache` file opened at the top of the script — runs under `--dry-run`,
@@ -82,6 +101,8 @@ python3 -m pytest tests/
 
 ## Status
 
-`test_shell_static.py` has landed: 6 tests, needing nothing beyond `pytest`
-and `bash`. `conftest.py` and the remaining modules are still proposals and
-land incrementally.
+Landed: `test_shell_static.py` (6 tests, needing nothing beyond `pytest` and
+`bash`) and `conftest.py` with `test_conftest.py` (20 tests over the fixtures).
+The four modules those fixtures exist for — `test_validate.py`,
+`test_lint_tool_scope.py`, `test_orchestrate_sanitize.py`,
+`test_orchestrate_handoff.py` — are still proposals and land incrementally.
