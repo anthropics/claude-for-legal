@@ -1,0 +1,4 @@
+# Runtime dependency for the extraction backend (engine/extract.py).
+# The pure scoring + gate logic and its tests need nothing here — only the real
+# PDF extraction path imports pdfplumber.
+pdfplumber>=0.11
