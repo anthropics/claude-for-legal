@@ -68,6 +68,12 @@ tests/
   reach the module and always redirects it under `tmp_path`. The records are
   then read back rather than discarded: the `raw_len` derivation that #56
   changed is observable nowhere else.
+- **A known defect is an `xfail`, not a silent gap.** `extract_handoff` raises
+  `TypeError` rather than rejecting when `target_agent` is a JSON array or
+  object, because the allowlist check hashes the value. The suite asserts the
+  behavior it should have, under `xfail(strict=True)`: green while the defect
+  stands, red the moment it is fixed and the marker outlives it. Fixing the
+  script is a separate change — a tests PR should not edit what it tests.
 - **The `mktemp -t` check covers a gap `test-cookbooks.sh` cannot.** #41 patched
   two `-t` templates in `deploy-managed-agent.sh`. Only one of them — the
   `skillcache` file opened at the top of the script — runs under `--dry-run`,
@@ -102,7 +108,9 @@ python3 -m pytest tests/
 ## Status
 
 Landed: `test_shell_static.py` (6 tests, needing nothing beyond `pytest` and
-`bash`) and `conftest.py` with `test_conftest.py` (20 tests over the fixtures).
-The four modules those fixtures exist for — `test_validate.py`,
-`test_lint_tool_scope.py`, `test_orchestrate_sanitize.py`,
-`test_orchestrate_handoff.py` — are still proposals and land incrementally.
+`bash`), `conftest.py` with `test_conftest.py` (20 tests over the fixtures),
+and `test_orchestrate_handoff.py` (64 cases over `extract_handoff` and
+`_validate_params`, two of them expected failures — see above). Three of the
+modules those fixtures exist for are still proposals and land incrementally:
+`test_validate.py`, `test_lint_tool_scope.py`, and
+`test_orchestrate_sanitize.py`.
