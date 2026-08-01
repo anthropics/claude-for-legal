@@ -1,0 +1,9 @@
+{
+  "name": "preprocess-legal",
+  "version": "0.1.0",
+  "description": "Transparent local pre-processing for document-heavy legal work. A PreToolUse hook intercepts each Read of a PDF, extracts text-native content locally, scores per-document extraction confidence, and redirects the read to clean text on a pass or to an honest withheld-marker on a fail. Refuses to pass degraded, plausible-looking extractions into context silently. Opt-in. Slice 1: text-native extraction + confidence gate (OCR fallback deferred).",
+  "author": {
+    "name": "Eric Tetzlaff",
+    "email": "eric@erictetzlaff.com"
+  }
+}

@@ -1,0 +1,11 @@
+# Materialized extraction cache (clean text + withheld markers). Local per-user,
+# never shipped.
+.preprocess-cache/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local machine settings that must never ship with the plugin
+.claude/settings.local.json
