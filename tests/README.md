@@ -1,16 +1,17 @@
 # Tests for `scripts/`
 
-Proposed pytest suite for the repo's tooling. The scripts under `scripts/`
+Pytest suite for the repo's tooling. The scripts under `scripts/`
 carry real logic — output-schema validation, cookbook tool-scope linting, and
 the security-sensitive handoff machinery in `orchestrate.py` — but currently
-have no automated tests. Two of the three outside contributions merged to date
-were fixes to these scripts ([#41], [#56]); this suite starts by pinning those
-fixes down as regression tests so they cannot silently reappear.
+have no automated tests. Every pull request merged from a fork so far has landed
+in `scripts/` ([#41], [#54], [#56]), two of them bug fixes; this suite starts by
+pinning those two down as regression tests so they cannot silently reappear.
 
 [#41]: https://github.com/anthropics/claude-for-legal/pull/41
+[#54]: https://github.com/anthropics/claude-for-legal/pull/54
 [#56]: https://github.com/anthropics/claude-for-legal/pull/56
 
-## Proposed layout
+## Layout
 
 ```
 tests/
@@ -22,7 +23,8 @@ tests/
                                 #   stock payload really validates and the stock
                                 #   cookbook really lints clean
   test_validate.py              # validate.py — schema pass/fail, YAML+JSON loading,
-                                #   exit codes (0 valid / 1 invalid / 2 usage)
+                                #   exit codes (0 valid / 1 invalid / 2 usage), and
+                                #   every shipped output_schema as a real input
   test_lint_tool_scope.py       # lint-tool-scope.py — orchestrator over-grant
                                 #   detection, clean-cookbook pass, exit codes
   test_orchestrate_sanitize.py  # orchestrate.py — _strip_controls / sanitize_event:
@@ -72,11 +74,22 @@ tests/
   wrong thing, the suite asserts the behavior it *should* have under
   `xfail(strict=True)`: green while the defect stands, red the moment it is
   fixed and the marker outlives it. Fixing the scripts is a separate change —
-  a tests PR should not edit what it tests. Two are marked so far.
-  `extract_handoff` raises `TypeError` rather than rejecting when
-  `target_agent` is a JSON array or object, because the allowlist check hashes
-  the value. `_lint_one` raises `AttributeError` on an empty or comment-only
-  `agent.yaml`, because `yaml.safe_load` returns `None` for one.
+  a tests PR should not edit what it tests. Three are marked. `extract_handoff`
+  raises `TypeError` rather than rejecting when `target_agent` is a JSON array
+  or object, because the allowlist check hashes the value. `_lint_one` raises
+  `AttributeError` on an empty or comment-only `agent.yaml`, because
+  `yaml.safe_load` returns `None` for one. And
+  `diligence-grid/subagents/extractor.yaml` declares an `output_schema` that
+  fails `check_schema` — `type: [string, number, null]`, where YAML's bare
+  `null` is a null value and JSON Schema wants the string `"null"`.
+- **Some assertions are about this repo's content, not about fixtures.** Three
+  checks run over the tree rather than over `tmp_path`: the five orchestrator
+  `agent.yaml` files lint clean, the eleven subagent `output_schema:` blocks
+  are valid JSON Schema, and every valid one rejects an empty document through
+  `validate.py`'s real entry point. Synthetic data proves a script detects what
+  it looks for; only the real tree proves there is nothing to detect. The
+  `extractor.yaml` defect above surfaced this way — `validate.py` exists to
+  check output against those schemas, and nothing had ever run it against them.
 - **A control's documented limits are asserted, not implied.** `orchestrate.py`
   calls its denylist "trivially bypassed... not to stop a motivated attacker,"
   so `test_orchestrate_sanitize.py` carries a section asserting that
@@ -114,17 +127,39 @@ tests/
 ## Running
 
 ```
-pip install pytest jsonschema pyyaml
 python3 -m pytest tests/
 ```
 
+The suite needs `pytest`, plus the `jsonschema` and `pyyaml` that the scripts
+themselves import. On distributions that mark the system interpreter as
+externally managed (PEP 668 — Debian, Ubuntu, Fedora), a bare
+`pip install` is refused; use a virtualenv:
+
+```
+python3 -m venv ~/.venvs/claude-for-legal
+~/.venvs/claude-for-legal/bin/pip install pytest jsonschema pyyaml
+~/.venvs/claude-for-legal/bin/python -m pytest tests/
+```
+
+Install all three even if the system already provides `jsonschema` and
+`pyyaml` — a virtualenv does not inherit distro-packaged modules.
+
 ## Status
 
-Landed: `test_shell_static.py` (6 tests, needing nothing beyond `pytest` and
-`bash`), `conftest.py` with `test_conftest.py` (20 tests over the fixtures),
-`test_orchestrate_handoff.py` (64 cases over `extract_handoff` and
-`_validate_params`), and `test_lint_tool_scope.py` (27 cases over `_lint_one`
-and `main`, including the repo's own five cookbooks), and
-`test_orchestrate_sanitize.py` (62 cases over `_strip_controls` and
-`sanitize_event`). Six of those cases are expected failures — see above. One
-module remains a proposal and lands next: `test_validate.py`.
+All six modules have landed: 213 cases, of which 7 are expected failures
+documenting three known defects (see the `xfail` note above).
+
+| module | cases | covers |
+| --- | --- | --- |
+| `test_conftest.py` | 20 | the fixtures themselves |
+| `test_shell_static.py` | 6 | `deploy-managed-agent.sh`, `test-cookbooks.sh` |
+| `test_orchestrate_handoff.py` | 64 | `extract_handoff`, `_validate_params` |
+| `test_orchestrate_sanitize.py` | 62 | `_strip_controls`, `sanitize_event` |
+| `test_lint_tool_scope.py` | 27 | `_lint_one`, `main` |
+| `test_validate.py` | 34 | `_load`, `main`, the shipped `output_schema` blocks |
+
+Branch coverage of the three Python scripts is 98% for `lint-tool-scope.py`,
+94% for `validate.py` and 83% for `orchestrate.py`. What remains uncovered is
+`orchestrate.run()`, which needs a live session, and the `__main__` blocks,
+which the subprocess tests exercise out of process. The two shell scripts are
+covered statically only; behavioral shell testing remains a follow-up.
