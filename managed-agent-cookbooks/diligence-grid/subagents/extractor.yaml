@@ -60,7 +60,7 @@ output_schema:
           state:
             type: string
             enum: [answered, not_present, unclear, needs_review]
-          value: { type: [string, number, null], maxLength: 2000 }
+          value: { type: [string, number, "null"], maxLength: 2000 }
           value_structured:
             type: object
             additionalProperties: false
