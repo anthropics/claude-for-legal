@@ -265,7 +265,10 @@ def extract_handoff(text: str, source_agent: str = "unknown") -> dict | None:
 
     target = obj.get("target_agent")
     payload = obj.get("payload")
-    if target not in ALLOWED_TARGETS:
+    # The type check comes first because the blob is attacker-influenced: a
+    # JSON array or object here is unhashable, and set membership would raise
+    # TypeError out of run()'s stream loop instead of rejecting the handoff.
+    if not isinstance(target, str) or target not in ALLOWED_TARGETS:
         audit_log({"source": source_agent, "target": target,
                    "result": "reject", "reason": "target_not_allowlisted",
                    "raw_len": raw_len})
