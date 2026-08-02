@@ -77,6 +77,16 @@ tests/
   `target_agent` is a JSON array or object, because the allowlist check hashes
   the value. `_lint_one` raises `AttributeError` on an empty or comment-only
   `agent.yaml`, because `yaml.safe_load` returns `None` for one.
+- **A control's documented limits are asserted, not implied.** `orchestrate.py`
+  calls its denylist "trivially bypassed... not to stop a motivated attacker,"
+  so `test_orchestrate_sanitize.py` carries a section asserting that
+  homoglyphs, digit substitution and rephrasing pass straight through. Absent
+  tests read as an absent weakness. If the denylist is ever hardened, those
+  cases fail and the script's own docstring needs revisiting in the same
+  change.
+- **Invisible characters appear as escapes, never as literals.** A fixture
+  containing a raw `U+200B` cannot be reviewed in a diff, which defeats the
+  point of a test asserting that `U+200B` is removed.
 - **The `mktemp -t` check covers a gap `test-cookbooks.sh` cannot.** #41 patched
   two `-t` templates in `deploy-managed-agent.sh`. Only one of them — the
   `skillcache` file opened at the top of the script — runs under `--dry-run`,
@@ -114,7 +124,7 @@ Landed: `test_shell_static.py` (6 tests, needing nothing beyond `pytest` and
 `bash`), `conftest.py` with `test_conftest.py` (20 tests over the fixtures),
 `test_orchestrate_handoff.py` (64 cases over `extract_handoff` and
 `_validate_params`), and `test_lint_tool_scope.py` (27 cases over `_lint_one`
-and `main`, including the repo's own five cookbooks). Six of those cases are
-expected failures — see above. Two of the modules these fixtures exist for are
-still proposals and land incrementally: `test_validate.py` and
-`test_orchestrate_sanitize.py`.
+and `main`, including the repo's own five cookbooks), and
+`test_orchestrate_sanitize.py` (62 cases over `_strip_controls` and
+`sanitize_event`). Six of those cases are expected failures — see above. One
+module remains a proposal and lands next: `test_validate.py`.
