@@ -37,7 +37,6 @@ mcp_servers:
   - { type: url, name: linear,    url: "${LINEAR_MCP_URL}" }
   - { type: url, name: atlassian, url: "${ATLASSIAN_MCP_URL}" }
   - { type: url, name: asana,     url: "${ASANA_MCP_URL}" }
-  - { type: url, name: gdrive,    url: "${GDRIVE_MCP_URL}" }
 
 skills:
   - { from_plugin: ../../product-legal }

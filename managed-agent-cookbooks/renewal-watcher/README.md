@@ -18,9 +18,9 @@ This is a **cookbook, not a product.** It assumes Ironclad as the CLM of record 
 export ANTHROPIC_API_KEY=sk-ant-...
 export IRONCLAD_MCP_URL=...
 export GDRIVE_MCP_URL=...
-# Optional — enable in the manifest if your signed agreements live here
+# Optional — enable the imanage toolset in subagents/repo-reader.yaml if your
+# signed agreements live there
 export IMANAGE_MCP_URL=...
-export DOCUSIGN_MCP_URL=...
 ../../scripts/deploy-managed-agent.sh renewal-watcher
 ```
 
@@ -35,8 +35,9 @@ Contract text, counterparty messages, and CLM comments are **untrusted input.** 
 | Tier | Touches untrusted docs? | Tools | Connectors |
 |---|---|---|---|
 | **`repo-reader`** | **Yes** | `Read`, `Grep` only | ironclad, gdrive (read-only); imanage off by default |
-| `deadline-calculator` / Orchestrator | No | `Read`, `Grep`, `Glob`, `Agent` | None |
+| `deadline-calculator` | No | `Read`, `Grep`, `Glob` | None |
 | **`alert-writer`** (Write-holder) | No | `Read`, `Write`, `Edit` | None |
+| Orchestrator | No | `Read`, `Grep`, `Glob`, `Agent` | None |
 
 `repo-reader` returns length-capped, schema-validated JSON. `deadline-calculator` is pure computation over that JSON plus the playbook configuration on disk — no MCP, no web. `alert-writer` produces `./out/renewal-alerts-<YYYY-MM-DD>.md` and emits a `handoff_request` for Slack delivery.
 
@@ -50,7 +51,7 @@ Contract text, counterparty messages, and CLM comments are **untrusted input.** 
 
 Before you trust the output on your workflow:
 
-- **Point at your CLM.** `IRONCLAD_MCP_URL` is the default. If signed agreements live in iManage, flip `imanage` to `default_config: { enabled: true }` in `agent.yaml` and `subagents/repo-reader.yaml` and set `IMANAGE_MCP_URL`. If they live in a Google Drive folder, rely on `gdrive` and the repo-reader's fallback search path. If they live in a CLM without a public MCP (Agiloft, Conga), wire a custom connector and update the MCP server block.
+- **Point at your CLM.** `IRONCLAD_MCP_URL` is the default. If signed agreements live in iManage, flip `imanage` to `default_config: { enabled: true }` in [`subagents/repo-reader.yaml`](./subagents/repo-reader.yaml) — the only place the toolset is granted — and set `IMANAGE_MCP_URL`. Don't add it to `agent.yaml`'s `tools`, which must stay local-only. If they live in a Google Drive folder, rely on `gdrive` and the repo-reader's fallback search path. If they live in a CLM without a public MCP (Agiloft, Conga), wire a custom connector and update the MCP server block.
 - **Set the Slack channel.** The alert-writer emits a `handoff_request` that names a Slack channel. The orchestrator reads that channel from your playbook configuration's **House style → Renewal alerts** field. Set it before the first scheduled run or the handoff will dead-letter.
 - **Tune the lookahead windows.** The deadline-calculator's default tiers are overdue / 30 / 60 / 90 / 180 days. If your renewal cycle is shorter (SaaS order forms under one year) or longer (multi-year enterprise MSAs with 12-month notice windows), adjust the tier thresholds in the deadline-calculator prompt and the corresponding sections in `alert-writer.yaml`.
 - **Adjust the escalation matrix.** The deadline-calculator reads your playbook's escalation matrix to decide whether to set `escalation_needed: true` and who to route to. Confirm the matrix reflects your current approval authority (who signs off on letting an auto-renewal lapse, who signs off on a renegotiation above a dollar threshold) before enabling scheduled runs. The [`escalation-flagger`](../../commercial-legal/skills/escalation-flagger) skill is loaded in `alert-writer` for formatting.

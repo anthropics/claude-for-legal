@@ -20,7 +20,8 @@ agents, hooks), plugin metadata, or cookbook config — not application code.
   .gitignore
 external_plugins/<vendor>/        # vendor-maintained plugins (CoCounsel)
 managed-agent-cookbooks/<name>/   # CMA agent.yaml + subagents/ + steering-examples.json
-scripts/                          # validate.py, lint-tool-scope.py, orchestrate.py,
+scripts/                          # validate.py, lint-tool-scope.py, lint-skill-refs.py,
+                                  # lint-cookbook-docs.py, orchestrate.py,
                                   # deploy-managed-agent.sh, test-cookbooks.sh
 references/                       # shared templates (company-profile, dashboard)
 ```
@@ -39,8 +40,21 @@ claude plugin validate external_plugins/cocounsel-legal
 # 2. Cookbook tool-scope lint (orchestrators must not over-grant tools)
 python3 scripts/lint-tool-scope.py
 
-# 3. JSON/YAML sanity
-python3 -c "import json,glob; [json.load(open(f)) for f in glob.glob('**/*.json', recursive=True)]"
+# 3. Slash-command refs in prose resolve to real skills (see "Skill names in
+#    prose must be canonical" below — `claude plugin validate` does not check this)
+python3 scripts/lint-skill-refs.py
+
+# 4. Cookbook README security tables match what the YAML actually grants
+#    (cookbook rule 2 — lint-tool-scope.py only covers rule 1)
+python3 scripts/lint-cookbook-docs.py
+
+# 5. JSON/YAML sanity. Note `**/*.json` does NOT match dotfiles, so a bare glob
+#    silently skips every .claude-plugin/plugin.json and .mcp.json — walk instead.
+python3 -c "
+import json, pathlib
+for f in pathlib.Path('.').rglob('*.json'):
+    if '.git' not in f.parts: json.load(open(f))
+print('json ok')"
 ```
 
 ### Marketplace invariants (I1–I11)

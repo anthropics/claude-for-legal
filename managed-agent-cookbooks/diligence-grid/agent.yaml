@@ -88,7 +88,6 @@ mcp_servers:
   - { type: url, name: box,      url: "${BOX_MCP_URL}" }
   - { type: url, name: gdrive,   url: "${GDRIVE_MCP_URL}" }
   - { type: url, name: imanage,  url: "${IMANAGE_MCP_URL}" }
-  - { type: url, name: definely, url: "${DEFINELY_MCP_URL}" }
 
 skills:
   - { from_plugin: ../../corporate-legal }

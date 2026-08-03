@@ -19,7 +19,6 @@ Same source as the [`docket-watcher`](../../litigation-legal/agents/docket-watch
 export ANTHROPIC_API_KEY=sk-ant-...
 export TRELLIS_MCP_URL=...
 export COURTLISTENER_MCP_URL=...
-export GDRIVE_MCP_URL=...
 ../../scripts/deploy-managed-agent.sh docket-watcher
 ```
 
@@ -34,8 +33,9 @@ Court filings are public records, but they are also UNTRUSTED INPUT. The filer c
 | Tier | Touches filings? | Tools | Connectors |
 |---|---|---|---|
 | **`docket-reader`** | **Yes** | `Read`, `Grep` only | trellis, courtlistener (read-only) |
-| `deadline-mapper` / Orchestrator | No — sees structured JSON only | `Read`, `Grep`, `Glob`, `Agent` | gdrive (jurisdiction config, read-only) |
+| `deadline-mapper` | No — sees structured JSON only | `Read`, `Grep` | None |
 | **`tracker-writer`** (Write-holder) | No | `Read`, `Write`, `Edit` | None |
+| Orchestrator | No — sees structured JSON only | `Read`, `Grep`, `Glob`, `Agent` | None |
 
 `docket-reader` returns length-capped, schema-validated JSON. `deadline-mapper` has no MCP and no web — it applies rules the deploying team has configured. `tracker-writer` produces `./out/docket-report-<date>.md` and `./out/deadlines.yaml` and never sees raw filings.
 
@@ -43,7 +43,8 @@ Court filings are public records, but they are also UNTRUSTED INPUT. The filer c
 
 This cookbook is a starting point. It will not work in production until you have done the following:
 
-- **Set the MCP URLs.** `TRELLIS_MCP_URL` and `COURTLISTENER_MCP_URL` must point at your deployment's endpoints, with whatever authentication your platform requires. `GDRIVE_MCP_URL` (or a substitute) points at wherever your jurisdiction-rule tables live.
+- **Set the MCP URLs.** `TRELLIS_MCP_URL` and `COURTLISTENER_MCP_URL` must point at your deployment's endpoints, with whatever authentication your platform requires. Both are granted to `docket-reader` only.
+- **Supply the jurisdiction-rule tables locally.** `deadline-mapper` has no MCP and no network, so it reads the rule tables off the local filesystem. Sync them into the deploying team's litigation-legal config path before the first run — there is no connector that will fetch them at runtime.
 - **Load the portfolio.** The agent reads `matters/_log.yaml` plus the per-matter `docket_id` and `court` from the deploying team's litigation-legal configuration. If your docketing system is the source of truth, front it with an MCP or a scheduled sync into the config path.
 - **Configure jurisdiction rules.** Ship the deadline-mapper a local-rule table for every court in your portfolio. Federal rules you can encode once; state trial courts and individual judges are where the landmines live. An unknown court should produce `confidence: low` + `needs_verification: true`, never a silent default.
 - **Wire delivery.** Decide where the output goes: your docketing system ingests `./out/deadlines.yaml`; the narrative report goes to Slack, email, or your matter management workspace; critical flags route to whoever you want woken up.

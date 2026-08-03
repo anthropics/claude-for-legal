@@ -22,8 +22,7 @@ Same source as the [`corporate-legal`](../../corporate-legal) plugin — this di
 export ANTHROPIC_API_KEY=sk-ant-...
 export BOX_MCP_URL=...
 export GDRIVE_MCP_URL=...
-export IMANAGE_MCP_URL=...          # optional; set the toolset default to enabled if used
-export DEFINELY_MCP_URL=...         # optional; for clause-structure QA of the normalizer pass
+export IMANAGE_MCP_URL=...          # optional; enable the toolset in subagents/doc-reader.yaml if used
 ../../scripts/deploy-managed-agent.sh diligence-grid
 ```
 
@@ -37,10 +36,11 @@ VDR documents — contracts, board minutes, side letters, counterparty uploads �
 
 | Tier | Touches untrusted docs? | Tools | Connectors |
 |---|---|---|---|
-| **`doc-reader`** | **Yes** (read-only) | `Read`, `Grep` | Box, Google Drive, iManage (read) |
+| **`doc-reader`** | **Yes** (read-only) | `Read`, `Grep` | Box, Google Drive (read-only); iManage off by default |
 | **`extractor`** | **Yes** (read-only) | `Read`, `Grep` | None |
-| `normalizer` / Orchestrator | No | `Read`, `Grep`, `Glob`, `Agent` | None (definely optional, read-only) |
+| `normalizer` | No | `Read`, `Grep` | None |
 | **`grid-writer`** (Write-holder) | No | `Read`, `Write` | None |
+| Orchestrator | No | `Read`, `Grep`, `Glob`, `Agent` | None |
 
 `doc-reader` and `extractor` return length-capped, schema-validated JSON. The orchestrator and `normalizer` see only structured data. `grid-writer` produces `./out/diligence-grid-<date>.csv`, `./out/diligence-grid-<date>_sources.csv`, and `./out/diligence-grid-<date>-summary.md`.
 
@@ -52,7 +52,7 @@ VDR documents — contracts, board minutes, side letters, counterparty uploads �
 
 ## Adaptation notes
 
-- **VDR URL.** Set `BOX_MCP_URL` / `GDRIVE_MCP_URL` / `IMANAGE_MCP_URL` to match your data room. The default enables Box and Google Drive; flip the `default_config` in [`agent.yaml`](./agent.yaml) if you run iManage or Datasite as primary. If your VDR is Intralinks or Datasite, add an entry to `mcp_servers` and `tools` with the matching MCP URL.
+- **VDR URL.** Set `BOX_MCP_URL` / `GDRIVE_MCP_URL` / `IMANAGE_MCP_URL` to match your data room. The default enables Box and Google Drive; flip the `default_config` on the `imanage` entry in [`subagents/doc-reader.yaml`](./subagents/doc-reader.yaml) if you run iManage as primary. If your VDR is Intralinks or Datasite, declare it in the orchestrator's `mcp_servers` and add the matching `mcp_toolset` to `doc-reader` — not to `agent.yaml`'s `tools`, which must stay local-only.
 - **Column schema.** The M&A diligence standard in [`corporate-legal/skills/tabular-review/references/ma-diligence-columns.md`](../../corporate-legal/skills/tabular-review/references/ma-diligence-columns.md) is the default. Customize for your deal type — tech/IP, healthcare, real estate, government contractor, regulated financial — using the additions in that reference.
 - **Output destination.** Outputs land in `./out/`. Wire them to your deal folder, Google Drive, iManage workspace, or Box folder through your deploy pipeline. Do not give `grid-writer` an MCP to upload them; a handoff to your upload step is cleaner and keeps the Write tier isolated.
 - **Default mode.** Watch vs grid is selected per steering event. If your workflow is almost always one or the other, seed the steering event template in your orchestrator accordingly.

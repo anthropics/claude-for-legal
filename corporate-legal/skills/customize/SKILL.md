@@ -73,8 +73,8 @@ and without hand-editing YAML.
    - *Turning on the Public Company module:* "I'll prompt you for reporting
      calendar and disclosure controls next time you run anything in that
      area."
-   - *AI bulk-review trust "check every row" → "spot-check 10%":* "`/ai-tool-
-     handoff` will QA a 10% sample rather than every extraction."
+   - *AI bulk-review trust "check every row" → "spot-check 10%":*
+     "`/ai-tool-handoff` will QA a 10% sample rather than every extraction."
 
 5. **For shared-profile changes** (company name, industry, jurisdictions,
    practice setting, stage): write to

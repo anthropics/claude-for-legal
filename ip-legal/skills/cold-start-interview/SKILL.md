@@ -283,7 +283,7 @@ Write `## Who's using this` and `## Available integrations` sections immediately
 
 **What does [your company] do?** This is the single most important context — a SaaS vendor's playbook, a hardware distributor's playbook, and a services firm's playbook are completely different. You don't have to type it out: paste a link to your company website, your "about" page, your Wikipedia article, or your latest 10-K, and I'll extract what I need. Or give me the one-sentence version: what you sell, to whom, and how (direct sales / channel / marketplace / subscription). If you're a private practice firm, the same applies to the clients you do most of your IP work for.
 
-> Which IP areas do you actually work in? I'll skip questions in the ones you don't. (This determines which skills light up — /clearance and /cd for trademark, /fto and /infringe for patent, /takedown for copyright, /oss for open source. Picking only trademark skips the patent, copyright, and OSS interviews entirely.)
+> Which IP areas do you actually work in? I'll skip questions in the ones you don't. (This determines which skills light up — /clearance and /cease-desist for trademark, /fto-triage and /infringement-triage for patent, /takedown for copyright, /oss-review for open source. Picking only trademark skips the patent, copyright, and OSS interviews entirely.)
 >
 > - **Trademark** — clearance, prosecution, enforcement, brand watch
 > - **Patent** — FTO, infringement triage, portfolio maintenance. *(Not claim drafting — this plugin doesn't go there.)*
@@ -302,7 +302,7 @@ Record in the practice profile as context, not a gate. Volume affects the cadenc
 
 ### Part 2: Jurisdiction footprint (1-2 minutes)
 
-> Where do you hold registrations and where do you enforce? (This feeds /clearance, /fto, /portfolio — every clearance check and FTO triage needs to know which jurisdictions matter, and the portfolio register tracks renewals in each one.)
+> Where do you hold registrations and where do you enforce? (This feeds /clearance, /fto-triage, /portfolio — every clearance check and FTO triage needs to know which jurisdictions matter, and the portfolio register tracks renewals in each one.)
 >
 > - **Marks registered in:** US (USPTO)? EU (EUIPO)? UK (UKIPO)? Madrid member states — which? National filings elsewhere? Common-law only?
 > - **Patents granted in:** US? EPO? PCT national phase countries? Any specific jurisdictions that matter (Germany, Japan, China)?
@@ -316,7 +316,7 @@ Record in `## IP practice profile` under `Registered in:`, and note enforcement 
 
 Before asking enforcement or approval questions, check what they already have.
 
-> Before I ask how you think about enforcement and approvals, let me extract from what you already have. Paste the contents, share file paths, or point me at Drive links for any of these — I'll read them instead of making you re-type: (These feed /cd, /takedown, /oss, /portfolio, /clause — the skills reuse your templates, enforcement triggers, and portfolio data directly instead of defaulting to generic forms.)
+> Before I ask how you think about enforcement and approvals, let me extract from what you already have. Paste the contents, share file paths, or point me at Drive links for any of these — I'll read them instead of making you re-type: (These feed /cease-desist, /takedown, /oss-review, /portfolio, /ip-clause-review — the skills reuse your templates, enforcement triggers, and portfolio data directly instead of defaulting to generic forms.)
 >
 > - **Portfolio list** (from your IP management system, or a spreadsheet) — mark / patent / copyright registrations with jurisdictions, status, renewal dates
 > - **Brand guidelines** — the trademark-use guide, brand book, or house rules for external parties
@@ -336,7 +336,7 @@ Record the documents in `## IP practice profile` under a `Seed documents reviewe
 
 ### Part 4: Enforcement posture (2-3 minutes)
 
-> When you see an apparent infringement — a knockoff mark, a copied image, a product that looks too close — where does your practice land? (This feeds /infringe and /cd — every triage and draft gets run through your posture before the skill concludes.)
+> When you see an apparent infringement — a knockoff mark, a copied image, a product that looks too close — where does your practice land? (This feeds /infringement-triage and /cease-desist — every triage and draft gets run through your posture before the skill concludes.)
 >
 > - **Aggressive** — you send C&Ds early, you're willing to file.
 > - **Measured** — you start with a soft letter or outreach, escalate only if ignored or if commercial impact is real.
@@ -352,7 +352,7 @@ Then drill in:
 
 **Who approves sending?** Ask one batch:
 
-> Who signs off on each of these before they go out? (This feeds /cd and /takedown — when you tell the skill to draft a letter, it runs the draft through the named approver and waits for sign-off before it goes anywhere.)
+> Who signs off on each of these before they go out? (This feeds /cease-desist and /takedown — when you tell the skill to draft a letter, it runs the draft through the named approver and waits for sign-off before it goes anywhere.)
 >
 > - **DMCA takedown (ordinary):** often delegated to counsel or brand protection; who owns it on your team?
 > - **Soft letter:** same question.
@@ -383,7 +383,7 @@ Record in `## Enforcement posture` as escalation routing, not as a separate sect
 
 Skip if the user does not practice trademark.
 
-> Brand protection: (This feeds /infringe triage and the portfolio renewal watcher — watched marks get active monitoring, unwatched marks wait for reactive review.)
+> Brand protection: (This feeds /infringement-triage and the portfolio renewal watcher — watched marks get active monitoring, unwatched marks wait for reactive review.)
 >
 > - **Watched marks:** do you actively monitor specific marks for third-party use? List them, or say "none — reactive only."
 > - **Watch jurisdictions:** US / EU / UK / global via watch service?

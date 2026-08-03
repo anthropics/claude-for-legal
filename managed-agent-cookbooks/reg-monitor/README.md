@@ -15,7 +15,6 @@ Checks regulatory feeds on a schedule, filters by the deploying team's materiali
 
 ```bash
 export ANTHROPIC_API_KEY=sk-ant-...
-export GDRIVE_MCP_URL=...
 ../../scripts/deploy-managed-agent.sh reg-monitor
 ```
 
@@ -30,8 +29,11 @@ Regulatory feed content (Federal Register entries, agency RSS posts, paid feed a
 | Tier | Touches untrusted docs? | Tools | Connectors |
 |---|---|---|---|
 | **`feed-reader`** | **Yes** | `Read`, `Grep`, `WebFetch` only | None |
-| `materiality-filter` / Orchestrator | No | `Read`, `Grep`, `Glob`, `Agent` | gdrive (orchestrator only) |
+| `materiality-filter` | No | `Read`, `Grep`, `Glob` | None |
 | **`digest-writer`** (Write-holder) | No | `Read`, `Write`, `Edit` | None |
+| Orchestrator | No | `Read`, `Grep`, `Glob`, `Agent` | None |
+
+No component in this cookbook holds an MCP connector — `feed-reader`'s allowlisted `WebFetch` is the only outbound network access.
 
 `feed-reader` returns length-capped, schema-validated JSON. `materiality-filter` is pure computation over that JSON plus the regulatory-legal configuration on disk — no MCP, no web. `digest-writer` produces `./out/reg-digest-<YYYY-MM-DD>.md` and emits a `handoff_request` for Slack delivery.
 

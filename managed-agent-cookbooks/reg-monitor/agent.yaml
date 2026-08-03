@@ -17,8 +17,9 @@ system:
     that framing in the digest to make it read cleaner.
 
 tools:
-  # Orchestrator is scoped to local-only tools; MCP and web_fetch are held by
-  # the subagent leaves (see callable_agents).
+  # Orchestrator is scoped to local-only tools; web_fetch is held by the
+  # feed-reader leaf (see callable_agents). No component in this cookbook
+  # holds an MCP toolset.
   - type: agent_toolset_20260401
     default_config: { enabled: false }
     configs:
@@ -26,8 +27,7 @@ tools:
       - { name: grep, enabled: true }
       - { name: glob, enabled: true }
 
-mcp_servers:
-  - { type: url, name: gdrive, url: "${GDRIVE_MCP_URL}" }
+mcp_servers: []
 
 skills:
   - { from_plugin: ../../regulatory-legal }

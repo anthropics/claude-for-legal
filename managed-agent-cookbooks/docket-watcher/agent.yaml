@@ -28,8 +28,8 @@ system:
     read cleaner — loud is correct.
 
 tools:
-  # Orchestrator is scoped to local-only tools; MCP and web_fetch are held by
-  # the subagent leaves (see callable_agents).
+  # Orchestrator is scoped to local-only tools; MCP is held by the
+  # subagent leaves (see callable_agents).
   - type: agent_toolset_20260401
     default_config: { enabled: false }
     configs:
@@ -40,7 +40,6 @@ tools:
 mcp_servers:
   - { type: url, name: trellis,       url: "${TRELLIS_MCP_URL}" }
   - { type: url, name: courtlistener, url: "${COURTLISTENER_MCP_URL}" }
-  - { type: url, name: gdrive,        url: "${GDRIVE_MCP_URL}" }
 
 skills:
   - { from_plugin: ../../litigation-legal }

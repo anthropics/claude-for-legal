@@ -17,11 +17,11 @@ This is a **cookbook, not a product.** It will not work out of the box. You need
 
 ```bash
 export ANTHROPIC_API_KEY=sk-ant-...
-export LINEAR_MCP_URL=... ATLASSIAN_MCP_URL=... ASANA_MCP_URL=... GDRIVE_MCP_URL=...
+export LINEAR_MCP_URL=... ATLASSIAN_MCP_URL=... ASANA_MCP_URL=...
 ../../scripts/deploy-managed-agent.sh launch-radar
 ```
 
-Only set the MCP URLs for the trackers you actually use. The orchestrator and `tracker-reader` skip MCPs that aren't configured.
+Only set the MCP URLs for the trackers you actually use. `tracker-reader` — the only component with MCP access — skips MCPs that aren't configured.
 
 ## Steering events
 
@@ -34,8 +34,9 @@ Tracker tickets are untrusted input. A product manager can put arbitrary text in
 | Tier | Touches untrusted tracker content? | Tools | Connectors |
 |---|---|---|---|
 | **`tracker-reader`** | **Yes** | `Read`, `Grep` only | Linear, Jira (atlassian), Asana (read-only) |
-| `risk-classifier` / Orchestrator | No | `Read`, `Grep`, `Glob`, `Agent` | Orchestrator only: Linear / Jira / Asana / Drive (read-only) |
+| `risk-classifier` | No | `Read`, `Grep` | None |
 | **`memo-writer`** (Write-holder) | No | `Read`, `Write`, `Edit` | None |
+| Orchestrator | No | `Read`, `Grep`, `Glob`, `Agent` | None |
 
 `tracker-reader` returns a length-capped, schema-validated JSON list of launches. `risk-classifier` has no MCP and no network; it works from the validated list plus the user's calibration file. `memo-writer` is the only worker with Write, and produces `./out/launch-radar-<date>.md`. The orchestrator holds no Write and never parses raw ticket bodies itself.
 
