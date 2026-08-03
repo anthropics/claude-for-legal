@@ -37,7 +37,6 @@ mcp_servers:
   - { type: url, name: ironclad, url: "${IRONCLAD_MCP_URL}" }
   - { type: url, name: gdrive,   url: "${GDRIVE_MCP_URL}" }
   - { type: url, name: imanage,  url: "${IMANAGE_MCP_URL}" }
-  - { type: url, name: docusign, url: "${DOCUSIGN_MCP_URL}" }
 
 skills:
   - { from_plugin: ../../commercial-legal }

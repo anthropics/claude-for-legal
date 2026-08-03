@@ -89,8 +89,8 @@ cold-start interview and without hand-editing YAML.
   the plugin / team that picks it up.
 - **Flag internal inconsistency.** If the change would make the profile
   inconsistent (e.g., AI-feature claims scrutiny on + no AI policy
-  commitments set in `/ai-governance-legal`; or "fast SLA" + "every
-  launch requires GC sign-off"), flag the tension.
+  commitments set in the `ai-governance-legal` plugin; or "fast SLA" +
+  "every launch requires GC sign-off"), flag the tension.
 - **Flag guardrail degradation.** The `[review]` flag, source attribution
   tags, and `[verify]` tags on cited regulations are load-bearing — do not
   remove. The substantiation requirement on claims is the thing

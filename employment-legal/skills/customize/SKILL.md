@@ -66,11 +66,12 @@ interview and without hand-editing YAML.
 
    Examples:
    - *Adding Washington to the jurisdictional footprint:* "`/wage-hour-qa`
-     and `/termination-review` will start applying WA rules. `/handbook-
-     updates` will prompt for a WA supplement. `/hiring-review` will now
-     flag non-compete attempts in WA (unenforceable)."
-   - *Severance framework 2 weeks/year → 4 weeks/year:* "`/termination-
-     review` will use the new baseline in severance calculations."
+     and `/termination-review` will start applying WA rules.
+     `/handbook-updates` will prompt for a WA supplement. `/hiring-review`
+     will now flag non-compete attempts in WA (unenforceable)."
+   - *Severance framework 2 weeks/year → 4 weeks/year:*
+     "`/termination-review` will use the new baseline in severance
+     calculations."
    - *Risk posture middle → conservative:* "I'll flag more terminations for
      escalation, recommend more protective release language, and be stricter
      on restrictive covenants."
