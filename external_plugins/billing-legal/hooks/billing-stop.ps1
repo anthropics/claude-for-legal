@@ -93,7 +93,7 @@ if (-not $activeMatter) { exit 0 }
 # Include the session file path in the reason so billing-status can delete the right file.
 $output = [PSCustomObject]@{
     decision = "block"
-    reason   = "Billing panel: matter '$activeMatter' ($activePlugin) is active. Session timer: $sessionFile. Run /billing:billing-status --session-end to log this session's time before closing."
+    reason   = "Billing panel: matter '$activeMatter' ($activePlugin) is active. Session timer: $sessionFile. Run /billing-legal:billing-status --session-end to log this session's time before closing."
 } | ConvertTo-Json -Compress
 
 Write-Output $output
