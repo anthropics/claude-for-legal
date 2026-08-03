@@ -24,6 +24,13 @@ from pathlib import Path
 
 import yaml
 
+# Repo text is UTF-8 and this script's output uses non-ASCII markers (✓, —).
+# On Windows the console defaults to a legacy code page (cp1252), which makes
+# print() raise UnicodeEncodeError. Re-encode the streams instead of requiring
+# every caller to remember PYTHONUTF8=1.
+for _stream in (sys.stdout, sys.stderr):
+    if hasattr(_stream, "reconfigure"):
+        _stream.reconfigure(encoding="utf-8", errors="replace")
 
 ROOT = Path(__file__).resolve().parent.parent
 COOKBOOKS_DIR = ROOT / "managed-agent-cookbooks"
@@ -32,7 +39,7 @@ COOKBOOKS_DIR = ROOT / "managed-agent-cookbooks"
 def _lint_one(path: Path) -> list[str]:
     """Return a list of violation strings (empty if clean)."""
     errs: list[str] = []
-    with path.open() as f:
+    with path.open(encoding="utf-8") as f:
         doc = yaml.safe_load(f)
     tools = doc.get("tools") or []
     for idx, entry in enumerate(tools):

@@ -38,6 +38,14 @@ from pathlib import Path
 
 import yaml
 
+# Repo text is UTF-8 and this script's output uses non-ASCII markers (✓, —).
+# On Windows the console defaults to a legacy code page (cp1252), which makes
+# print() raise UnicodeEncodeError. Re-encode the streams instead of requiring
+# every caller to remember PYTHONUTF8=1.
+for _stream in (sys.stdout, sys.stderr):
+    if hasattr(_stream, "reconfigure"):
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+
 ROOT = Path(__file__).resolve().parent.parent
 COOKBOOKS_DIR = ROOT / "managed-agent-cookbooks"
 
@@ -75,7 +83,7 @@ def _wired_servers(cb: Path, comp: str) -> set[str]:
     path = cb / "agent.yaml" if comp == "<orchestrator>" else cb / "subagents" / f"{comp}.yaml"
     if not path.is_file():
         return set()
-    doc = yaml.safe_load(path.read_text()) or {}
+    doc = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
     return {
         e.get("mcp_server_name")
         for e in (doc.get("tools") or [])
@@ -114,12 +122,12 @@ def _lint_one(cb: Path) -> list[str]:
     agent_path = cb / "agent.yaml"
     if not agent_path.is_file():
         return [f"{cb.name}: missing agent.yaml"]
-    agent_doc = yaml.safe_load(agent_path.read_text()) or {}
+    agent_doc = yaml.safe_load(agent_path.read_text(encoding="utf-8")) or {}
     orch_tools, orch_mcp, orch_agents = _granted(agent_doc)
 
     comps: dict[str, tuple[set[str], set[str], bool]] = {"<orchestrator>": (orch_tools, orch_mcp, True)}
     for sub in sorted((cb / "subagents").glob("*.yaml")):
-        comps[sub.stem] = _granted(yaml.safe_load(sub.read_text()) or {})
+        comps[sub.stem] = _granted(yaml.safe_load(sub.read_text(encoding="utf-8")) or {})
 
     rel_agent = agent_path.relative_to(ROOT)
 
@@ -130,7 +138,7 @@ def _lint_one(cb: Path) -> list[str]:
     all_granted_mcp = set().union(*(m for _, m, _ in comps.values())) if comps else set()
     # A toolset present but disabled still counts as "wired", just off by default.
     for sub in sorted((cb / "subagents").glob("*.yaml")):
-        for entry in (yaml.safe_load(sub.read_text()) or {}).get("tools") or []:
+        for entry in (yaml.safe_load(sub.read_text(encoding="utf-8")) or {}).get("tools") or []:
             if isinstance(entry, dict) and entry.get("type") == "mcp_toolset":
                 all_granted_mcp.add(entry.get("mcp_server_name"))
     for name in sorted(declared_servers - all_granted_mcp):
@@ -140,7 +148,7 @@ def _lint_one(cb: Path) -> list[str]:
         )
 
     # 3. Stale orchestrator comments.
-    agent_src = agent_path.read_text()
+    agent_src = agent_path.read_text(encoding="utf-8")
     # Join the comment block into one logical string so a claim wrapped across
     # two `#` lines still reads as one sentence, then split on sentence ends so
     # a later sentence can negate an earlier claim without tripping the match.
@@ -165,7 +173,7 @@ def _lint_one(cb: Path) -> list[str]:
     readme_path = cb / "README.md"
     if readme_path.is_file():
         rel_readme = readme_path.relative_to(ROOT)
-        for line, comp, declared, combined, connectors in _table_rows(readme_path.read_text()):
+        for line, comp, declared, combined, connectors in _table_rows(readme_path.read_text(encoding="utf-8")):
             if comp not in comps:
                 continue
             # A component with no mcp_toolset at all must advertise no connector.

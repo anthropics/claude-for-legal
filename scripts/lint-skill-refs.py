@@ -31,6 +31,14 @@ import re
 import sys
 from pathlib import Path
 
+# Repo text is UTF-8 and this script's output uses non-ASCII markers (✓, —).
+# On Windows the console defaults to a legacy code page (cp1252), which makes
+# print() raise UnicodeEncodeError. Re-encode the streams instead of requiring
+# every caller to remember PYTHONUTF8=1.
+for _stream in (sys.stdout, sys.stderr):
+    if hasattr(_stream, "reconfigure"):
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+
 ROOT = Path(__file__).resolve().parent.parent
 
 # Claude Code built-in slash commands — legitimate refs, not plugin skills.
