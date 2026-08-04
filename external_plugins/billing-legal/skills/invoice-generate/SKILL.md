@@ -47,6 +47,8 @@ condition the `<client-slug>` branch reports; both paths end the same way.
 
 ### 3. Load entries and client info
 
+If `time-register.yaml` does not exist, STOP. Say: "No time register at `[billing_data_path]/time-register.yaml`. That file is absent, not empty -- billing data may be unsynced, the data path may be wrong, or the file may have been moved. I am not going to report figures I cannot read." Do not create it, do not proceed with zeroes, and do not answer from earlier in the conversation. Absent is a different condition from empty or comment-only, which is the normal state of a fresh install.
+
 Read `[billing_data_path]/time-register.yaml`. Filter to:
 - `client: [client-slug]`
 - `status: approved`

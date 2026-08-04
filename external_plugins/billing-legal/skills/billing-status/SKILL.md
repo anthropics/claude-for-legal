@@ -57,6 +57,8 @@ When triggered with `--session-end`:
 
 Read `[billing_data_path]/time-register.yaml`.
 
+If `time-register.yaml` does not exist, STOP. Say: "No time register at `[billing_data_path]/time-register.yaml`. That file is absent, not empty -- billing data may be unsynced, the data path may be wrong, or the file may have been moved. I am not going to report figures I cannot read." Do not create it, do not proceed with zeroes, and do not answer from earlier in the conversation. Absent is a different condition from empty or comment-only, which is the normal state of a fresh install.
+
 Compute:
 - **Today's hours** for the active attorney on the active client (entries with today's date and matching attorney slug)
 - **WIP total** for the active client: sum of `amount` for all entries where `status: pending` or `status: approved` (not yet billed)
@@ -74,6 +76,16 @@ Compute:
 │  Budget: $[billed] of $[cap] ([pct]%)  [warn if ≥ [warn]%]  │
 └─────────────────────────────────────────────────────────────┘
 ```
+
+**Label the scopes when they differ.** The three figures on that line are not scoped alike:
+`Today` is the **active attorney's** hours, `WIP` is the **whole client's** unbilled total across
+every attorney, and `Rate` is the active attorney's rate. In a solo practice they coincide. In a
+multi-attorney firm they do not, and read together they look like one coherent statement -- "$137.50
+at $385/hr" when every dollar of that WIP was logged by someone else at $275.
+
+When the client has unbilled entries from more than one attorney, add a line under the panel: "WIP
+includes [N]h from [other attorney name(s)] at their own rates." Never show another attorney's
+dollars beside the active attorney's rate without it.
 
 If there's no budget cap, omit the budget line.
 

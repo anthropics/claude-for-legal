@@ -154,6 +154,24 @@ read, write, or delete a timer file belonging to another attorney slug. Never fa
 
 ---
 
+## 13. A missing register is not an empty register, and never answer from memory
+
+`time-register.yaml` absent is not the same condition as `time-register.yaml` empty.
+
+- **Empty or comment-only** is the normal state of a fresh install. Treat it as an empty list and
+  carry on.
+- **Absent** means something is wrong: the billing data path is misconfigured, a shared folder has
+  not synced, the file was moved, or a cleanup process removed it. Stop and say so, naming the
+  path you looked in. Do not create it, do not proceed with zeroes, and do not offer a summary.
+
+Same for `invoice-register.yaml`, `clients/`, and `attorneys/`.
+
+**And never report figures you did not just read from disk.** If a register cannot be read this
+turn, say that. Do not reconstruct totals, entry lists, WIP, or budget figures from earlier in the
+conversation — those numbers were true when they were read and may not be true now. A confident
+panel assembled from memory is indistinguishable from a correct one, which is what makes it worse
+than an error message. The register is the record; the conversation is not.
+
 ## What this skill does not do
 
 - Give legal-ethics advice or interpret a specific bar rule — it names the questions, the

@@ -38,6 +38,8 @@ If no arguments, default to: entries for the currently active matter's client (s
 
 Read `[billing_data_path]/time-register.yaml`. Filter to entries with `status: pending` or `status: approved` matching the scope.
 
+If `time-register.yaml` does not exist, STOP. Say: "No time register at `[billing_data_path]/time-register.yaml`. That file is absent, not empty -- billing data may be unsynced, the data path may be wrong, or the file may have been moved. I am not going to report figures I cannot read." Do not create it, do not proceed with zeroes, and do not answer from earlier in the conversation. Absent is a different condition from empty or comment-only, which is the normal state of a fresh install.
+
 If no entries match: "No pending entries found for [scope]. Run `/billing-legal:time-entry` to add entries, or check a different scope."
 
 ### 4. Display the WIP table

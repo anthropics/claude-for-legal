@@ -109,6 +109,8 @@ field — do not offer A-codes here. They go to `activity_code` below.
 
 Before writing, read `time-register.yaml`. If the file is empty or contains only comment lines (starting with `#`), treat it as an empty list.
 
+If `time-register.yaml` does not exist, STOP. Say: "No time register at `[billing_data_path]/time-register.yaml`. That file is absent, not empty -- billing data may be unsynced, the data path may be wrong, or the file may have been moved. I am not going to report figures I cannot read." Do not create it, do not proceed with zeroes, and do not answer from earlier in the conversation. Absent is a different condition from empty or comment-only, which is the normal state of a fresh install.
+
 Scan for entries with all three of:
 - Same `attorney`
 - Same `client` and `matter_slug`
