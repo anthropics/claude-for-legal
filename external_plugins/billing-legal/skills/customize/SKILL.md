@@ -79,6 +79,22 @@ On user input, identify the section and field. Show the current value, ask for t
 
 - **Disabling the billing panel:** "The end-of-session prompt will no longer appear. You'll need to run `/billing-legal:billing-status` or `/billing-legal:time-entry` manually to log time. I'll remove both the Stop hook and the UserPromptSubmit hook from your settings.json — leaving either in place would keep creating timer files in `.sessions/` or producing stale block decisions. Want me to remove both? [Y/n]"
 
+  **Activity logging depends on the panel.** `activity-log.ps1` exits unless a session timer
+  file exists, and timer files are created only by the `UserPromptSubmit` hook you are about to
+  remove. So disabling the panel makes activity logging inert while the config still reads
+  `enabled` — it would fire on every tool call and record nothing.
+
+  When `Activity logging: enabled` and the attorney confirms the removal, say: "Activity logging
+  depends on the session timer, so it stops working too. I'll set `Activity logging: disabled`
+  and remove the PostToolUse hook as well, so the config matches what actually runs. Keep it
+  registered instead? [Y/n]" Default to removing it. If they keep it, write
+  `Activity logging: enabled (inactive - panel disabled)` so the config does not claim a
+  capability it cannot deliver.
+
+  After writing, re-read `settings.json` and confirm which hook events remain. Report them
+  back. The removal is an instruction, not an enforced operation, and a partial removal leaves
+  litter that nothing else detects.
+
 - **Enabling the billing panel (was disabled):** Walk through the hook setup (same as cold-start Phase 6).
 
 ### 4. For shared-profile changes
