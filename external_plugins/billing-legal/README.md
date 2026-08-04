@@ -653,6 +653,118 @@ A migration script can read the YAML and bulk-insert to the database with no dat
 
 ---
 
+## Data integrity
+
+Billing records are financial records. Two things follow from that, and both are enforced rather
+than advised.
+
+### Reads go through a validator
+
+`scripts/register-read.ps1` is what every reporting skill calls instead of parsing
+`time-register.yaml` itself. It:
+
+- confirms the register **exists** — an absent file is a different condition from an empty one, and
+  it stops work rather than reporting zeroes
+- parses every entry and checks that `amount` equals `hours × rate`
+- rejects duplicate entry IDs, unknown statuses, and malformed dates
+- returns totals by status as JSON
+
+Exit codes: `0` valid, `2` register absent, `3` parsed but failed an invariant, `4` config missing
+or unconfigured. On `2` and `4` nothing is written to stdout, so an error cannot be mistaken for a
+result.
+
+This exists because a skill that reads YAML and does its own arithmetic can produce a confident
+wrong number, and a confident wrong number in a billing report is worse than an error. The
+validator is deterministic, has no dependencies, and its output is the figure the skill reports.
+
+If the validator returns exit `3`, the register has been edited by something other than this
+plugin. **Do not repair it before checking whether the bad value reached the client.**
+`invoice-register.yaml`, the Markdown exhibit, and any LEDES export are written at invoice time and
+are independent of the register. If they agree with each other and disagree with the register, the
+corruption is register-only and correcting it restores agreement. If they carry the bad figure too,
+the client was billed wrong — that is a credit and re-bill, not a file edit.
+`/billing-legal:billing-guardrails` carries the full procedure.
+
+### The register is append-only
+
+Entries are added, never removed. A write-off zeroes `amount` and keeps the record, preserving the
+original figures in `original_hours` and `original_amount` so a report can total what the firm
+absorbed. A write-down does the same and the difference becomes `LINE_ITEM_ADJUSTMENT_AMOUNT` in a
+LEDES export, which is how the client sees the discount they were given. Entries with
+`status: billed` are closed to editing.
+
+---
+
+## Known limitations
+
+Read these before billing a client from this plugin.
+
+**Session time is wall clock, not work.** The timer starts on your first message and runs until the
+session closes. A window left open over lunch bills lunch. The panel shows the figure and asks for a
+narrative before writing anything, so the attorney is the control — but the number it proposes is
+elapsed time, not effort.
+
+**The active matter is inferred, not asserted.** The panel attributes a session to whichever matter
+is currently open in another claude-for-legal plugin. It does not know whether the session was
+*about* that matter. Open a session for something unrelated while a matter is active and the panel
+will offer to bill that client. There is no per-session "not billable" flag; the only off switch is
+disabling the panel entirely through `/billing-legal:customize`.
+
+**The duplicate check is date-level only.** Entries store no start or end time, so it cannot
+distinguish a genuine second session from a re-run of the first. It warns whenever an entry already
+exists for the same attorney, client, matter, and date, and the attorney decides.
+
+**Rounding is per entry and always up.** 47 minutes and 43 minutes both bill 0.8h. Billed time
+exceeds worked time on nearly every entry. `session_minutes_actual` records the raw figure when the
+attorney enters minutes, which is the support if a client's auditor asks.
+
+**Hooks outlive the plugin.** `cold-start-interview` copies the hook scripts into your billing data
+path and registers them in `settings.json`, deliberately, so they survive plugin updates. They also
+survive plugin **removal** — see Uninstall below.
+
+**Activity logging records filenames only, not paths.** Two files with the same name in different
+folders are indistinguishable in the audit trail. This is a deliberate trade to avoid leaking local
+filesystem layout into a shared firm folder.
+
+**PowerShell only.** The hooks and the validator are `.ps1`. The plugin has not been ported to
+bash/zsh, so hook-driven time capture is Windows-only today. Manual entry, review, invoicing, and
+LEDES export are skill instructions and work anywhere.
+
+**LEDES identifiers default to slugs.** Until you set `timekeeper_id` per attorney and
+`ledes_client_id` per client, exports fall back to derived values that will not match what a
+corporate client's system expects. The fallback is documented and visible in the file rather than
+silently wrong, but a first export will usually need those set. Use `/billing-legal:rate-card`.
+
+---
+
+## Uninstall
+
+Removing the plugin does **not** remove its hooks. They were copied into your billing data path and
+registered in `settings.json` so they would survive updates, and nothing distinguishes an update
+from a removal.
+
+Left in place, the `Stop` hook keeps blocking session close and telling you to run a command that no
+longer exists.
+
+Before uninstalling, disable the panel — this removes the hook entries for you:
+
+```
+/billing-legal:customize
+```
+
+Set **End-of-session billing panel** to disabled. Then uninstall.
+
+If the plugin is already gone, remove the hook entries by hand from the `hooks` block of your
+`settings.json` (user or project scope, wherever cold-start wrote them), or delete
+`~/.claude/plugins/config/claude-for-legal/billing/` — every hook exits immediately when that
+config is absent.
+
+**Your billing data is not touched by any of this.** `time-register.yaml`,
+`invoice-register.yaml`, `attorneys/`, `clients/`, and `invoices/` live at your configured data
+path and survive uninstall. Delete them yourself if you mean to.
+
+---
+
 ## Contributing
 
 Pull requests welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines. The plugin follows the architecture conventions of the claude-for-legal ecosystem — all skills are SKILL.md instruction files, config lives in `~/.claude/plugins/config/claude-for-legal/billing/`, and data structures are defined in this README and in the individual SKILL.md files.
