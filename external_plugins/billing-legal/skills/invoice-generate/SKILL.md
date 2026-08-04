@@ -166,8 +166,14 @@ status: issued
 | | Hours | Amount |
 |---|---|---|
 | **Total billable time** | **[Nh]** | **$[total]** |
-[If there were write-downs:]
-| Write-downs (not billed) | [Nh] | ($[written-down-amount]) |
+[If there were write-downs, emit one row per written-down entry and name whose time it was.
+Compute each from that entry's `original_hours - hours` and `original_amount - amount`:]
+| Write-down - [Attorney Name], [date] | [Nh] | ($[amount]) |
+
+A single aggregated "write-downs" row is ambiguous on any invoice with more than one timekeeper.
+The hours figure can also collide with a billed entry's hours -- an invoice showing 0.2h billed
+and 0.2h written down reads as one line item, not two. Name the attorney and the date so the
+client can see whose time was absorbed and against what.
 
 [If retainer:]
 | Retainer on file | | $[retainer_balance] |

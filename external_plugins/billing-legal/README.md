@@ -22,7 +22,8 @@ Then run `/billing-legal:cold-start-interview` to set up.
 - **WIP pre-billing review** — Review, approve, write down, or write off pending entries before invoicing. Nothing goes on an invoice without attorney approval.
 - **Invoice exhibits** — Generates a professional Markdown time-and-billing detail document to attach as supporting documentation to your client invoice. Handles retainer draw-down, budget tracking, and per-matter grouping.
 - **Billing reports** — WIP dashboards, client billing history, attorney utilization, budget status, and AI cost summaries.
-- **Budget warnings** — Panel warns at configurable thresholds (default 75% and 90%) when a client is approaching their budget cap.
+- **Budget warnings** — Panel warns when a client approaches their budget cap. The warning tier is whatever you set at cold-start (default 75%); a second, more urgent tier sits at 90% and rises to match if you set the warning above it. Both read the configured value at run time.
+- **Validated reads** — Every skill that reports a figure runs `scripts/register-read.ps1` rather than parsing the register itself. It confirms the file exists, checks that each entry's `amount` equals `hours × rate`, and returns totals as JSON. A register that has been hand-edited fails loudly with a line number instead of producing a plausible wrong number.
 - **Multi-attorney support** — All attorneys point to the same shared folder (OneDrive, network drive). Each attorney has their own rate card; the register is shared.
 - **Billing digest agent** — On-demand agent surfaces outstanding WIP, stale entries, and budget alerts. Run manually with `/billing-legal:billing-summary`. For monthly automation, use Windows Task Scheduler to run `claude -p "/billing-legal:billing-summary"` — billing data is on the local filesystem and must be accessed by a local process, not a cloud routine.
 - **LEDES 1998B export** — Generates a machine-readable LEDES 1998B file from any invoice for submission to corporate legal department e-billing systems (Serengeti, TyMetrix, Legal Tracker, and similar). Run `/billing-legal:ledes-export --invoice <id>` after generating an invoice exhibit.
@@ -485,9 +486,17 @@ Enable it during cold-start setup, or run `/billing-legal:customize` to toggle i
 
 ---
 
-## UTBMS Task Codes
+## UTBMS codes
 
-If task codes are enabled (required or optional), use these standard codes:
+UTBMS uses **two separate fields**, and they are not interchangeable. Task codes say *what phase
+of the matter* the work belongs to. Activity codes say *what the timekeeper was doing*. E-billing
+platforms validate them independently, and a code in the wrong field is a rejected upload or,
+worse, an accepted one that misreports the work.
+
+The plugin stores them as `task_code` and `activity_code`, and exports them to
+`LINE_ITEM_TASK_CODE` and `LINE_ITEM_ACTIVITY_CODE` respectively.
+
+### Task codes — L-series
 
 | Code | Description |
 |---|---|
@@ -508,15 +517,35 @@ If task codes are enabled (required or optional), use these standard codes:
 | **Trial** | |
 | L400 | Trial Preparation and Trial |
 | L500 | Appeal |
-| **Project / transactional** | |
-| A100 | Project Administration |
-| A103 | Review / Analyze |
-| A104 | Draft / Revise |
-| A105 | Research |
-| A106 | Communicate (internal) |
-| A107 | Communicate (other party) |
 
-For transactional work (contract review, drafting, deal support), the A-series codes are typically more appropriate than the L-series.
+### Activity codes — A-series
+
+| Code | Description |
+|---|---|
+| A101 | Plan and prepare for |
+| A102 | Research |
+| A103 | Draft / revise |
+| A104 | Review / analyze |
+| A105 | Communicate (in firm) |
+| A106 | Communicate (with client) |
+| A107 | Communicate (other outside counsel) |
+| A108 | Communicate (other external) |
+| A109 | Appear for / attend |
+| A110 | Manage data / files |
+| A111 | Other |
+
+Contract review is `A104`. Drafting a markup is `A103`. A call with opposing counsel is `A107`.
+Each pairs with whichever L-code describes the phase of the matter.
+
+If you are unsure which activity code applies, leave it blank. An empty optional field is a gap
+your client's system can handle; a confidently wrong code is a defect that reaches their books.
+
+> **Note on an earlier version.** Releases before v1.2.2 listed the A-series inside the task-code
+> prompt and had `A103` and `A104` transposed, `A105` labeled Research (that is `A102`), and an
+> `A100` that is not an activity code at all. Entries logged under those releases carry A-codes in
+> `task_code` and no `activity_code`. Use `/billing-legal:wip-review` to correct any that are still
+> unbilled. Codes verified against the ABA UTBMS litigation code set and Thomson Reuters Legal
+> Tracker documentation.
 
 ---
 
