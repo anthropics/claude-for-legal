@@ -103,7 +103,7 @@ Entry #[N]:  [date]  [attorney]  [hours]h  $[amount]  [narrative]
   a  Approve — move to approved
   w  Write down — reduce hours or amount
   x  Write off — zero out (write-off, not billed)
-  e  Edit — correct narrative, task code, date, or attorney
+  e  Edit — correct narrative, task code, activity code, date, or attorney
   b  Back
 ```
 
@@ -123,9 +123,17 @@ Entry #[N]:  [date]  [attorney]  [hours]h  $[amount]  [narrative]
 - Confirm before writing. Written-off entries remain in the register for records but never appear on invoices.
 
 **Edit:**
-- Ask which field to change: narrative, task code, date, attorney, hours, rate.
+- Ask which field to change: narrative, task code, activity code, date, attorney, hours, rate.
 - For hours/rate: warn that changing these on an approved entry requires a write-down note.
 - For narrative: no restriction — corrections to descriptions are routine.
+- For activity code: offer the same A-series reference `/billing-legal:time-entry` uses, and
+  write to `activity_code`. Entries logged before the field existed carry `null`, and this is
+  the only way to set one — an entry with a null `activity_code` exports with an empty
+  `LINE_ITEM_ACTIVITY_CODE`, which some e-billing platforms reject. Never write an A-code into
+  `task_code` to work around it.
+- Do NOT offer `session_minutes_actual` for editing. It records what the attorney actually
+  entered at capture time; a value typed in later is a reconstruction, not a measurement, and
+  its whole purpose is supporting the round-up if a client's auditor asks.
 - Show the change and confirm before writing.
 
 ---
