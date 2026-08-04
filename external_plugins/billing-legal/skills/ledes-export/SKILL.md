@@ -67,11 +67,11 @@ If loaded from an invoice record, use `period_start` and `period_end` instead of
 
 ### 5. Compute write-down adjustment per entry
 
-LEDES requires `LINE_ITEM_ADJUSTMENT_AMOUNT` — the amount reduced from the original billing through a write-down. The time register does not store original hours separately, so:
+LEDES requires `LINE_ITEM_ADJUSTMENT_AMOUNT` — the amount reduced from the original billing through a write-down. The register stores the pre-write-down figures, so this is arithmetic, not inference:
 
-- Check `notes` field for the pattern "written down" or "write-down". If present, the entry was reduced.
-- Compute `LINE_ITEM_ADJUSTMENT_AMOUNT` = 0.00 for entries with no write-down (the common case).
-- For entries that were written down: the current `amount` is already the post-write-down figure. If the original amount is inferable from notes (e.g., "written down from 1.2h"), use it. Otherwise use 0.00 — LEDES reviewers care more about the final amount than the adjustment.
+- If `original_amount` is null, the entry was never written down. `LINE_ITEM_ADJUSTMENT_AMOUNT` = `0.00`. This is the common case.
+- If `original_amount` is set, `LINE_ITEM_ADJUSTMENT_AMOUNT` = `original_amount - amount`, to 2 decimal places. `amount` is already the post-write-down figure, so `LINE_ITEM_TOTAL` still uses `amount`.
+- **Never parse `notes` to recover a figure.** `notes` holds the attorney's reason in free text, in whatever words they chose. A number reconstructed from a sentence is a guess, and a guess in an adjustment column silently understates what the client was given. Entries written down before `original_amount` existed carry null and correctly export `0.00`.
 
 ### 6. Build the LEDES 1998B file
 

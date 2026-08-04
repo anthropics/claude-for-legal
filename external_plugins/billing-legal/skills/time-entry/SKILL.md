@@ -150,6 +150,8 @@ On confirmation, generate an entry ID (`te-YYYY-MMDD-NNN` where NNN is zero-padd
   hours: [hours]
   rate: [rate]
   amount: [hours * rate, rounded to 2 decimal places]
+  original_hours: null
+  original_amount: null
   task_code: [code or null]
   activity_code: [UTBMS activity code or null]
   narrative: "[narrative]"

@@ -115,11 +115,23 @@ Entry #[N]:  [date]  [attorney]  [hours]h  $[amount]  [narrative]
 - If dollar amount: recalculate hours at the existing rate (for records).
 - Show the change: `[original] → [new]`
 - Ask for a write-down note (stored in `notes` field): "Reason for write-down: (required)"
+- **Before overwriting `hours` and `amount`, copy them to `original_hours` and `original_amount`
+  if those are still null.** Never overwrite an existing `original_*` value — a second write-down
+  reduces from the already-reduced figure, and the original stays the first billed figure.
 - Confirm and write. Set `status: approved` after write-down.
+
+The reason belongs in `notes` as prose. The figures do not. `LINE_ITEM_ADJUSTMENT_AMOUNT` in a
+LEDES export is computed from `original_amount - amount`, so a write-down whose original survives
+only inside a sentence exports as a zero adjustment and the client never sees the discount.
 
 **Write off:**
 - Ask: "Write-off reason: (required — e.g., 'Client relationship', 'Billing error', 'Included in flat fee')"
-- Set `hours: 0`, `amount: 0.00`, `status: write-off`, `notes: "[reason] — written off [date]"`.
+- **Copy `hours` and `amount` to `original_hours` and `original_amount` first** if those are still
+  null. The size of what was absorbed is the substance of a write-off; a record that says only
+  "zero" does not show the firm what it gave away.
+- Then set `hours: 0`, `amount: 0.00`, `status: write-off`, `notes: "[reason] - written off [date]"`.
+- Do not restate the original figures inside `notes`. They live in `original_hours` and
+  `original_amount`, where a report can total them.
 - Confirm before writing. Written-off entries remain in the register for records but never appear on invoices.
 
 **Edit:**
