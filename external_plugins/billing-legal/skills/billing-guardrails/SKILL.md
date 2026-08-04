@@ -172,6 +172,39 @@ conversation — those numbers were true when they were read and may not be true
 panel assembled from memory is indistinguishable from a correct one, which is what makes it worse
 than an error message. The register is the record; the conversation is not.
 
+## 14. When the register fails validation, establish scope before repairing anything
+
+`register-read.ps1` exiting `3` means the register no longer holds its own invariants -- most
+often that an entry's `amount` does not equal `hours x rate`. Something other than this plugin
+wrote to the file. Detecting that is not the same as knowing what to do about it, and the
+append-only rule in guardrail 5 bars the obvious fix when the affected entry is already `billed`.
+
+**Do not repair, and do not report figures, until you know whether the bad value reached the
+client.** Three records are written independently at invoice time and none of them are the time
+register:
+
+- `invoice-register.yaml` -- `total_fees` and `total_hours` for the invoice
+- `invoices/[invoice-number].md` -- the exhibit the client received
+- `invoices/[invoice-number].ledes` -- the e-billing export, if one was generated
+
+Read all three for the invoice named in the corrupt entry's `invoice_id`, then:
+
+- **They agree with each other and disagree with the register.** The corruption lives only in the
+  register. Correcting it restores agreement with what was actually billed. That is a repair of a
+  damaged record, not a billing adjustment, and guardrail 5 does not bar it -- the append-only rule
+  protects the history of what was billed, and no one ever billed the corrupt figure. Show the
+  attorney the comparison, state the exact edit, and get confirmation before writing. Record what
+  was corrected and why in `notes`.
+- **The issued records carry the bad figure too.** The client was billed wrong. This is not a file
+  edit and you must not treat it as one. Stop, say plainly what went out and for how much, and hand
+  it to the attorney. The remedy is a credit and re-bill, and whether and how to raise it with the
+  client is their professional judgment, not yours.
+- **The entry is not `billed`.** No invoice exists to compare against. Show the arithmetic, ask the
+  attorney which figure is right, and correct it with their confirmation.
+
+Never guess which of the two numbers is correct. `hours x rate` disagreeing with `amount` says one
+of the three fields is wrong; it does not say which. The attorney knows what the work was.
+
 ## What this skill does not do
 
 - Give legal-ethics advice or interpret a specific bar rule — it names the questions, the
