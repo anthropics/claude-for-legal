@@ -39,7 +39,11 @@ Parse `$ARGUMENTS`:
 - `--period YYYY-MM` or `--period YYYY-MM to YYYY-MM`: restrict to entries in that month or range (default: all approved entries for the client)
 - `--matter <slug>`: restrict to one matter
 
-If no `client-slug` provided: list clients with approved entries and ask which one.
+If no `client-slug` provided: list clients with approved entries and ask which one. **If that list
+is empty, do not present an empty menu or a question with nothing to choose from.** Say: "No client
+has approved entries ready to invoice. Run `/billing-legal:wip-review` to approve pending time, or
+`/billing-legal:billing-report --wip` to see what is outstanding." Then stop. This is the same
+condition the `<client-slug>` branch reports; both paths end the same way.
 
 ### 3. Load entries and client info
 
