@@ -13,7 +13,21 @@ argument-hint: "[--redo to start over | --check to review current settings]"
 
 ## When this runs
 
-First time (no config exists), `--redo` (re-run fully), or `--check` (review without changing). With `--redo`, confirm before overwriting anything.
+First time (no config exists), `--redo` (re-run fully), or `--check` (review without changing).
+
+**With `--redo` against a populated install, name what changes before touching anything.** A
+generic "this will overwrite your config" is not enough — the attorney cannot see which live
+values are at risk. Read the data path first and say specifically:
+
+- **Invoice numbering.** If `invoice-register.yaml` has entries, say which invoices are already
+  issued and that the counter will not be allowed to go backwards (see Phase 2, item 6).
+- **Hooks.** Phase 6 re-registers the `Stop` and `UserPromptSubmit` hooks. If the attorney
+  previously disabled the panel through `/billing-legal:customize`, this silently turns it back on.
+- **What is safe.** `time-register.yaml`, `invoice-register.yaml`, `attorneys/`, `clients/`, and
+  `invoices/` are left alone. Phase 9 creates them only when absent. Say so, so the attorney knows
+  the billing record itself is not at risk.
+
+Then ask for confirmation. If they decline, stop without writing.
 
 ## What to do
 
@@ -59,6 +73,17 @@ Ask these questions in sequence. Show each current value if re-doing.
 4. **Remittance instructions:** (e.g., "Net 30. Checks payable to [firm]. ACH available on request." — suggest a default)
 5. **Invoice prefix:** (default `INV` — appears in invoice numbers like `INV-2026-001`)
 6. **Starting invoice number:** (default `001` — increment is tracked in the data)
+
+   **Before offering `001`, read `[billing_data_path]/invoice-register.yaml`.** If it exists and
+   contains any entries, invoices have already been issued and the counter must not go backwards.
+   Find the highest issued number, default to the one after it, and say so: "You've already issued
+   invoices through INV-2026-001. Starting at 001 again would put a second document in front of a
+   client under a number they already have on file. Defaulting to 002." Refuse any answer at or
+   below the highest issued number, and explain why rather than silently accepting it.
+
+   An invoice number is a client-facing identifier that lives in their e-billing system. A
+   duplicate is not a cosmetic collision; it is two different documents that cannot be told apart
+   in a payment dispute.
 
 ---
 
