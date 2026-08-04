@@ -1,0 +1,32 @@
+{
+  "mcpServers": {
+    "velvoite": {
+      "type": "http",
+      "url": "https://mcp.velvoite.eu/mcp",
+      "title": "Velvoite",
+      "description": "EU financial regulation corpus — obligations, deadlines, enforcement, regulatory changes across DORA, MiCA, GDPR, AI Act, and more.",
+      "headers": {
+        "X-API-Key": "${VELVOITE_API_KEY}"
+      }
+    },
+    "Slack": {
+      "type": "http",
+      "url": "https://mcp.slack.com/mcp",
+      "title": "Slack",
+      "description": "Post digests and alerts to Slack channels."
+    },
+    "Google Drive": {
+      "type": "http",
+      "url": "https://drivemcp.googleapis.com/mcp/v1",
+      "title": "Google Drive",
+      "description": "Search and read legal documents from Google Drive."
+    }
+  },
+  "recommendedCategories": [
+    "regulatory-intelligence",
+    "legal-research",
+    "financial-services",
+    "documents",
+    "chat"
+  ]
+}

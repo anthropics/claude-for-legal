@@ -1,0 +1,9 @@
+{
+  "name": "fi-startup-legal",
+  "version": "0.1.0",
+  "description": "Finnish startup legal toolkit — OY incorporation, founder agreements, ESOP (TVL §66), SHA review, Business Finland grant compliance, first hires. Backed by live Finlex statute data and PRH company register via Velvoite.",
+  "author": {
+    "name": "Silly Pilot Oy",
+    "url": "https://velvoite.eu"
+  }
+}

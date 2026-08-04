@@ -122,6 +122,26 @@
       "author": {
         "name": "Thomson Reuters"
       }
+    },
+    {
+      "name": "eu-legal",
+      "displayName": "EU Legal",
+      "source": "./external_plugins/eu-legal",
+      "description": "EU legal operations for regulated financial institutions — commercial contracts, privacy/GDPR, AI Act, employment, corporate governance, and regulatory compliance powered by the Velvoite EU finreg corpus.",
+      "author": {
+        "name": "Silly Pilot Oy",
+        "url": "https://velvoite.eu"
+      }
+    },
+    {
+      "name": "fi-startup-legal",
+      "displayName": "Finnish Startup Legal",
+      "source": "./external_plugins/fi-startup-legal",
+      "description": "Finnish startup legal toolkit — OY incorporation, founder agreements, ESOP (TVL §66), SHA review, Business Finland grant compliance, first hires. Backed by live Finlex statute data and PRH company register via Velvoite.",
+      "author": {
+        "name": "Silly Pilot Oy",
+        "url": "https://velvoite.eu"
+      }
     }
   ]
 }
