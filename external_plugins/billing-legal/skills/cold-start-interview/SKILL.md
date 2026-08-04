@@ -205,6 +205,15 @@ Create the following directories under the billing data path if they don't exist
 - `attorneys/`
 - `clients/`
 - `invoices/`
+- `scripts/`
+
+Copy `scripts/register-read.ps1` from the plugin cache into `[billing_data_path]/scripts/`, the
+same way Phase 6 copies the hooks, so it survives plugin updates. This runs regardless of whether
+the attorney enabled the billing panel — every read skill uses it, not just the panel.
+
+`register-read.ps1` is what makes the register a source of truth rather than something a model
+recalls. It confirms the file exists, parses it, checks that every entry's `amount` equals
+`hours x rate`, and returns JSON totals. Skills report its numbers instead of computing their own.
 
 Create `time-register.yaml` if it doesn't exist. Write only these comment lines — no YAML keys or empty lists:
 ```yaml

@@ -44,6 +44,24 @@ If neither argument is provided: list clients that have billed or approved entri
 
 ### 3. Load entries and attorney profiles
 
+**Read the register through the validator, not by hand.** Run:
+
+```
+powershell -NoProfile -NonInteractive -File "[billing_data_path]/scripts/register-read.ps1" -Client [client-slug]
+```
+
+It resolves the data path from config, confirms the register exists, parses every entry, checks
+that each `amount` equals `hours x rate`, and emits JSON with per-status totals. **Use its numbers.
+Do not recompute them and do not carry figures forward from earlier in the conversation.**
+
+- Exit `2`: the register is absent. Stop, report the path it printed, write nothing.
+- Exit `3`: it parsed but failed an invariant. Show the `errors` array and stop before any write.
+  A register whose arithmetic does not hold has been edited by something other than this plugin.
+- Exit `4`: config missing or still holds placeholders. Direct to `/billing-legal:cold-start-interview`.
+
+If `scripts/register-read.ps1` is not present, this is an install predating it. Say so, then fall
+back to reading the file directly under the rule below.
+
 If `time-register.yaml` does not exist, STOP. Say: "No time register at `[billing_data_path]/time-register.yaml`. That file is absent, not empty -- billing data may be unsynced, the data path may be wrong, or the file may have been moved. I am not going to report figures I cannot read." Do not create it, do not proceed with zeroes, and do not answer from earlier in the conversation. Absent is a different condition from empty or comment-only, which is the normal state of a fresh install.
 
 From `time-register.yaml`, load all entries matching the resolved scope. Exclude entries with `status: write-off` — zero-dollar lines are not valid in LEDES format.
