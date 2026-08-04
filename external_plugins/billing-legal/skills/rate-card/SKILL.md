@@ -97,7 +97,7 @@ Also ask: "Is this a special billing arrangement for this client?"
 
 Update client-level settings: billing arrangement, budget cap, retainer balance, and LEDES client ID.
 
-1. Read `[billing_data_path]/clients/[slug].yaml`. If not found, offer to create a new client profile.
+1. Read `[billing_data_path]/clients/[slug].yaml`. If not found, do NOT create it here — say: "No profile for `[slug]` yet. Client profiles are created on the first time entry. Run `/billing-legal:time-entry` for this client, then come back to set rates and overrides." Then stop.
 2. Show current values including `ledes_client_id` if set.
 3. Ask what to change. Include:
    - **LEDES client ID:** "LEDES client ID (the ID this client uses in their e-billing system, e.g., `ACME-001`. Press enter to use the default derived from the client slug.)"
@@ -130,5 +130,5 @@ Update client-level settings: billing arrangement, budget cap, retainer balance,
 ## What this skill does not do
 
 - Create attorney profiles from scratch — that's in `/billing-legal:cold-start-interview`
-- Create client profiles from scratch — that's in `/billing-legal:time-entry` (on first entry for a new client) or `/billing-legal:customize`
+- Create client profiles from scratch — that's in `/billing-legal:time-entry`, on the first entry for a new client. That is the only path that creates a client.
 - Show or generate invoices — use `/billing-legal:invoice-generate`

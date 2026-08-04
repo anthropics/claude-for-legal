@@ -37,7 +37,7 @@ Compute for the period (and all-time WIP where noted):
 
 Check for:
 - **Stale pending entries** — `status: pending` with date older than 30 days (at risk of aging out or being disputed)
-- **Budget warnings** — clients where `budget_billed + WIP ≥ 75%` of `budget_cap`
+- **Budget warnings** — clients where `budget_billed + WIP ≥ [Budget warning threshold]%` of `budget_cap`. Read the threshold from the config (default 75 if absent); do not hardcode it.
 - **Clients with approved entries** — ready to invoice now
 
 ### 4. Post the report

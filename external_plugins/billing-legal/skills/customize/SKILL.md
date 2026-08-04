@@ -3,9 +3,10 @@ name: customize
 description: >
   Guided customization of your billing practice profile — change one thing without
   re-running the whole cold-start interview. Adjust rates, billing data path, invoice
-  settings, panel behavior, attorney profiles, client profiles, or task code
-  preferences. Use when the user says "change my [thing]", "update my rate",
-  "edit my billing config", "add a client", or "customize".
+  settings, panel behavior, attorney profiles, or task code preferences. Does not
+  create clients — new clients are created on their first time entry. Use when the
+  user says "change my [thing]", "update my rate", "edit my billing config", or
+  "customize".
 argument-hint: "[section name, or describe what you want to change]"
 ---
 

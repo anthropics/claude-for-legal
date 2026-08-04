@@ -56,7 +56,7 @@ Read `[billing_data_path]/time-register.yaml`.
 Compute:
 - **Today's hours** for the active attorney on the active client (entries with today's date and matching attorney slug)
 - **WIP total** for the active client: sum of `amount` for all entries where `status: pending` or `status: approved` (not yet billed)
-- **Budget status**: read `budget_cap` and `budget_billed` from the client YAML; add WIP to `budget_billed` for the running total; compute percentage.
+- **Budget status**: read `budget_cap` and `budget_billed` from the client YAML; add WIP to `budget_billed` for the running total; compute percentage. Warn when that percentage meets or exceeds **Budget warning threshold** from the config (default 75 if absent). Never hardcode the threshold — the attorney set it at cold-start and can change it with `/billing-legal:customize`.
 - **Today's AI cost**: not tracked per session — show `[not tracked]` unless the session-start hook captures it (future feature)
 
 ### 5. Display the billing panel
@@ -67,7 +67,7 @@ Compute:
 ┌─────────────────────────────────────────────────────────────┐
 │  BILLING  [Client Name]  /  [matter-slug]                   │
 │  Today: [N]h logged   WIP: $[N]   Rate: $[N]/hr             │
-│  Budget: $[billed] of $[cap] ([pct]%)  [warning if ≥ 75%]   │
+│  Budget: $[billed] of $[cap] ([pct]%)  [warn if ≥ [warn]%]  │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -82,7 +82,7 @@ If the client has `arrangement: flat-fee`, show: `[Flat fee matter — time trac
 │  SESSION BILLING  [Client Name]  /  [matter-slug]               │
 │  Session: [actual min] min  →  [rounded]h (6-min increments)    │
 │  [Attorney Name]  ·  $[rate]/hr  →  $[amount]                   │
-│  Budget: $[billed] of $[cap] ([pct]%)  [⚠ if ≥ 75%]            │
+│  Budget: $[billed] of $[cap] ([pct]%)  [⚠ if ≥ [warn]%]        │
 │─────────────────────────────────────────────────────────────────│
 │  Documents touched this session:                                │
 │  · vendor-nda-redline.docx  (edited ×2)                         │
@@ -138,10 +138,14 @@ Wait for the attorney's response:
 
 ### 6. Budget warnings
 
-If budget percentage ≥ 90%:
+Two tiers. `[warn]` is **Budget warning threshold** from the config (default 75 if absent).
+`[critical]` is 90, or `[warn]` when the attorney set `[warn]` above 90 — the critical tier can
+never sit below the warning tier. Read both from config on every run; never hardcode either.
+
+If budget percentage ≥ `[critical]`%:
 > ⛔ Budget: $[billed] of $[cap] — [pct]% used. [Client] is near the ceiling. Consider discussing a revised estimate before logging more time.
 
-If budget percentage ≥ 75% but < 90%:
+If budget percentage ≥ `[warn]`% but < `[critical]`%:
 > ⚠ Budget: $[billed] of $[cap] — [pct]% used. Consider flagging this to the client.
 
 ### 7. After logging (session-end only)

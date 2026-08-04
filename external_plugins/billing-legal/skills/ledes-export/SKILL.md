@@ -102,7 +102,7 @@ INVOICE_DATE|INVOICE_NUMBER|CLIENT_ID|LAW_FIRM_MATTER_ID|INVOICE_TOTAL|BILLING_S
 | EXP/FEE/INV_ADJ_TYPE | `F` (fee — for all time entries) |
 | LINE_ITEM_TASK_CODE | `entry.task_code` or empty string |
 | LINE_ITEM_EXPENSE_CODE | (empty) |
-| LINE_ITEM_ACTIVITY_CODE | (empty) |
+| LINE_ITEM_ACTIVITY_CODE | `entry.activity_code` or empty string |
 | TIMEKEEPER_ID | `attorney.timekeeper_id` or attorney slug |
 | TIMEKEEPER_NAME | `attorney.name` |
 | LINE_ITEM_NUMBER_OF_UNITS | `entry.hours` (decimal, e.g., `0.80`) |

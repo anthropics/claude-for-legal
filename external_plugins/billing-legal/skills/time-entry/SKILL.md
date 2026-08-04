@@ -48,6 +48,9 @@ Ask in sequence. Pre-fill from `$ARGUMENTS` if provided.
 - Ask: "How much time? (Enter as decimal hours like `0.8`, or as minutes like `48m`)"
 - Convert minutes to hours: `minutes / 60`, then round UP to the next billing increment (from attorney's `billing_increment` setting, default 0.1h).
 - Show the result: "That's [raw] — rounded to [rounded]h at [increment]-hour increments. Use [rounded]h? [Y/n]"
+- When the attorney entered minutes, record that raw figure in `session_minutes_actual`. It is the
+  only record of the gap between time worked and time billed, and it is what defends the round-up
+  if a client's e-billing auditor asks. Leave it null only when they gave decimal hours directly.
 
 **Rate:**
 - Look up the rate in order: client-specific override (from attorney YAML) → default rate (from attorney YAML).
@@ -73,14 +76,27 @@ Ask in sequence. Pre-fill from `$ARGUMENTS` if provided.
   - L320 Document Production
   - L400 Trial Preparation and Trial
   - L500 Appeal
-  - A100 Project Administration / Management
-  - A103 Review / Analyze
-  - A104 Draft / Revise
-  - A105 Research
-  - A106 Communicate (in firm)
-  - A107 Communicate (other party)
 - If `Task codes: optional`: ask with "(press enter to skip)"
 - If `Task codes: hidden`: skip
+
+Task codes are the UTBMS **L-series**. Activity codes are the **A-series** and are a separate
+field — do not offer A-codes here. They go to `activity_code` below.
+
+**Activity code (optional):**
+- Ask: "Activity code? (press enter to skip)" — provide a quick reference:
+  - A101 Plan and prepare for
+  - A102 Research
+  - A103 Draft / revise
+  - A104 Review / analyze
+  - A105 Communicate (in firm)
+  - A106 Communicate (with client)
+  - A107 Communicate (other outside counsel)
+  - A108 Communicate (other external)
+  - A109 Appear for / attend
+  - A110 Manage data / files
+  - A111 Other
+- Write the answer to `activity_code`. It exports in `LINE_ITEM_ACTIVITY_CODE`.
+- Skip this prompt entirely when `Task codes: hidden`.
 
 **Notes:**
 - Ask: "Any notes on this entry? (Internal use only — won't appear on invoice. Press enter to skip.)"
@@ -131,10 +147,11 @@ On confirmation, generate an entry ID (`te-YYYY-MMDD-NNN` where NNN is zero-padd
   rate: [rate]
   amount: [hours * rate, rounded to 2 decimal places]
   task_code: [code or null]
+  activity_code: [UTBMS activity code or null]
   narrative: "[narrative]"
   status: pending
   invoice_id: null
-  session_minutes_actual: null
+  session_minutes_actual: [raw minutes the attorney entered, or null if they gave decimal hours]
   ai_cost_usd: null
   notes: "[notes or null]"
   activity_log: null

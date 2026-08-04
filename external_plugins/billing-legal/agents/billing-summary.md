@@ -48,7 +48,7 @@ No scheduling mechanism is bundled with the plugin — invoking the skill or age
    - AI cost logged (sum of `ai_cost_usd` where available)
 
 4. Check budget warnings:
-   - Any client at ≥ 75% of budget cap (total billed + WIP vs. cap)
+   - Any client at or above the **Budget warning threshold** from the config (default 75 if absent) of budget cap (total billed + WIP vs. cap). Do not hardcode the threshold.
    - Any client with a budget cap who hasn't been billed in 60+ days
 
 5. Flag stale entries:

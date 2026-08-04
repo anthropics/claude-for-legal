@@ -50,7 +50,7 @@ Show all unbilled time (status `pending` or `approved`) across all clients and a
 |---|---|---|---|---|---|
 | Acme Corp | $15,000 | $6,400 | $840 | $7,240 | 48% |
 
-⚠ [Client] — [pct]% of budget used (show clients ≥ 75%)
+⚠ [Client] — [pct]% of budget used (show clients at or above the configured **Budget warning threshold**, default 75)
 ```
 
 ---
