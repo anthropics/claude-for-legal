@@ -1,0 +1,16 @@
+{
+  "_note": "This file's 'hooks' section is intentionally empty. Claude Code loads plugin-level hooks.json directly, so putting unresolved path placeholders here would create failing hooks alongside the correctly configured ones in settings.json. The cold-start interview writes the real commands — with the resolved billing data path — into the user's settings.json instead.",
+
+  "hooks": {},
+
+  "_hook_templates": {
+    "UserPromptSubmit": {
+      "description": "Writes a Unix timestamp on the first user message of each session. Used by billing-stop.ps1 to compute elapsed time. Deleting this file (done by billing-status on log or skip) resets the timer.",
+      "command_template": "powershell -NoProfile -NonInteractive -File \"[billing_data_path]/hooks/session-start.ps1\""
+    },
+    "Stop": {
+      "description": "Blocks session close when billing is enabled, a per-session timer file exists at .sessions/[attorney-slug]_[session-id], and a legal matter is active. Outputs {\"decision\":\"block\",\"reason\":\"...\"} (including the timer file path) to prompt Claude to run /billing-legal:billing-status --session-end.",
+      "command_template": "powershell -NoProfile -NonInteractive -File \"[billing_data_path]/hooks/billing-stop.ps1\""
+    }
+  }
+}

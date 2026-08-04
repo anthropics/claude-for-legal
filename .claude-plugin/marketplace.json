@@ -122,6 +122,15 @@
       "author": {
         "name": "Thomson Reuters"
       }
+    },
+    {
+      "name": "billing-legal",
+      "displayName": "Billing Legal",
+      "source": "./external_plugins/billing-legal",
+      "description": "Time tracking and billing for attorneys using the claude-for-legal ecosystem. Captures billable time per client and matter in 6-minute increments, supports multi-attorney firms, generates printable invoice exhibits, exports to LEDES 1998B, and provides WIP review and budget tracking.",
+      "author": {
+        "name": "Eric Tetzlaff"
+      }
     }
   ]
 }
