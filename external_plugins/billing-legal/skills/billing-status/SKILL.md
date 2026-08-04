@@ -16,6 +16,10 @@ Manually (`/billing-legal:billing-status`), or triggered by the Stop hook at end
 
 ## Instructions
 
+**Preflight - read `/billing-legal:billing-guardrails` first.** It carries the approval gate,
+the append-only record rule, UTBMS field discipline, and the boundary on what this plugin
+records rather than decides. Where it conflicts with the steps below, the stricter rule wins.
+
 ### 1. Read config
 
 Read `~/.claude/plugins/config/claude-for-legal/billing/CLAUDE.md`. If it has `[PLACEHOLDER]` values, say: "Billing setup isn't complete yet. Run `/billing-legal:cold-start-interview` first." Stop.

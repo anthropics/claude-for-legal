@@ -19,6 +19,10 @@ First time (no config exists), `--redo` (re-run fully), or `--check` (review wit
 
 ### Phase 0: Preflight
 
+0. Read `/billing-legal:billing-guardrails`. It carries the ethics posture this interview
+   surfaces in Phase 1, the approval gate, and the boundary on what this plugin records rather
+   than decides. Where it conflicts with the phases below, the stricter rule wins.
+
 1. Check for `~/.claude/plugins/config/claude-for-legal/billing/CLAUDE.md`. If it exists and has no `[PLACEHOLDER]` markers and no `--redo` flag, say:
 
    > Your billing profile is already configured. Run `/billing-legal:cold-start-interview --redo` to start over, or `/billing-legal:customize` to change one thing.

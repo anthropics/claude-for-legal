@@ -17,6 +17,10 @@ Attorney needs to log a time entry manually, outside of the end-of-session billi
 
 ## Instructions
 
+**Preflight - read `/billing-legal:billing-guardrails` first.** It carries the approval gate,
+the append-only record rule, UTBMS field discipline, and the boundary on what this plugin
+records rather than decides. Where it conflicts with the steps below, the stricter rule wins.
+
 ### 1. Read config
 
 Read `~/.claude/plugins/config/claude-for-legal/billing/CLAUDE.md`. If `[PLACEHOLDER]` values are present, stop and direct to `/billing-legal:cold-start-interview`.

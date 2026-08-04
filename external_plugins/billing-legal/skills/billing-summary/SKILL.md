@@ -15,6 +15,10 @@ Runs the same analysis as the billing-summary agent but as an on-demand slash co
 
 ## Instructions
 
+**Preflight - read `/billing-legal:billing-guardrails` first.** It carries the approval gate,
+the append-only record rule, UTBMS field discipline, and the boundary on what this plugin
+records rather than decides. Where it conflicts with the steps below, the stricter rule wins.
+
 ### 1. Read config
 
 Read `~/.claude/plugins/config/claude-for-legal/billing/CLAUDE.md`. Get `billing_data_path`. If `[PLACEHOLDER]` values are present, stop: "Run `/billing-legal:cold-start-interview` first."
