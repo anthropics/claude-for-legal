@@ -101,7 +101,7 @@ INVOICE_DATE|INVOICE_NUMBER|CLIENT_ID|LAW_FIRM_MATTER_ID|INVOICE_TOTAL|BILLING_S
 | INVOICE_TOTAL | Sum of all entry amounts in this export, 2 decimal places — same value on every row |
 | BILLING_START_DATE | Period start, YYYYMMDD |
 | BILLING_END_DATE | Period end, YYYYMMDD |
-| INVOICE_DESCRIPTION | `Legal Services — [Firm Name]` |
+| INVOICE_DESCRIPTION | `Legal Services - [Firm Name]` (ASCII hyphen, never an em dash) |
 | LINE_ITEM_NUMBER | Sequential integer starting at 1 |
 | EXP/FEE/INV_ADJ_TYPE | `F` (fee — for all time entries) |
 | LINE_ITEM_TASK_CODE | `entry.task_code` or empty string |
@@ -121,8 +121,8 @@ INVOICE_DATE|INVOICE_NUMBER|CLIENT_ID|LAW_FIRM_MATTER_ID|INVOICE_TOTAL|BILLING_S
 ```
 LEDES1998B[]
 INVOICE_DATE|INVOICE_NUMBER|CLIENT_ID|LAW_FIRM_MATTER_ID|INVOICE_TOTAL|BILLING_START_DATE|BILLING_END_DATE|INVOICE_DESCRIPTION|LINE_ITEM_NUMBER|EXP/FEE/INV_ADJ_TYPE|LINE_ITEM_TASK_CODE|LINE_ITEM_EXPENSE_CODE|LINE_ITEM_ACTIVITY_CODE|TIMEKEEPER_ID|TIMEKEEPER_NAME|LINE_ITEM_NUMBER_OF_UNITS|LINE_ITEM_ADJUSTMENT_AMOUNT|LINE_ITEM_TOTAL|LINE_ITEM_DESCRIPTION|LAW_FIRM_MATTER_ID|TIMEKEEPER_CLASSIFICATION[]
-20260601|INV-2026-007|ACME_CORP|acme-msa-2026|420.00|20260501|20260531|Legal Services — Hartley & Associates LLP|1|F|L200|||aj001|Alice Jones|0.80|0.00|280.00|Reviewed vendor MSA redline; drafted markup on limitation of liability and IP ownership|acme-msa-2026|AT[]
-20260601|INV-2026-007|ACME_CORP|acme-msa-2026|420.00|20260501|20260531|Legal Services — Hartley & Associates LLP|2|F|L200|||aj001|Alice Jones|0.40|0.00|140.00|Call with client re counterparty response; revised markup|acme-msa-2026|AT[]
+20260601|INV-2026-007|ACME_CORP|acme-msa-2026|420.00|20260501|20260531|Legal Services - Hartley & Associates LLP|1|F|L200|||aj001|Alice Jones|0.80|0.00|280.00|Reviewed vendor MSA redline; drafted markup on limitation of liability and IP ownership|acme-msa-2026|AT[]
+20260601|INV-2026-007|ACME_CORP|acme-msa-2026|420.00|20260501|20260531|Legal Services - Hartley & Associates LLP|2|F|L200|||aj001|Alice Jones|0.40|0.00|140.00|Call with client re counterparty response; revised markup|acme-msa-2026|AT[]
 ```
 
 ### 7. Write the file
