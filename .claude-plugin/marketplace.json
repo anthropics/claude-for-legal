@@ -11,6 +11,12 @@
       "displayName": "Commercial Legal",
       "source": "./commercial-legal",
       "description": "Reviews vendor agreements, NDAs, and SaaS subscriptions against your sales-side or purchasing-side playbook, tracks renewals and cancel-by deadlines before they're missed, routes escalations to the right approver, and translates reviews into summaries business stakeholders will actually read.",
+      "classification": {
+        "object_acted_on": [
+          "files-documents"
+        ],
+        "work_department": "legal"
+      },
       "author": {
         "name": "Anthropic"
       }
@@ -20,6 +26,12 @@
       "displayName": "Privacy Legal",
       "source": "./privacy-legal",
       "description": "Triages processing activities, generates PIAs, reviews DPAs as controller or processor, drafts DSAR responses within statutory timelines, and monitors policy drift against practice.",
+      "classification": {
+        "object_acted_on": [
+          "files-documents"
+        ],
+        "work_department": "legal"
+      },
       "author": {
         "name": "Anthropic"
       }
@@ -29,6 +41,12 @@
       "displayName": "Product Legal",
       "source": "./product-legal",
       "description": "Reviews product launches against your risk calibration, answers 'is this a problem?' questions in minutes, checks marketing copy for claims that need substantiation, and flags upcoming launches that need legal eyes before anyone asks.",
+      "classification": {
+        "object_acted_on": [
+          "files-documents"
+        ],
+        "work_department": "legal"
+      },
       "author": {
         "name": "Anthropic"
       }
@@ -38,6 +56,12 @@
       "displayName": "Corporate Legal",
       "source": "./corporate-legal",
       "description": "Runs M&A diligence at scale with cited tabular review, builds disclosure schedules and closing checklists, drafts board consents and minutes in house format, and tracks entity compliance deadlines across jurisdictions.",
+      "classification": {
+        "object_acted_on": [
+          "files-documents"
+        ],
+        "work_department": "legal"
+      },
       "author": {
         "name": "Anthropic"
       }
@@ -47,6 +71,12 @@
       "displayName": "Employment Legal",
       "source": "./employment-legal",
       "description": "Reviews hires and terminations for jurisdiction-specific risk flags, classifies workers against the controlling state test, tracks leave deadlines before they're missed, runs internal investigations, and drafts policies with state supplements where the law differs.",
+      "classification": {
+        "object_acted_on": [
+          "files-documents"
+        ],
+        "work_department": "legal"
+      },
       "author": {
         "name": "Anthropic"
       }
@@ -56,6 +86,12 @@
       "displayName": "Regulatory Legal",
       "source": "./regulatory-legal",
       "description": "Watches regulatory feeds, diffs new rules against your policy library, tracks comment deadlines and open gaps, and writes the digest your team reads Monday morning.",
+      "classification": {
+        "object_acted_on": [
+          "reference-docs"
+        ],
+        "work_department": "legal"
+      },
       "author": {
         "name": "Anthropic"
       }
@@ -65,6 +101,12 @@
       "displayName": "AI Governance Legal",
       "source": "./ai-governance-legal",
       "description": "Triages proposed AI use cases against your registry, runs impact assessments across the regimes in scope, reviews vendor AI terms for training-on-data and liability gaps, and keeps your AI policy current with practice.",
+      "classification": {
+        "object_acted_on": [
+          "ai-models-agents"
+        ],
+        "work_department": "legal"
+      },
       "author": {
         "name": "Anthropic"
       }
@@ -74,6 +116,12 @@
       "displayName": "Litigation Legal",
       "source": "./litigation-legal",
       "description": "Manages the litigation portfolio — matters, deadlines, holds, demands, outside counsel — and does the work: claim charts (patent and civil), chronologies, depo prep, privilege logs, brief drafting. Adapts to how you work litigation: in-house, firm, or solo.",
+      "classification": {
+        "object_acted_on": [
+          "files-documents"
+        ],
+        "work_department": "legal"
+      },
       "author": {
         "name": "Anthropic"
       }
@@ -83,6 +131,14 @@
       "displayName": "Law Student",
       "source": "./law-student",
       "description": "Drills Socratically, briefs cases, builds outlines, runs bar prep sessions tuned to your jurisdiction, grades IRAC practice, and plans the study schedule — without ever writing it for you.",
+      "classification": {
+        "object_acted_on": [
+          "courses-lessons"
+        ],
+        "work_department": "legal",
+        "industry": "education",
+        "life_area": "learning"
+      },
       "author": {
         "name": "Anthropic"
       }
@@ -92,6 +148,13 @@
       "displayName": "Legal Clinic",
       "source": "./legal-clinic",
       "description": "Sets up the clinic, onboards students, runs structured intake, tracks deadlines with malpractice-aware caution, and hands off cases at semester end — built within ABA Formal Op. 512.",
+      "classification": {
+        "object_acted_on": [
+          "tickets-tasks"
+        ],
+        "work_department": "legal",
+        "industry": "education"
+      },
       "author": {
         "name": "Anthropic"
       }
@@ -101,6 +164,12 @@
       "displayName": "Legal Builder Hub",
       "source": "./legal-builder-hub",
       "description": "Finds, evaluates, and installs community legal skills — with a security review gate before anything lands in your environment.",
+      "classification": {
+        "object_acted_on": [
+          "claude-settings"
+        ],
+        "work_department": "legal"
+      },
       "author": {
         "name": "Anthropic"
       }
@@ -110,6 +179,12 @@
       "displayName": "IP Legal",
       "source": "./ip-legal",
       "description": "Runs first-pass trademark clearance and freedom-to-operate triage, screens invention disclosures for initial patentability, drafts and triages cease-and-desist letters and DMCA takedowns (send and respond), checks open source compliance, reviews IP clauses, and tracks registrations and renewal deadlines.",
+      "classification": {
+        "object_acted_on": [
+          "files-documents"
+        ],
+        "work_department": "legal"
+      },
       "author": {
         "name": "Anthropic"
       }
@@ -119,6 +194,13 @@
       "displayName": "CoCounsel Legal",
       "source": "./external_plugins/cocounsel-legal",
       "description": "CoCounsel Legal delivers comprehensive Westlaw Deep Research reports with inline, linked citations to Westlaw and Practical Law sources.",
+      "classification": {
+        "object_acted_on": [
+          "papers-articles",
+          "reference-docs"
+        ],
+        "work_department": "legal"
+      },
       "author": {
         "name": "Thomson Reuters"
       }
