@@ -11,6 +11,12 @@
       "url": "https://drivemcp.googleapis.com/mcp/v1",
       "title": "Google Drive",
       "description": "Search, read, and fetch documents from Google Drive."
+    },
+    "US Codex": {
+      "type": "http",
+      "url": "https://uscodex.org/mcp",
+      "title": "US Codex",
+      "description": "Authoritative United States Code search, section retrieval, citation resolution, citator (inbound backlinks), and legislative diffs from the Office of the Law Revision Counsel."
     }
   },
   "recommendedCategories": [
