@@ -84,6 +84,7 @@ Ships with:
 - **Slack** — search messages, read channels, find discussions (general bucket)
 - **Google Drive** — search, read, and fetch documents (general bucket)
 - **Box** — data room and document management
+- **Version Story** — document comparison and redlining across versions
 
 Intralinks, Datasite, and other VDR connectors can be added to `.mcp.json` when partner URLs are available.
 

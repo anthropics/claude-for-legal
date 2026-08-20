@@ -41,6 +41,12 @@
       "url": "https://api.solveintelligence.com/mcp/",
       "title": "Solve Intelligence",
       "description": "Patent workflows — search patent and non-patent literature, legal texts, SEP technical standards, prior art, claim analysis."
+    },
+    "Version Story": {
+      "type": "http",
+      "url": "https://mcp-compare.versionstory.com/mcp",
+      "title": "Version Story",
+      "description": "Deterministic document comparison — turn any two versions into true Word tracked-changes or PDF redlines, merge parallel edits into one draft, build version histories with every change attributed."
     }
   },
   "recommendedCategories": [
@@ -50,6 +56,7 @@
     "board-governance",
     "documents",
     "chat",
-    "email"
+    "email",
+    "document-comparison"
   ]
 }

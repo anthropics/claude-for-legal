@@ -41,6 +41,12 @@
       "url": "https://mcp.trellis.law/anthropic",
       "title": "Trellis",
       "description": "The largest state trial court dataset in the U.S. — dockets, rulings, verdicts, filings, judge and opposing counsel analytics, expert witness vetting."
+    },
+    "Version Story": {
+      "type": "http",
+      "url": "https://mcp-compare.versionstory.com/mcp",
+      "title": "Version Story",
+      "description": "Deterministic document comparison — turn any two versions into true Word tracked-changes or PDF redlines, merge parallel edits into one draft, build version histories with every change attributed."
     }
   },
   "recommendedCategories": [
@@ -50,6 +56,7 @@
     "court-analytics",
     "outside-counsel-network",
     "documents",
-    "chat"
+    "chat",
+    "document-comparison"
   ]
 }

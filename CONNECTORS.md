@@ -29,6 +29,7 @@ Connectors shipped in the default `.mcp.json` of each plugin:
 | **Descrybe** | legal-clinic, ip-legal, law-student |
 | **Definely** | commercial-legal, corporate-legal |
 | **iManage** | commercial-legal, corporate-legal |
+| **Version Story** | commercial-legal, corporate-legal, litigation-legal |
 | **Solve Intelligence** | corporate-legal, ip-legal |
 | **TopCounsel** | commercial-legal, corporate-legal, litigation-legal |
 | **Box** | corporate-legal |
