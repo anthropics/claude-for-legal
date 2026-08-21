@@ -310,7 +310,7 @@ These plugins ship connectors for the systems legal teams live in. A connector g
 | **Ironclad** | Read the contract register, renewal dates, clauses | `commercial-legal` | Customer subscription |
 | **DocuSign / DocuSign CLM** | Envelope status, executed contracts, CLM metadata | `commercial-legal` | Customer subscription |
 | **iManage** | Read from the DMS — matter workspaces, document versions | `commercial-legal`, `corporate-legal` | Customer subscription |
-| **Version Story** | Redlines between document versions — Word tracked changes, PDF, merged drafts, version history | `commercial-legal`, `corporate-legal`, `litigation-legal` | Version Story account; OAuth. Also a [desktop plugin](https://github.com/VersionStory/version-story-plugin-marketplace) for files on your computer |
+| **Version Story** | Redlines between document versions — Word tracked changes, PDF, merged drafts, version history | `commercial-legal`, `corporate-legal`, `litigation-legal` | Version Story account; OAuth |
 | **Everlaw** | E-discovery productions, tagged sets, chronologies | `litigation-legal` | Customer subscription |
 | **CourtListener** | Federal dockets and opinions | `legal-clinic`, `ip-legal`, `litigation-legal`, `law-student` | Public; optional API key |
 | **Trellis** | State court dockets and motions | `litigation-legal` | Customer subscription |

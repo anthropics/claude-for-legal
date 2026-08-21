@@ -125,10 +125,10 @@ The legal research connectors in this plugin aren't just data sources — they'r
 
 ## Integrations
 
-Ships with the general bucket of connectors in `.mcp.json`:
+Ships with the general bucket of connectors in `.mcp.json`, plus document comparison:
 
-- **Slack** — search messages, read channels, find discussions
-- **Google Drive** — search, read, and fetch documents
+- **Slack** — search messages, read channels, find discussions (general bucket)
+- **Google Drive** — search, read, and fetch documents (general bucket)
 - **Version Story** — redlines between document versions (settlement drafts, contested agreements, expert reports)
 
 Designed to be useful with nothing connected. If/when you want to pull from Relativity, DISCO, CLMs, or email, integration skills can be added without changing the core architecture.

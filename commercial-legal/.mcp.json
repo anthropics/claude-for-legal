@@ -53,11 +53,11 @@
     "contract-management",
     "e-signature",
     "legal-document-management",
+    "document-comparison",
     "email",
     "documents",
     "chat",
     "contract-review",
-    "outside-counsel-network",
-    "document-comparison"
+    "outside-counsel-network"
   ]
 }

@@ -63,6 +63,7 @@ The deliverable should read like a partner wrote it. The meta-commentary goes in
 | VDR (Intralinks, Datasite, Box) | [✓ / ✗] | Diligence pulls from local folder; user drops docs in `~/.claude/plugins/config/claude-for-legal/corporate-legal/deals/[code]/vdr-mirror/` |
 | Board portal (Diligent, BoardEffect) | [✓ / ✗] | Minutes/consents work from local templates; no portal posting |
 | Document storage (Google Drive, SharePoint, Box) | [✓ / ✗] | Read local paths; no cross-system search |
+| Document comparison (Version Story) | [✓ / ✗] | Version differences described in prose; no tracked-changes or PDF redline produced |
 | Slack | [✓ / ✗] | Briefs emitted as files only; no in-channel summaries |
 
 *Re-check: `/corporate-legal:cold-start-interview --check-integrations`*
