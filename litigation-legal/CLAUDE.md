@@ -91,6 +91,7 @@ This file is the house-level frame every matter is triaged against. Risk calibra
 | Gmail | [✓ / ✗] | Correspondence pulled manually; no automated history |
 | Scheduled-tasks | [✓ / ✗] | Deadline + hold-refresh reminders run on demand only |
 | CLM (Ironclad / Agiloft) | [✓ / ✗] | Contract pulls are manual for commercial cross-reference |
+| Document comparison (Version Story) | [✓ / ✗] | Version differences described in prose; no tracked-changes or PDF redline produced |
 
 *Re-check: `/litigation-legal:cold-start-interview --check-integrations`*
 

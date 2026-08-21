@@ -21,7 +21,7 @@ argument-hint: "[--redo | --check-integrations]"
 ## Flags
 
 - `--redo` — re-run the full interview and overwrite `~/.claude/plugins/config/claude-for-legal/litigation-legal/CLAUDE.md`.
-- `--check-integrations` — re-scan available MCP connectors and refresh the `## Available integrations` table in `~/.claude/plugins/config/claude-for-legal/litigation-legal/CLAUDE.md` without re-running the full interview. Use after setting up a new connector (DMS, document storage, Gmail, scheduled-tasks, CLM).
+- `--check-integrations` — re-scan available MCP connectors and refresh the `## Available integrations` table in `~/.claude/plugins/config/claude-for-legal/litigation-legal/CLAUDE.md` without re-running the full interview. Use after setting up a new connector (DMS, document storage, Gmail, scheduled-tasks, CLM, document comparison).
 
 When probing: only report ✓ if an MCP tool call actually succeeded. Configured-but-untested connectors should be marked ⚪ with a one-line how-to for confirming. Never report ✓ based on `.mcp.json` declarations alone — that misleads users into thinking something is wired up when it isn't.
 
@@ -200,7 +200,7 @@ This refines escalation / supervision language in the practice profile:
 
 ### What's connected?
 
-> This plugin can work with: DMS (iManage), document storage (Google Drive, SharePoint, Box), Gmail, scheduled-tasks, CLM (Ironclad), eDiscovery (Everlaw, Relativity, DISCO, Aurora), legal research (CourtListener, Descrybe, Trellis), outside-counsel recommendations (TopCounsel). Let me check which connectors you have configured — features that need them will work, and features that don't will fall back gracefully instead of failing silently.
+> This plugin can work with: DMS (iManage), document storage (Google Drive, SharePoint, Box), Gmail, scheduled-tasks, CLM (Ironclad), eDiscovery (Everlaw, Relativity, DISCO, Aurora), legal research (CourtListener, Descrybe, Trellis), outside-counsel recommendations (TopCounsel), document comparison (Version Story). Let me check which connectors you have configured — features that need them will work, and features that don't will fall back gracefully instead of failing silently.
 
 **Check what's actually connected, not what's configured.** A connector listed in `.mcp.json` is *available*. A connector that's actually responding is *connected*. These are different, and confusing them destroys trust. For each connector this plugin uses:
 

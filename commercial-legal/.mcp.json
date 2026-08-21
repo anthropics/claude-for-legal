@@ -30,6 +30,12 @@
       "title": "Definely",
       "description": "Live, deterministic access to contract structure — resolve definitions, validate cross-references, map dependencies, run structural diffs."
     },
+    "Version Story": {
+      "type": "http",
+      "url": "https://mcp-compare.versionstory.com/mcp",
+      "title": "Version Story",
+      "description": "Deterministic document comparison — turn any two versions into Word tracked-changes or PDF redlines, merge parallel edits into one draft, build version histories with every change attributed."
+    },
     "Slack": {
       "type": "http",
       "url": "https://mcp.slack.com/mcp",
@@ -47,6 +53,7 @@
     "contract-management",
     "e-signature",
     "legal-document-management",
+    "document-comparison",
     "email",
     "documents",
     "chat",

@@ -70,12 +70,15 @@ Ships with connectors configured in `.mcp.json`:
 
 - **Ironclad** — contract lifecycle management
 - **DocuSign** — signature status and envelope tracking
+- **Version Story** — document comparison and redlining
 - **Slack** — search messages, read channels, find discussions (general bucket)
 - **Google Drive** — search, read, and fetch documents (general bucket)
 
 With a [CLM] connected: reviews check for prior agreements with the same counterparty, bulk-load the renewal register, create records with review memos attached.
 
 With DocuSign connected: track signature status, route envelopes in approver order.
+
+With Version Story connected: turn any two versions of an agreement into a Word tracked-changes or PDF redline, merge parallel edits into one draft, and trace how a provision evolved across versions.
 
 ## Quick start
 

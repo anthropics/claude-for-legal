@@ -35,7 +35,7 @@ Runs the cold-start interview. First run writes `~/.claude/plugins/config/claude
 
 ## `--check-integrations`
 
-Re-runs the integration availability check (CLM, e-signature, document storage, Slack) and updates `## Available integrations` in `~/.claude/plugins/config/claude-for-legal/commercial-legal/CLAUDE.md`. Does not re-interview. Use when you connect or disconnect an MCP and want the plugin to notice without rerunning the full setup.
+Re-runs the integration availability check (CLM, e-signature, document storage, document comparison, Slack) and updates `## Available integrations` in `~/.claude/plugins/config/claude-for-legal/commercial-legal/CLAUDE.md`. Does not re-interview. Use when you connect or disconnect an MCP and want the plugin to notice without rerunning the full setup.
 
 When probing: only report ✓ if an MCP tool call actually succeeded. Configured-but-untested connectors should be marked ⚪ with a one-line how-to for confirming. Never report ✓ based on `.mcp.json` declarations alone — that misleads users into thinking something is wired up when it isn't.
 
@@ -194,7 +194,7 @@ If the answer is 3, add:
 
 #### What's connected?
 
-> This plugin can work with: CLM (Ironclad, Agiloft, etc.), e-signature (DocuSign, etc.), document storage (Google Drive, SharePoint, Box), and Slack. Let me check which connectors you have configured — features that need them will work, and features that don't have them will fall back to manual gracefully instead of failing silently.
+> This plugin can work with: CLM (Ironclad, Agiloft, etc.), e-signature (DocuSign, etc.), document storage (Google Drive, SharePoint, Box), document comparison (Version Story), and Slack. Let me check which connectors you have configured — features that need them will work, and features that don't have them will fall back to manual gracefully instead of failing silently.
 
 **Check what's actually connected, not what's configured.** A connector listed in `.mcp.json` is *available*. A connector that's actually responding is *connected*. These are different, and confusing them destroys trust. For each connector this plugin uses:
 
@@ -432,6 +432,7 @@ contract lifecycle management.
 | CLM (Ironclad, Agiloft, etc.) | [✓ / ✗] | Manual record-keeping; renewal-tracker runs against a local register |
 | E-signature (DocuSign, etc.) | [✓ / ✗] | User routes for signature outside the plugin |
 | Document storage (Drive / SharePoint / Box) | [✓ / ✗] | User uploads agreements directly for each review |
+| Document comparison (Version Story) | [✓ / ✗] | Version differences described in prose; no tracked-changes or PDF redline produced |
 | Slack | [✓ / ✗] | Alerts and stakeholder summaries delivered inline instead of posted |
 
 *Re-check: `/commercial-legal:cold-start-interview --check-integrations`*
