@@ -129,7 +129,7 @@ Ships with the general bucket of connectors in `.mcp.json`:
 
 - **Slack** — search messages, read channels, find discussions
 - **Google Drive** — search, read, and fetch documents
-- **Version Story** — true redlines between document versions (settlement drafts, contested agreements, expert reports)
+- **Version Story** — redlines between document versions (settlement drafts, contested agreements, expert reports)
 
 Designed to be useful with nothing connected. If/when you want to pull from Relativity, DISCO, CLMs, or email, integration skills can be added without changing the core architecture.
 

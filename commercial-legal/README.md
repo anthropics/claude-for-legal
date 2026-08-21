@@ -78,7 +78,7 @@ With a [CLM] connected: reviews check for prior agreements with the same counter
 
 With DocuSign connected: track signature status, route envelopes in approver order.
 
-With Version Story connected: turn any two versions of an agreement into a true Word tracked-changes or PDF redline, merge parallel counterparty edits into one draft, and trace how a provision evolved across versions. Also available as a [desktop plugin](https://github.com/VersionStory/version-story-plugin-marketplace) that works from files on your computer.
+With Version Story connected: turn any two versions of an agreement into a Word tracked-changes or PDF redline, merge parallel counterparty edits into one draft, and trace how a provision evolved across versions. Also available as a [desktop plugin](https://github.com/VersionStory/version-story-plugin-marketplace) that works from files on your computer.
 
 ## Quick start
 
