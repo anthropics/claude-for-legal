@@ -64,8 +64,8 @@ Read the whole agreement once, fast. Answer:
 | Question | Answer |
 |---|---|
 | What kind of agreement is this? | MSA / SaaS subscription / Professional services / License / Other |
-| Who are we? | Customer / Vendor (this plugin assumes customer — flag if not) |
-| Counterparty | Name, and are they a BigCo (won't negotiate) or a startup (will)? |
+| Who are we? | Customer / Vendor — determine from the agreement and apply the matching playbook side; ask if unclear | 
+| Counterparty | Name, size/type if known, and any known negotiation leverage or constraints. Do not infer willingness to negotiate from company size alone. |  
 | Dollar value | Annual / total contract value if stated |
 | Term | Length, renewal mechanics |
 | Is there a DPA? | Attached / referenced by URL / missing |
@@ -103,10 +103,11 @@ hard no. Recommend:
 - [ ] Push back — propose [specific alternative language]
 - [ ] Walk — if counterparty won't move, we don't sign
 
-Detailed review below is provided for completeness but is moot unless this is
-resolved.
+Detailed review is paused because this deal-breaker must be resolved first.
+If the user explicitly asks to continue, resume the remaining review and label
+it as conditional on resolution of the deal-breaker.
 ```
-
+**Workflow gate:** If a deal-breaker is present, stop here unless the user explicitly asks to continue the review. If no deal-breaker is present, proceed to Step 3.
 ### Step 3: Term-by-term comparison
 
 For each playbook category in `~/.claude/plugins/config/claude-for-legal/commercial-legal/CLAUDE.md`, find the corresponding contract section and compare.
@@ -335,7 +336,8 @@ Do not proceed past this gate without an explicit yes.
 - [ ] Every issue has specific replacement language
 - [ ] Risk levels are calibrated (not everything is Critical)
 - [ ] Approver is named, not "escalate to legal"
-- [ ] Counterparty context considered (BigCo vs. startup — affects what's worth fighting over)
+- [ ] - [ ] Counterparty context considered
+  (size/type, negotiation leverage, and known constraints — do not infer willingness to negotiate from company size alone)
 
 ## Close with the next-steps decision tree
 
