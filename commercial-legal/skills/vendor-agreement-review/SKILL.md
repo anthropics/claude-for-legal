@@ -103,8 +103,9 @@ hard no. Recommend:
 - [ ] Push back — propose [specific alternative language]
 - [ ] Walk — if counterparty won't move, we don't sign
 
-Detailed review below is provided for completeness but is moot unless this is
-resolved.
+Detailed review is paused because this deal-breaker must be resolved first.
+If the user explicitly asks to continue, resume the remaining review and label
+it as conditional on resolution of the deal-breaker.
 ```
 
 ### Step 3: Term-by-term comparison
