@@ -18,7 +18,7 @@ import jsonschema
 
 
 def _load(path: Path):
-    text = path.read_text()
+    text = path.read_text(encoding="utf-8")
     if path.suffix in (".yaml", ".yml"):
         import yaml
         return yaml.safe_load(text)
