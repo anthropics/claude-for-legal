@@ -64,7 +64,7 @@ def sub(m):
     if not SAFE.fullmatch(v):
         sys.exit(f"refusing ${{{name}}}: value contains characters outside [A-Za-z0-9._/:@-]")
     return v
-t = open(sys.argv[1]).read()
+t = open(sys.argv[1], encoding="utf-8").read()
 t = re.sub(r"\$\{([A-Z0-9_]+)\}", sub, t)
 json.dump(yaml.safe_load(t), sys.stdout)
 ' "$1"
@@ -93,7 +93,7 @@ upload_skill() {
     -F "display_title=${SKILL_TITLE_PREFIX:-}$(basename "$path")" \
     -F "files[]=@$zip")
   rm -f "$zip"
-  id=$(jq -r '.id // empty' <<<"$resp")
+  id=$(jq -r '.id // empty' <<<"$resp" | tr -d '\r')
   if [[ -z "$id" ]]; then
     echo "POST /v1/skills failed for $path:" >&2
     echo "$resp" | jq . >&2 2>/dev/null || echo "$resp" >&2
@@ -111,7 +111,7 @@ resolve_manifest() {
   json=$(yaml2json "$file")
   # Expand any {from_plugin: <dir>} into one {path: ...} per skills/* under that dir.
   local fp
-  fp=$(jq -r '.skills[]? | select(.from_plugin) | .from_plugin' <<<"$json" | head -1)
+  fp=$(jq -r '.skills[]? | select(.from_plugin) | .from_plugin' <<<"$json" | head -1 | tr -d '\r')
   if [[ -n "$fp" ]]; then
     local plugdir expanded="[]"
     plugdir="$(cd "$base/$fp" && pwd)"
@@ -133,9 +133,9 @@ resolve_manifest() {
 inline_system() {
   local json="$1" base="$2" sysfile text append body
   if jq -e '.system | type == "object"' >/dev/null <<<"$json"; then
-    sysfile=$(jq -r '.system.file // empty' <<<"$json")
-    text=$(jq -r '.system.text // empty' <<<"$json")
-    append=$(jq -r '.system.append // empty' <<<"$json")
+    sysfile=$(jq -r '.system.file // empty' <<<"$json" | tr -d '\r')
+    text=$(jq -r '.system.text // empty' <<<"$json" | tr -d '\r')
+    append=$(jq -r '.system.append // empty' <<<"$json" | tr -d '\r')
     body="$text"
     if [[ -n "$sysfile" ]]; then
       [[ -f "$base/$sysfile" ]] || { echo "system.file not found: $base/$sysfile" >&2; exit 1; }
@@ -159,17 +159,17 @@ create_agent() {
     [[ -z "$p" ]] && continue
     [[ -d "$p" ]] || { echo "skill path not found: $p" >&2; exit 1; }
     skills_json=$(jq ". + [$(upload_skill "$p")]" <<<"$skills_json")
-  done < <(jq -r '.skills[]? | select(.__upload) | .__upload' <<<"$json")
+  done < <(jq -r '.skills[]? | select(.__upload) | .__upload' <<<"$json" | tr -d '\r')
   json=$(jq --argjson s "$skills_json" '.skills=$s' <<<"$json")
 
   sub_ids="[]"
   while IFS= read -r m; do
     [[ -z "$m" ]] && continue
     local out sid sver
-    out=$(create_agent "$base/$m")
+    out=$(create_agent "$base/$m" | tr -d '\r')
     sid=${out%% *}; sver=${out##* }
     sub_ids=$(jq --arg i "$sid" --argjson v "$sver" '. + [{type:"agent", id:$i, version:$v}]' <<<"$sub_ids")
-  done < <(jq -r '.callable_agents[]?.manifest // empty' <<<"$json")
+  done < <(jq -r '.callable_agents[]?.manifest // empty' <<<"$json" | tr -d '\r')
   json=$(jq --argjson c "$sub_ids" '.callable_agents=$c | del(.output_schema)' <<<"$json")
   json=$(jq --arg ck "$COOKBOOK_TAG" '.metadata = ((.metadata // {}) + {anthropic_cookbook: $ck})' <<<"$json")
   [[ -n "${DEPLOY_DEBUG:-}" ]] && jq -c '{name, callable_agents}' <<<"$json" >&2
@@ -180,8 +180,8 @@ create_agent() {
   fi
   local resp id ver
   resp=$(req -X POST "$API/v1/agents" -d "$json")
-  id=$(jq -r '.id // empty' <<<"$resp")
-  ver=$(jq -r '.version // 1' <<<"$resp")
+  id=$(jq -r '.id // empty' <<<"$resp" | tr -d '\r')
+  ver=$(jq -r '.version // 1' <<<"$resp" | tr -d '\r')
   if [[ -z "$id" ]]; then
     echo "POST /v1/agents failed for $(jq -r .name <<<"$json"):" >&2
     echo "$resp" | jq . >&2 2>/dev/null || echo "$resp" >&2
@@ -199,7 +199,7 @@ if [[ $DRY_RUN -eq 1 ]]; then
   exit 0
 fi
 
-OUT=$(create_agent "$DIR/agent.yaml")
+OUT=$(create_agent "$DIR/agent.yaml" | tr -d '\r')
 AGENT_ID=${OUT%% *}
 echo "deployed: $ROLE"
 echo "agent id: $AGENT_ID"
