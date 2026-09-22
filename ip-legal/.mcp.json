@@ -6,6 +6,12 @@
       "title": "Solve Intelligence",
       "description": "Patent workflows — search patent and non-patent literature, legal texts, SEP technical standards, prior art, claim analysis."
     },
+    "GleanMark": {
+      "type": "http",
+      "url": "https://gleanmark.com/mcp",
+      "title": "GleanMark",
+      "description": "U.S. trademark data — USPTO register search and knockout screening, application and registration status, prosecution history and Office Actions, TTAB proceedings, owner and law-firm portfolios, and computed deadlines."
+    },
     "CourtListener": {
       "type": "http",
       "url": "https://mcp.courtlistener.com/",

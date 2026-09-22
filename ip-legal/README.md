@@ -82,6 +82,7 @@ The legal research connectors in this plugin aren't just data sources — they'r
 Ships with connectors configured in `.mcp.json`:
 
 - **Solve Intelligence** — patent and non-patent literature search, SEP technical standards, prior art, claim analysis
+- **GleanMark** — U.S. trademark register search, application and registration status, prosecution history and Office Actions, TTAB proceedings, owner and law-firm portfolios, computed deadlines; knockout clearance, similar-mark search and your own GleanMark portfolios require a GleanMark sign-in
 - **CourtListener** — U.S. court opinions, PACER dockets, citation verification
 - **Descrybe** — primary law research by concept or wording, citation treatment, quoted-language verification
 - **Slack** — search messages, read channels, find discussions
