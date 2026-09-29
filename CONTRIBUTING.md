@@ -76,7 +76,8 @@ Examples of this rule in practice:
   decision-posture statement all shape what the skill should say and omit.
 - **Bump the plugin version on a material change.** Patch bumps for behavior
   additions; minor bumps for new skills or new required inputs.
-- **Run the validators.** `scripts/validate.py` and `scripts/lint-tool-scope.py`
-  check the structural invariants the plugin loader depends on.
+- **Run the validators.** `scripts/validate.py`, `scripts/lint-tool-scope.py`,
+  and `scripts/check-reference-templates.py` check the structural invariants the
+  plugin loader depends on.
 - **Do not remove the shared guardrails from CLAUDE.md.** The net stays. The
   goal is a skill that doesn't need the net, not a plugin without one.
