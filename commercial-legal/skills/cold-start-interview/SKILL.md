@@ -489,6 +489,14 @@ contract lifecycle management.
 
 [The deal-breaker they named for sales-side deals. This is the first thing every sales-side review checks.]
 
+#### NDA triage positions
+
+[What makes an NDA GREEN / YELLOW / RED on this side (mutuality, term length, survival, residuals, carveouts, governing law, fee-shifting). The nda-review skill will not issue GREEN until this is set by counsel. [PLACEHOLDER]]
+
+#### SaaS positions
+
+[Positions on auto-renewal notice windows, price escalators, data export rights, SLA thresholds, subprocessor approval, deprecation notice. [PLACEHOLDER]]
+
 ---
 
 ### Purchasing-side playbook
@@ -497,9 +505,21 @@ contract lifecycle management.
 
 *[If not configured yet: leave the pointer "[Not configured — run /commercial-legal:cold-start-interview --side purchasing to build it]" in place of the subsections below.]*
 
-[Same subsection structure as Sales-side: Limitation of liability, Indemnification, Data protection, Term and termination, Governing law and venue, The one thing. Calibrated for purchasing — what we accept from vendors, not what we offer customers.]
+[Same subsection structure as Sales-side: Limitation of liability, Indemnification, Data protection, Term and termination, Governing law and venue, The one thing, NDA triage positions, SaaS positions. Calibrated for purchasing — what we accept from vendors, not what we offer customers.]
 
 ---
+
+## AI/ML training rights
+
+Record a position per dimension (the seven-point checklist from Part 2):
+
+1. **Explicit training grants:** [hard no / acceptable if narrowly defined / don't care]
+2. **Implicit grants via privacy-policy incorporation:** [refuse if policy can change unilaterally / acceptable / don't care]
+3. **Anonymization standard:** [require named standard (GDPR Recital 26, HIPAA Safe Harbor) / "anonymized" without a definition acceptable / don't care]
+4. **Competitive contamination:** [require competitive-isolation commitment when vendor serves competitors / case-by-case / don't care]
+5. **Opt-out scope and durability:** [require opt-out covering all AI uses and surviving renewals + TOS updates / accept any opt-out / don't require]
+6. **Output ownership:** [require customer owns outputs / accept vendor retention as training examples / don't care]
+7. **Downstream regulatory chain:** [require vendor to surface EU AI Act / FTC §5 / state AI law exposure / don't require]
 
 ## Escalation
 
