@@ -41,6 +41,12 @@
       "url": "https://mcp.trellis.law/anthropic",
       "title": "Trellis",
       "description": "The largest state trial court dataset in the U.S. — dockets, rulings, verdicts, filings, judge and opposing counsel analytics, expert witness vetting."
+    },
+    "Court Rules": {
+      "type": "http",
+      "url": "https://mcp.courtrules.app/mcp",
+      "title": "Court Rules",
+      "description": "Judge-level U.S. court filing rules and court holiday calendars: local rules, standing orders, page limits, filing deadlines and privacy enforcement data, each cited back to the source document."
     }
   },
   "recommendedCategories": [
