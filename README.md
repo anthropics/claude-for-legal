@@ -94,6 +94,7 @@ Each agent is named for the workflow it runs. They're the most common surface �
 | **Deposition Prep** | Builds a deposition outline tied to case theory with docs and impeachment | `litigation-legal` | `/litigation-legal:deposition-prep` |
 | **Brief Section Drafter** | Drafts a brief section in house style, consistent with case theory | `litigation-legal` | `/litigation-legal:brief-section-drafter` |
 | **Privilege Log Reviewer** | First-pass privilege log review — obvious calls + flags for attorney review | `litigation-legal` | `/litigation-legal:privilege-log-review` |
+| **Cite Checker** | Confirms every cited case exists, then checks quotations, pins, and holdings against the opinion | `litigation-legal` | `/litigation-legal:cite-check` |
 | **Legal Hold** | Issue, refresh, release, or report on legal holds | `litigation-legal` | `/litigation-legal:legal-hold` |
 | **Matter Intake** | Uniform intake for a new matter — writes matter.md, history.md, appends to log | `litigation-legal` | `/litigation-legal:matter-intake` |
 | **Matter Briefing** | Deep briefing on one matter — ready for a GC or outside counsel call | `litigation-legal` | `/litigation-legal:matter-briefing` |
@@ -498,6 +499,7 @@ The full map across all plugins. The cold-start interview is the first thing to 
 | `/litigation-legal:deposition-prep` | deposition-prep | Deposition outline tied to case theory |
 | `/litigation-legal:privilege-log-review` | privilege-log-review | First-pass privilege log review with flags |
 | `/litigation-legal:brief-section-drafter` | brief-section-drafter | Draft a brief section in house style |
+| `/litigation-legal:cite-check` | cite-check | Confirm cited cases exist; check quotations, pins, holdings |
 | scheduled | docket-watcher (agent) | Monitors court dockets for filings and deadlines |
 
 ### privacy-legal

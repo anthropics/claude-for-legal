@@ -56,6 +56,7 @@ Your configuration is stored at `~/.claude/plugins/config/claude-for-legal/litig
 | `/litigation-legal:legal-hold [slug] [--issue/--refresh/--release/--status]` | Issue, refresh, release, or report holds — writes `.docx` + updates log |
 | `/litigation-legal:chronology [slug]` | Build or update a chronology from declared doc sources + uploads — tagged by significance per matter theory |
 | `/litigation-legal:oc-status` | Draft weekly OC status-request emails across the portfolio; Gmail drafts if MCP available |
+| `/litigation-legal:cite-check [path]` | Check every authority in a brief, memo, or letter: confirm each cited case exists (no fabricated cases), then check citations, pins, quotations, and holdings against the opinion; PASS / PASS WITH CORRECTIONS / FAIL |
 | `/litigation-legal:claim-chart` | Build or review an element chart — patent claim chart (infringement / invalidity / review) or civil element chart (any cause of action or defense) with gap detection |
 
 ## Skills
@@ -75,6 +76,7 @@ Your configuration is stored at `~/.claude/plugins/config/claude-for-legal/litig
 | **legal-hold** | Issue / refresh / release / status-report on holds; writes `.docx` notice; updates log's `legal_hold` fields |
 | **chronology** | Extract dated events from declared doc sources + uploads; de-dupe; tag significance per matter theory |
 | **oc-status** | Weekly portfolio-wide OC status-request email drafter; markdown + Gmail drafts |
+| **cite-check** | Existence gate for every cited case (located in a primary source under the name, court, and year given), then quotation, pin, and holding checks against the opinion text; never edits the document |
 | **claim-chart** | Patent claim chart (infringement / invalidity / review) or civil element chart (any cause of action or defense). Element-by-element mapping, every cell pin-cited, gap detection. Ships with a cause-of-action template library. |
 
 ## Interactive commands vs. scheduled agents
