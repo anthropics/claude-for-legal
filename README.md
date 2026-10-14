@@ -312,6 +312,7 @@ These plugins ship connectors for the systems legal teams live in. A connector g
 | **iManage** | Read from the DMS — matter workspaces, document versions | `commercial-legal`, `corporate-legal` | Customer subscription |
 | **Everlaw** | E-discovery productions, tagged sets, chronologies | `litigation-legal` | Customer subscription |
 | **CourtListener** | Federal dockets and opinions | `legal-clinic`, `ip-legal`, `litigation-legal`, `law-student` | Public; optional API key |
+| **LitigaForge (India)** | Indian courts: eCourts case status, cause lists and orders; Indian judgments (via Indian Kanoon, attributed); bare acts and IPC→BNS / CrPC→BNSS / Evidence→BSA mapping | `litigation-legal`, `legal-clinic`, `law-student` | Customer subscription; OAuth or API key |
 | **Trellis** | State court dockets and motions | `litigation-legal` | Customer subscription |
 | **Aurora** | Clinic-style matter management and calendaring | `litigation-legal` | Customer subscription |
 | **Definely** | In-document drafting and defined-terms checks | `commercial-legal`, `corporate-legal` | Customer subscription |
