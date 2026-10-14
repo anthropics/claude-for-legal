@@ -38,6 +38,7 @@ Connectors shipped in the default `.mcp.json` of each plugin:
 | **Trellis** | litigation-legal |
 | **Aurora** | litigation-legal |
 | **Courtroom5** | legal-clinic |
+| **LitigaForge (India)** | litigation-legal, legal-clinic, law-student |
 | **Lawve AI** | legal-builder-hub |
 | **Linear** | product-legal |
 | **Atlassian (Jira)** | product-legal |

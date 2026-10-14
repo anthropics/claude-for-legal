@@ -29,6 +29,12 @@
       "url": "https://mcp.descrybe.com/mcp",
       "title": "Descrybe",
       "description": "Primary law research — search cases by concept or wording, find cases from citations, extract authorities, check treatment, verify quoted language."
+    },
+    "LitigaForge (India)": {
+      "type": "http",
+      "url": "https://litigaforge.com/mcp",
+      "title": "LitigaForge (India)",
+      "description": "Indian courts and law: eCourts case status, cause lists and orders by CNR; Indian judgments with passages and citing cases (via Indian Kanoon, attributed); citation verification (flags citations it cannot match); IPC→BNS, CrPC→BNSS and Evidence Act→BSA mapping for a whole draft; bare acts; Limitation Act lookup; hearing briefs for the advocate's own tracked cases. Read-only; every result carries source, link and retrieval date."
     }
   },
   "recommendedCategories": [
