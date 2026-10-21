@@ -27,7 +27,7 @@ not mean the product is clear.
 3. Run intake (product/process, technical detail, jurisdictions, known patents,
    timing).
 4. Run a preliminary patent search if a connector is available (Solve
-   Intelligence Patents, or other patent-research MCP). Otherwise say
+   Intelligence Patents, Clerq, or other patent-research MCP). Otherwise say
    so in the output and proceed with the patents the user has supplied.
 5. For the 2–5 most plausible patents, build a claim-chart first pass against
    each independent claim — element by element. Literal read first; flag
@@ -112,7 +112,7 @@ Before running triage, read `~/.claude/plugins/config/claude-for-legal/ip-legal/
 - **Patent OC** from `## IP practice profile` → `Outside counsel roster` for
   the routing step.
 - **Integrations** from `## Available integrations` — specifically Solve
-  Intelligence, or any patent-research MCP. Determines what searches
+  Intelligence, Clerq, or any patent-research MCP. Determines what searches
   are available.
 - **Decision posture** from `## Decision posture on subjective legal calls` —
   this skill never concludes "does not infringe."
@@ -197,6 +197,9 @@ Read `## Available integrations`:
   technical description. Note the date of the search, the query used, the
   jurisdictions covered, and any date window (current in-force patents; recent
   published applications).
+- **Clerq connected:** run a semantic patent search using Clerq's search
+  engine. Same attribution requirements — note date, query, jurisdictions, and
+  date window.
 - **Patent-research MCP (Google Patents Public Datasets, PatSnap
   export): available:** use it.
 - **None of the above:** explicitly say so. Do not infer patents from model
@@ -384,7 +387,7 @@ on this for a product decision.
 
 ## Search scope
 
-- **Databases searched:** [Solve Intelligence / Google Patents /
+- **Databases searched:** [Solve Intelligence / Clerq / Google Patents /
   Espacenet / PatSnap — or "no database search run"]
 - **Query / approach:** [query text, technology classes, keywords, classifications]
 - **Date / date window:** [search date; in-force patents + applications
