@@ -29,6 +29,12 @@
       "url": "https://drivemcp.googleapis.com/mcp/v1",
       "title": "Google Drive",
       "description": "Search, read, and fetch documents from Google Drive."
+    },
+    "Clerq": {
+      "type": "http",
+      "url": "https://mcp.clerq-ip.com/mcp",
+      "title": "Clerq",
+      "description": "Patent research workflows — search and analyze patents using Clerq's proprietary semantic patent search engine."
     }
   },
   "recommendedCategories": [

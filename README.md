@@ -323,6 +323,7 @@ These plugins ship connectors for the systems legal teams live in. A connector g
 | **Linear** | Launch tracker, issue tracking | `product-legal` | Customer workspace |
 | **Atlassian (Jira)** | Launch tracker, issue tracking | `product-legal` | Customer workspace |
 | **Asana** | Launch tracker, project tracking | `product-legal` | Customer workspace |
+| **Clerq** | Patent research | `ip-legal` | Customer subscription |
 
 > Connectors marked "customer subscription" need the customer's own account and API key. Configure them in each plugin's `.mcp.json` or via `claude mcp` in your Claude Code setup.
 
