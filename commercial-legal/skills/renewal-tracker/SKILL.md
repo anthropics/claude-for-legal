@@ -98,7 +98,7 @@ When you compute (or ingest) a cancel-by date:
 2. **Business-day roll-back keyed to governing law.** The contract's governing law determines which holidays count. US: federal holidays + the state's holidays if governing law is a state. England & Wales: bank holidays. Germany: Feiertage (vary by Bundesland — ask which). Canada: federal + provincial. Singapore: public holidays. If Saturday, roll back to Friday. If Sunday, roll back to Friday. If a holiday in the governing-law jurisdiction, roll back to the prior business day. Roll BACK, never forward — forward means notice arrives after the window closes. For non-US governing law, if you can't determine the holiday calendar, flag it: "Governing law is [X] — business-day roll-back uses US federal holidays as a placeholder. Verify against the [jurisdiction] holiday calendar before relying on the effective date."
 3. **Check the contract's own day-counting rule.** Look for "business day," "received by," "deemed received," "5:00 p.m. [local time]," or a notice-method clause. If the contract defines "business day" or specifies receipt mechanics (certified mail, email with read receipt), that definition controls. Flag any mismatch between the default roll-back and the contract's own rule.
 4. **Record BOTH dates in the register.** `cancel_by_calendar` is the raw arithmetic; `cancel_by_effective` is the last business day on which notice is effective; `cancel_by_roll_note` records why they differ (e.g., "rolled back from Sunday 2026-11-01; verify against contract's business-day definition"). Every computed `cancel_by_effective` carries a `cancel_by_provenance` tag of `[model calculation — verify against the notice clause]` so the verify flag travels with the date, not with the surrounding prose.
-5. **Fire alerts off the EFFECTIVE date, not the calendar date.** Urgency bands (🔴 / 🟠 / 🟡 in Mode 2) use `cancel_by_effective`. Mode 2 output shows `cancel_by_effective` in the urgency column and surfaces `cancel_by_calendar` and `cancel_by_roll_note` in a detail column where the roll-back happened, so the reader can see it and challenge it.
+5. **Fire alerts off `send_by_effective`, not the calendar date.** Urgency bands (🔴 / 🟠 / 🟡 in Mode 2) use `send_by_effective` (`cancel_by_effective` minus `transit_buffer_days`). Mode 2 output shows `send_by_effective` in the urgency column and surfaces `cancel_by_effective`, `cancel_by_calendar`, `cancel_by_roll_note`, and notice transit details in a detail column where roll-back or transit buffer applies, so the reader can see it and challenge it.
 
 A Mode 2 report that prints `cancel_by: 2026-11-01` (a Sunday) with no weekday and no warning is a silently wrong effective deadline. The register is the place to catch it — once, at ingest — not later, when the window has already moved.
 
@@ -112,27 +112,27 @@ When saas-msa-review or vendor-agreement-review finds a renewal clause, it hands
 
 **Default lookback window:** next 90 days.
 
-**Urgency bands are half-open intervals — a deadline lives in exactly one band.** Use days-until-cancel-by (`cancel_by_effective - today`). Day 14, 45, and 90 each belong to exactly one band, not two; an off-by-one here puts the most-urgent items into the less-urgent bucket.
+**Urgency bands are half-open intervals — a deadline lives in exactly one band.** Use days-until-send-by (`send_by_effective - today`). Day 14, 45, and 90 each belong to exactly one band, not two; an off-by-one here puts the most-urgent items into the less-urgent bucket.
 
-- 🔴 **0–13 days** (cancel-by in less than 14 days — including today)
+- 🔴 **0–13 days** (send-by in less than 14 days — including today)
 - 🟠 **14–44 days**
 - 🟡 **45–89 days**
-- (everything 90+ days is outside the default lookback window; include only if the user passed `--horizon` beyond 90)
+- (everything 90+ days is outside the default lookback window; include only if the user passed `--days` beyond 90)
 
 ```markdown
 ## Renewals — next 90 days
 
-### 🔴 Cancel-by deadline in 0–13 days
+### 🔴 Send-by deadline in 0–13 days
 
-| Counterparty | Cancel by | Renewal date | Annual $ | Owner | Notes |
-|---|---|---|---|---|---|
-| [name] | **[date]** | [date] | $[n] | [email] | [notes] |
+| Counterparty | Send notice by | Cancel by | Renewal date | Annual $ | Owner | Notes |
+|---|---|---|---|---|---|---|
+| [name] | **[date]** | [date] | [date] | $[n] | [email] | [notes] |
 
-### 🟠 Cancel-by deadline in 14–44 days
+### 🟠 Send-by deadline in 14–44 days
 
 [same table]
 
-### 🟡 Cancel-by deadline in 45–89 days
+### 🟡 Send-by deadline in 45–89 days
 
 [same table]
 
