@@ -13,13 +13,20 @@ renewals: []
 #   agreement: "Acme Platform Subscription Agreement"
 #   signed_date: 2025-06-15
 #   initial_term_end: 2026-06-15
+#   current_term_end: 2026-06-15     # rolls forward after each auto-renewal; compute cancel_by_* from this
 #   renewal_mechanism: "auto-renew annual"
 #   notice_period_days: 60
-#   cancel_by: 2026-04-16
+#   notice_method: "email"           # email / portal / certified mail / registered post / courier / per contract §X
+#   transit_buffer_days: 0           # 0 for electronic, 5 for domestic certified mail, 10 for international registered post — or per contract if specified
+#   cancel_by_calendar: 2026-04-16    # current_term_end minus notice_period_days
+#   cancel_by_effective: 2026-04-16   # rolled back to last business day if needed
+#   send_by_effective: 2026-04-16    # cancel_by_effective minus transit_buffer_days — the date you must SEND the notice
+#   cancel_by_roll_note: ""           # e.g., "rolled back from Sunday 2026-11-01; verify against contract's business-day definition"
+#   cancel_by_provenance: "[model calculation — verify against the notice clause]"
 #   price_on_renewal: "then-current list (uncapped)"
 #   annual_value: 48000
 #   business_owner: "jane@company.com"
-#   clm_id: "IC-12345"
-#   docusign_envelope: "abc-123"
-#   status: "active"
-#   notes: "Pricing uncapped — revisit before renewal"
+#   clm_id: "IC-12345"        # if connected
+#   docusign_envelope: "abc-123"   # if connected
+#   status: "active"               # active | cancelled | renewed | lapsed
+#   notes: "Pricing uncapped — revisit before renewal. Alt vendors: X, Y."
