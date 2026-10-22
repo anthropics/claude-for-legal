@@ -70,6 +70,7 @@ Ships with connectors configured in `.mcp.json`:
 
 - **Ironclad** — contract lifecycle management
 - **DocuSign** — signature status and envelope tracking
+- **PandaDoc** — create, send, and track documents for e-signature
 - **Slack** — search messages, read channels, find discussions (general bucket)
 - **Google Drive** — search, read, and fetch documents (general bucket)
 

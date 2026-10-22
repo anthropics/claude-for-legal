@@ -12,6 +12,12 @@
       "title": "DocuSign",
       "description": "Agreement search, status tracking, and signature workflows."
     },
+    "PandaDoc": {
+      "type": "http",
+      "url": "https://mcp.pandadoc.com/v1/mcp",
+      "title": "PandaDoc",
+      "description": "Create, send, and track documents for e-signature. Prepare NDAs from your templates, turn drafts into signature-ready documents, and send signing reminders."
+    },
     "iManage": {
       "type": "http",
       "url": "https://cloudimanage.com/mcp/work",

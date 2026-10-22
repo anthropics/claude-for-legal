@@ -309,6 +309,7 @@ These plugins ship connectors for the systems legal teams live in. A connector g
 | **Box** | Read files and folders in VDRs and matter rooms | `corporate-legal` | Your tenant |
 | **Ironclad** | Read the contract register, renewal dates, clauses | `commercial-legal` | Customer subscription |
 | **DocuSign / DocuSign CLM** | Envelope status, executed contracts, CLM metadata | `commercial-legal` | Customer subscription |
+| **PandaDoc** | Create, send, and track documents for e-signature | `commercial-legal` | Customer subscription |
 | **iManage** | Read from the DMS — matter workspaces, document versions | `commercial-legal`, `corporate-legal` | Customer subscription |
 | **Everlaw** | E-discovery productions, tagged sets, chronologies | `litigation-legal` | Customer subscription |
 | **CourtListener** | Federal dockets and opinions | `legal-clinic`, `ip-legal`, `litigation-legal`, `law-student` | Public; optional API key |

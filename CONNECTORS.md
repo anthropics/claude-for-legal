@@ -34,6 +34,7 @@ Connectors shipped in the default `.mcp.json` of each plugin:
 | **Box** | corporate-legal |
 | **Ironclad** | commercial-legal |
 | **DocuSign / DocuSign CLM** | commercial-legal |
+| **PandaDoc** | commercial-legal |
 | **Everlaw** | litigation-legal |
 | **Trellis** | litigation-legal |
 | **Aurora** | litigation-legal |
