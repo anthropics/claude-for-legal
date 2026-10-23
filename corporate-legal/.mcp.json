@@ -41,6 +41,18 @@
       "url": "https://api.solveintelligence.com/mcp/",
       "title": "Solve Intelligence",
       "description": "Patent workflows — search patent and non-patent literature, legal texts, SEP technical standards, prior art, claim analysis."
+    },
+    "IC-HMRC": {
+      "type": "http",
+      "url": "https://mcp.intellixcore.ai/pub/ic-hmrc",
+      "title": "IC-HMRC (IntellixCore)",
+      "description": "HMRC's internal manuals (UK tax guidance) as a navigable map: whole chapters in HMRC's reading order, cross-references, the legislation and cases each section rests on, and what HMRC changed since a date. Read-only; OAuth."
+    },
+    "IC-CaseLaw": {
+      "type": "http",
+      "url": "https://mcp.intellixcore.ai/pub/ic-caselaw",
+      "title": "IC-CaseLaw (IntellixCore)",
+      "description": "UK tax case law as a citation graph (First-tier and Upper Tribunal tax decisions and judgments naming HMRC), joined to HMRC's manuals and to UK legislation with its version history; judgments read live from The National Archives. Read-only; OAuth."
     }
   },
   "recommendedCategories": [
