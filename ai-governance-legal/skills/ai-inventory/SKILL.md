@@ -80,9 +80,14 @@ deferred — say so explicitly: "you can come back to classification with
 3. **Description.** One or two sentences. What does it do, and against
    what data?
 4. **Status.** `planned | in_development | in_production | deprecated`.
-5. **EU nexus.** Is the system deployed in the EU/EEA, offered to users in
-   the EU/EEA, or used to produce outputs that affect people in the
-   EU/EEA? If any of these are true, EU AI Act analysis applies.
+5. **EU nexus.** Is the system placed on the market or put into service in
+   the EU, used by a deployer established or located in the EU, or used by
+   a provider or deployer established or located outside the EU to produce
+   output that is used in the EU? If any of these are true, EU AI Act
+   analysis applies (Article 2(1)). The Act applies in Iceland,
+   Liechtenstein and Norway only once it is incorporated into the EEA
+   Agreement; check its EEA status before relying on a nexus with those
+   countries alone.
 6. **Proceed to classification?** Offer to run the walk-through now, or
    skip and come back later.
 
@@ -105,15 +110,25 @@ Options, with the distinguishing test:
   EU market or put it into service under your own name or trademark.
 - **Deployer** — you use it under your own authority, not for personal
   non-professional use. (Most common inside companies.)
-- **Importer** — you bring an AI system into the EU from a provider
+- **Importer** — you are located or established in the EU and place on
+  the EU market an AI system that bears the name or trademark of a person
   established outside the EU.
 - **Distributor** — you make an AI system available on the EU market
   without being the provider or importer.
-- **Authorized representative** — you act on behalf of a non-EU provider
-  and are established in the EU.
-- **Product manufacturer** — you put a general-purpose AI system (or
-  another AI system) into a product under your own name/trademark. Treated
-  as provider for the product.
+- **Authorized representative** — you are located or established in the
+  EU and have received and accepted a written mandate from a provider to
+  perform and carry out on its behalf its obligations and procedures under
+  the AI Act.
+- **Product manufacturer** — you place an AI system on the EU market or
+  put it into service together with your product and under your own name
+  or trademark. If the AI system is a high-risk AI system that is a safety
+  component of a product covered by the Union harmonisation legislation
+  listed in Section A of Annex I, and it is placed on the market together
+  with the product under your name or trademark, or put into service under
+  your name or trademark after the product has been placed on the market,
+  you are treated as the provider of that high-risk AI system (Article
+  25(3)). Otherwise, test the provider role above and the dual-role flag
+  below.
 
 **Dual-role flag.** If the user substantially modifies a vendor system
 (fine-tunes on their own data, changes the intended purpose, rebrands),
@@ -135,19 +150,40 @@ Check in order:
 text — Article 5]`
 
 Summaries, not definitive text:
-- Subliminal or deceptive techniques materially distorting behavior
-- Exploiting vulnerabilities (age, disability, socio-economic status) to
-  materially distort behavior
-- Social scoring by public authorities leading to detrimental treatment
+- Subliminal techniques beyond a person's consciousness, or purposefully
+  manipulative or deceptive techniques, with the objective or effect of
+  materially distorting behavior by appreciably impairing informed
+  decision-making, causing a decision the person would not otherwise have
+  taken in a manner that causes or is reasonably likely to cause significant
+  harm
+- Exploiting vulnerabilities (age, disability, specific social or economic
+  situation) with the objective or effect of materially distorting behavior,
+  causing or reasonably likely to cause significant harm
+- Social scoring, by any actor, public or private, leading to detrimental or
+  unfavorable treatment in unrelated social contexts, or treatment
+  unjustified or disproportionate to the social behavior or its gravity
 - Real-time remote biometric ID in publicly accessible spaces for law
   enforcement (narrow exceptions)
 - Biometric categorization inferring race, political opinions, union
   membership, religious or philosophical beliefs, sex life, or sexual
-  orientation
+  orientation (labeling or filtering of lawfully acquired biometric datasets,
+  and categorizing biometric data in law enforcement, excepted)
 - Emotion recognition in the workplace or education (medical and safety
   exceptions)
-- Facial image database scraping from the internet or CCTV
-- Predictive policing based solely on personality traits
+- Untargeted scraping of facial images from the internet or CCTV to create
+  or expand facial recognition databases
+- Assessing or predicting the risk of a person committing a criminal offence
+  based solely on profiling or on personality traits and characteristics
+  (support for a human assessment already based on objective and verifiable
+  facts directly linked to a criminal activity excepted)
+- From 2 December 2026: generating or manipulating realistic images, video,
+  audio or similar material of an identifiable person's intimate parts, or of
+  an identifiable person engaged in sexually explicit activities, without
+  that person's freely given, specific, informed, unambiguous and explicit
+  consent; generating or manipulating child sexual abuse material or
+  performance (Directive 2011/93/EU, Article 2(c) and (e)), except where a
+  "without right" defence applies under national law (Article 5(1a) and (1b)
+  limit the scope)
 
 If matched → tier is `prohibited`. Flag the use case as stop and route to
 the governance team's prohibited-practice workflow.
@@ -156,22 +192,48 @@ the governance team's prohibited-practice workflow.
 Annex III]`
 
 Summaries:
-1. Biometric identification and categorization
-2. Critical infrastructure (digital infrastructure, road traffic, supply of
+1. Biometrics, where the use is permitted by law: remote biometric
+   identification (not one-to-one verification), biometric categorization
+   according to sensitive or protected attributes or characteristics based on
+   the inference of those attributes or characteristics, and emotion
+   recognition
+2. Critical infrastructure (safety components in the management and
+   operation of critical digital infrastructure, road traffic, supply of
    water / gas / heating / electricity)
-3. Education and vocational training (access, evaluation, proctoring,
-   monitoring prohibited behavior)
-4. Employment, worker management, self-employment access — recruitment,
-   selection, promotion, termination, task allocation, monitoring, performance
-5. Essential private and public services (public benefits, credit scoring
-   for individuals, risk assessment and pricing for life/health insurance,
-   emergency dispatch)
-6. Law enforcement (risk assessment, polygraphs, deepfake detection,
-   reliability of evidence, profiling)
-7. Migration, asylum, border control (risk assessment, travel document
-   verification, examination of applications)
-8. Administration of justice and democratic processes (research and
-   interpretation, influencing elections)
+3. Education and vocational training (access, admission or assignment;
+   evaluation of learning outcomes; assessing the appropriate level of
+   education; monitoring prohibited behavior during tests)
+4. Employment, worker management, self-employment access: recruitment and
+   selection; decisions affecting terms of work, promotion or termination;
+   task allocation based on individual behavior or personal traits;
+   monitoring and evaluating performance and behavior
+5. Essential private and public services (eligibility for, or granting,
+   reducing, revoking or reclaiming, public assistance benefits and services,
+   by or for public authorities; creditworthiness or credit scoring of
+   individuals, other than detecting financial fraud; risk assessment and
+   pricing for life/health insurance; evaluating and classifying emergency
+   calls, emergency dispatch and emergency healthcare patient triage)
+6. Law enforcement, where permitted by law, for use by or on behalf of law
+   enforcement authorities, or by Union institutions, bodies, offices or
+   agencies in their support (risk of a person becoming a crime victim;
+   polygraphs and similar tools; reliability of evidence in investigating or
+   prosecuting crime; risk of offending or re-offending not solely on the
+   basis of profiling; assessing personality traits and characteristics or
+   past criminal behavior; profiling in detecting, investigating or
+   prosecuting crime)
+7. Migration, asylum, border control, where permitted by law, for use by or
+   on behalf of competent public authorities or by Union institutions,
+   bodies, offices or agencies (polygraphs and similar tools; risks,
+   including security, irregular migration or health risks, posed by a
+   person who intends to enter or has entered; examination of asylum, visa
+   and residence permit applications and related complaints; detecting,
+   recognizing or identifying persons, other than verification of travel
+   documents)
+8. Administration of justice and democratic processes (assisting a judicial
+   authority, or alternative dispute resolution, in researching and
+   interpreting facts and the law and applying the law to facts; influencing
+   the outcome of elections or referenda or voting behavior, other than tools
+   whose output natural persons are not directly exposed to)
 
 If matched → tier is `high_risk`. Note the Annex III area and subsection.
 
@@ -183,9 +245,21 @@ surrounding]`
 - **GPAI + systemic risk:** cumulative compute > 10^25 FLOPs, or designated
   by the Commission.
 
-**D. Limited risk.** Chatbots interacting with natural persons, deepfakes,
-emotion recognition and biometric categorization systems outside Article 5
-scope — transparency obligations apply.
+**D. Limited risk.** Chatbots interacting with natural persons, systems
+generating synthetic audio, image, video or text content, deepfakes, text
+generated or manipulated by AI and published to inform the public on
+matters of public interest, and biometric categorization systems outside
+both Article 5 and Annex III point 1(b): transparency obligations apply
+(Article 50, subject to its exceptions, such as assistive standard editing
+and text that has undergone human review or editorial control under a
+person's editorial responsibility). Emotion recognition and biometric
+categorization according to sensitive or protected attributes or
+characteristics based on the inference of those attributes or
+characteristics, where outside Article 5, are `high_risk` under Annex III
+point 1 where their use is permitted by law (step B); the Article 50(3)
+notice duty applies to them as well, except as Article 50(3) provides for
+systems permitted by law to detect, prevent or investigate criminal
+offences.
 
 **E. Minimal risk.** Everything else.
 
@@ -210,13 +284,13 @@ systems:
     owner: "HR / Jamie"
     description: "Filters inbound CVs against job criteria"
     status: in_production          # planned | in_development | in_production | deprecated
-    eu_nexus: true                 # deployed, offered, or affects people in the EU/EEA
+    eu_nexus: true                 # placed on the market or put into service in the EU, deployer established or located in the EU, or output used in the EU (Article 2(1))
     role: deployer                 # provider | deployer | importer | distributor | authorized_rep | product_manufacturer
     role_basis: "We license from VendorX and deploy internally [verify against current AI Act text]"
     tier: high_risk                # prohibited | high_risk | limited | minimal | gpai | gpai_systemic
     tier_basis: "Annex III(4)(a) — employment, recruitment selection [verify against current AI Act text]"
     obligations_assessed: false
-    obligations_note: "To assess: as deployer of a high-risk system — human oversight, input data quality, monitoring, record-keeping, informing workers, FRIA if public body/service — see Article 26 [verify against current AI Act text]"
+    obligations_note: "To assess: as deployer of a high-risk system — human oversight, input data quality, monitoring, record-keeping, informing workers, FRIA (Article 27(1)) for an Annex III system outside point 2 if the deployer is a body governed by public law or a private entity providing public services, and for any deployer of an Annex III point 5(b) or (c) system; see Articles 26 and 27 [verify against current AI Act text]"
     next_review: "2026-08-01"
     review_trigger: "on substantial modification or annually"
     created: "2026-05-11"
@@ -234,7 +308,11 @@ does the analysis **in conversation**, tagged `[verify]`, and routes to
 if needed.
 
 This is deliberate:
-- Article mapping is complex and the AI Act is phasing in through 2027.
+- Article mapping is complex and the AI Act is phasing in: as amended by
+  Regulation (EU) 2026/1744, Article 113 applies the high-risk rules
+  (Chapter III, Sections 1 to 3) from 2 December 2027 for Annex III systems
+  and 2 August 2028 for Annex I systems, and Article 111 sets transitional
+  deadlines running to 31 December 2030.
 - Confident-and-wrong on a compliance obligation ends up in a board memo.
 - The inventory is a registry for the lawyer. The lawyer owns the
   obligation analysis.
