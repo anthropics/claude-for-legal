@@ -41,6 +41,12 @@
       "url": "https://mcp.trellis.law/anthropic",
       "title": "Trellis",
       "description": "The largest state trial court dataset in the U.S. — dockets, rulings, verdicts, filings, judge and opposing counsel analytics, expert witness vetting."
+    },
+    "IC-CaseLaw": {
+      "type": "http",
+      "url": "https://mcp.intellixcore.ai/pub/ic-caselaw",
+      "title": "IC-CaseLaw (IntellixCore)",
+      "description": "UK tax case law as a citation graph (First-tier and Upper Tribunal tax decisions and judgments naming HMRC), joined to HMRC's manuals and to UK legislation with its version history; judgments read live from The National Archives. Read-only; OAuth."
     }
   },
   "recommendedCategories": [
