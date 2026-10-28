@@ -11,6 +11,12 @@
       "url": "https://drivemcp.googleapis.com/mcp/v1",
       "title": "Google Drive",
       "description": "Search, read, and fetch documents from Google Drive."
+    },
+    "LEGAION Verifier": {
+      "type": "http",
+      "url": "https://mcp.legaion.com/mcp",
+      "title": "LEGAION Verifier",
+      "description": "Verify Polish and EU legal citations against official registers (ISAP, SAOS, EUR-Lex) — per-claim verdict with register URL and fetch timestamp."
     }
   },
   "recommendedCategories": [

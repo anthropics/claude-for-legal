@@ -1,0 +1,9 @@
+{
+  "name": "legaion-verifier",
+  "version": "0.1.0",
+  "description": "Checks statute and case-law citations against the official registers they come from (ISAP and SAOS for Poland, EUR-Lex for EU law, national registers where a queryable source exists) and returns a per-claim verdict with the register URL and fetch timestamp. Also runs contract risk audits, including a check against the Polish UOKiK register of abusive clauses.",
+  "author": {
+    "name": "LEGAION (Aidvocates, Inc.)",
+    "email": "office@aidvocates.com"
+  }
+}

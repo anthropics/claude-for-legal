@@ -122,6 +122,15 @@
       "author": {
         "name": "Thomson Reuters"
       }
+    },
+    {
+      "name": "legaion-verifier",
+      "displayName": "LEGAION Verifier",
+      "source": "./external_plugins/legaion-verifier",
+      "description": "Verifies statute and case-law citations against official registers (ISAP, SAOS, EUR-Lex and national registers where queryable) with register URL and fetch timestamp per claim, and runs contract risk audits including the Polish UOKiK abusive-clause register.",
+      "author": {
+        "name": "LEGAION (Aidvocates, Inc.)"
+      }
     }
   ]
 }
