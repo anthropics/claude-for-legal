@@ -27,6 +27,7 @@ Connectors shipped in the default `.mcp.json` of each plugin:
 | **Google Drive** (`gdrive`) | all 12 |
 | **CourtListener** | legal-clinic, ip-legal, litigation-legal, law-student |
 | **Descrybe** | legal-clinic, ip-legal, law-student |
+| **Vaquill** | regulatory-legal |
 | **Definely** | commercial-legal, corporate-legal |
 | **iManage** | commercial-legal, corporate-legal |
 | **Solve Intelligence** | corporate-legal, ip-legal |

@@ -11,6 +11,12 @@
       "url": "https://drivemcp.googleapis.com/mcp/v1",
       "title": "Google Drive",
       "description": "Search, read, and fetch documents from Google Drive."
+    },
+    "Vaquill": {
+      "type": "http",
+      "url": "https://mcp.vaquill.ai/s/_",
+      "title": "Vaquill",
+      "description": "US primary sources. Semantic search across the United States Code and Code of Federal Regulations, plus AI-grounded Q&A over USC, CFR, 50-state legislation, and CourtListener case law. Read-only."
     }
   },
   "recommendedCategories": [

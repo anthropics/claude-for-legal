@@ -44,6 +44,8 @@ Rules for every skill, command, and agent in this plugin:
 
 | Integration | Status | Fallback if unavailable |
 |---|---|---|
+| Regulatory feeds (Thomson Reuters Regulatory Intelligence) | [✓ / ✗] | Free Federal Register API + user-pasted alerts; no enrichment layer |
+| US primary sources (Vaquill) | [✓ / ✗] | Federal Register API + manual eCFR lookups; no semantic search across USC and CFR |
 | Regulatory feeds (paid subscription) | [✓ / ✗] | Free Federal Register API + user-pasted alerts; no enrichment layer |
 | Document storage (Google Drive, SharePoint, Box) | [✓ / ✗] | Policy library indexed from local paths |
 | Slack | [✓ / ✗] | Digests emitted as files only; no in-channel alerts |
