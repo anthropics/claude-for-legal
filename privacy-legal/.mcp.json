@@ -11,6 +11,12 @@
       "url": "https://drivemcp.googleapis.com/mcp/v1",
       "title": "Google Drive",
       "description": "Search, read, and fetch documents from Google Drive."
+    },
+    "Turk Mevzuat": {
+      "type": "http",
+      "url": "https://turk-mevzuat-mcp.skraptt.workers.dev/mcp",
+      "title": "Türk Mevzuat",
+      "description": "Turkish primary legislation from mevzuat.gov.tr: 27 statutes (Constitution, Civil Code, Code of Obligations, Commercial Code, Criminal Code, civil/criminal/administrative procedure, KVKK data protection, consumer and labour law). Article search in Turkish, full text, paragraph-level citations (\"KVKK m. 5/2-ç\"), Official Gazette references, checked daily against the official source. Read-only, no auth."
     }
   },
   "recommendedCategories": [
