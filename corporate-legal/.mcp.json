@@ -41,6 +41,12 @@
       "url": "https://api.solveintelligence.com/mcp/",
       "title": "Solve Intelligence",
       "description": "Patent workflows — search patent and non-patent literature, legal texts, SEP technical standards, prior art, claim analysis."
+    },
+    "AnrakLegal Research": {
+      "type": "http",
+      "url": "https://anrak.legal/mcp/research",
+      "title": "AnrakLegal Research",
+      "description": "Read-only Indian legal research — Supreme Court, High Court and tribunal judgments and central statutes, with primary-source text and citation-ready source IDs. No access to user cases, documents or account data."
     }
   },
   "recommendedCategories": [
