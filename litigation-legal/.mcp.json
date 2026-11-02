@@ -41,6 +41,12 @@
       "url": "https://mcp.trellis.law/anthropic",
       "title": "Trellis",
       "description": "The largest state trial court dataset in the U.S. — dockets, rulings, verdicts, filings, judge and opposing counsel analytics, expert witness vetting."
+    },
+    "AnrakLegal Research": {
+      "type": "http",
+      "url": "https://anrak.legal/mcp/research",
+      "title": "AnrakLegal Research",
+      "description": "Read-only Indian legal research — Supreme Court, High Court and tribunal judgments and central statutes, with primary-source text and citation-ready source IDs. No access to user cases, documents or account data."
     }
   },
   "recommendedCategories": [

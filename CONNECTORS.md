@@ -26,6 +26,7 @@ Connectors shipped in the default `.mcp.json` of each plugin:
 | **Slack** | all 12 |
 | **Google Drive** (`gdrive`) | all 12 |
 | **CourtListener** | legal-clinic, ip-legal, litigation-legal, law-student |
+| **AnrakLegal Research** (India) | litigation-legal, regulatory-legal, commercial-legal, corporate-legal, employment-legal, legal-clinic, law-student |
 | **Descrybe** | legal-clinic, ip-legal, law-student |
 | **Definely** | commercial-legal, corporate-legal |
 | **iManage** | commercial-legal, corporate-legal |

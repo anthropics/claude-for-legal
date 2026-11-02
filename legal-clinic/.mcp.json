@@ -29,6 +29,12 @@
       "url": "https://mcp.descrybe.com/mcp",
       "title": "Descrybe",
       "description": "Primary law research — search cases by concept or wording, find cases from citations, extract authorities, check treatment, verify quoted language."
+    },
+    "AnrakLegal Research": {
+      "type": "http",
+      "url": "https://anrak.legal/mcp/research",
+      "title": "AnrakLegal Research",
+      "description": "Read-only Indian legal research — Supreme Court, High Court and tribunal judgments and central statutes, with primary-source text and citation-ready source IDs. No access to user cases, documents or account data."
     }
   },
   "recommendedCategories": [
