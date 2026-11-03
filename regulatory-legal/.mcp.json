@@ -11,6 +11,12 @@
       "url": "https://drivemcp.googleapis.com/mcp/v1",
       "title": "Google Drive",
       "description": "Search, read, and fetch documents from Google Drive."
+    },
+    "REMIT": {
+      "type": "http",
+      "url": "https://remit-mcp.skraptt.workers.dev/mcp",
+      "title": "REMIT",
+      "description": "EU wholesale energy market regulation (REMIT): Regulation 1227/2011 as amended by REMIT II, Implementing Regulation 2026/256 and Delegated Regulation 2026/255, ACER guidance, guidance notes and Q&As, and ACER's reporting manuals (TRUM, MoP, exposure guidance). Search in plain language or by citation, articles returned with the ACER guidance that interprets them, application timeline 2024-2028, sources checked daily. Read-only, no auth."
     }
   },
   "recommendedCategories": [
