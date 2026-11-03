@@ -12,6 +12,12 @@
       "title": "DocuSign",
       "description": "Agreement search, status tracking, and signature workflows."
     },
+    "SignNow": {
+      "type": "http",
+      "url": "https://mcp-server.signnow.com/mcp",
+      "title": "SignNow",
+      "description": "Send agreements for e-signature from templates, track signing status, and retrieve completed documents — send actions require user confirmation."
+    },
     "iManage": {
       "type": "http",
       "url": "https://cloudimanage.com/mcp/work",
