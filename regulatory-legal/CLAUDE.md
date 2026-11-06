@@ -19,7 +19,7 @@ Rules for every skill, command, and agent in this plugin:
 -->
 
 # Regulatory Practice Profile
-*Written by cold-start on [DATE]. If `[PLACEHOLDER]`, run `/regulatory-legal:cold-start-interview`.*
+*Written by cold-start on [DATE]. If a field below is still a placeholder, run `/regulatory-legal:cold-start-interview`.*
 
 ---
 
