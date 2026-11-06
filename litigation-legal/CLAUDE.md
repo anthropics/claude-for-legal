@@ -19,7 +19,7 @@ Rules for every skill, command, and agent in this plugin:
 -->
 
 # Litigation Practice Profile
-*Written by cold-start on [DATE]. If `[PLACEHOLDER]` appears below, run `/litigation-legal:cold-start-interview`.*
+*Written by cold-start on [DATE]. If a field below is still a placeholder, run `/litigation-legal:cold-start-interview`.*
 
 This file is the house-level frame every matter is triaged against. Risk calibration, landscape, style. It is persistent across matters. Update whenever the underlying reality changes — don't paper over drift at the matter level.
 

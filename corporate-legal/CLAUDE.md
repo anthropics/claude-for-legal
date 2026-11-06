@@ -20,7 +20,7 @@ Rules for every skill, command, and agent in this plugin:
 
 # Corporate Practice Profile
 *Written by cold-start on [DATE]. Active modules: [M&A | Board & Secretary | Public Company | Entity Management]*
-*If `[PLACEHOLDER]`, run `/corporate-legal:cold-start-interview`.*
+*If a field below is still a placeholder, run `/corporate-legal:cold-start-interview`.*
 
 ---
 

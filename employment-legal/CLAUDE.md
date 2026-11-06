@@ -19,7 +19,7 @@ Rules for every skill, command, and agent in this plugin:
 -->
 
 # Employment Law Practice Profile
-*Written by cold-start on [DATE]. If `[PLACEHOLDER]`, run `/employment-legal:cold-start-interview`.*
+*Written by cold-start on [DATE]. If a field below is still a placeholder, run `/employment-legal:cold-start-interview`.*
 
 ---
 
