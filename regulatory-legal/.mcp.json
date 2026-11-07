@@ -11,6 +11,12 @@
       "url": "https://drivemcp.googleapis.com/mcp/v1",
       "title": "Google Drive",
       "description": "Search, read, and fetch documents from Google Drive."
+    },
+    "Lexploris": {
+      "type": "http",
+      "url": "https://www.lexploris.com/api/mcp",
+      "title": "Lexploris",
+      "description": "Austrian (federal and state) and EU law from RIS and EUR-Lex, provision text on any date, plus German federal promulgations; legal changes with cited assessments, drafts, obligations and tasks."
     }
   },
   "recommendedCategories": [
