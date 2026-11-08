@@ -83,7 +83,9 @@ Stop until data is provided.
 
 For each active entry, compute status against the applicable regime(s). This
 is a reasoning pattern, not a rule statement — the numbers come from research,
-not from this file.
+not from this file. If an entry's `coverage_eligibility` is not confirmed,
+surface confirming it as an action item and tag that regime's deadlines
+`[verify — coverage/eligibility not confirmed]`.
 
 **FMLA / state equivalents:**
 - Research the currently operative entitlement (total available time), the
@@ -253,6 +255,7 @@ Do not overwrite any `notes` fields the attorney has added manually.
 - employee_id: [name, role, or anonymized ID]
   jurisdiction: [state/country]
   leave_type: [FMLA / CFRA / PFL / USERRA / ADA-accommodation / etc.]
+  coverage_eligibility: "[confirmed / not covered / not eligible / unconfirmed — basis, from research]"
   leave_start: [ISO date]
   intermittent: [true/false]
   normal_schedule: "[e.g., 40 hrs/wk, 30 hrs/wk — drives proration]"
