@@ -11,6 +11,12 @@
       "url": "https://drivemcp.googleapis.com/mcp/v1",
       "title": "Google Drive",
       "description": "Search, read, and fetch documents from Google Drive."
+    },
+    "EU MAR": {
+      "type": "http",
+      "url": "https://eu-mar-mcp.skraptt.workers.dev/mcp",
+      "title": "EU MAR",
+      "description": "EU Market Abuse Regulation (MAR): Regulation 596/2014 as amended by the Listing Act, CS MAD, the Commission delegated and implementing acts (STORs, manipulation indicators, market soundings, insider lists, managers' transactions, buy-backs, AMPs), ESMA Q&As and MAR guidelines (incl. the 2026 delay guidelines). Search in plain language or by citation; articles returned with their Level 2 rules and ESMA interpretation; MAR-REMIT crosswalk for energy and commodity firms; sources checked daily. Read-only, no auth."
     }
   },
   "recommendedCategories": [
