@@ -39,6 +39,7 @@ Connectors shipped in the default `.mcp.json` of each plugin:
 | **Aurora** | litigation-legal |
 | **Courtroom5** | legal-clinic |
 | **Lawve AI** | legal-builder-hub |
+| **EU MAR** (EU market abuse regulation) | regulatory-legal |
 | **Linear** | product-legal |
 | **Atlassian (Jira)** | product-legal |
 | **Asana** | product-legal |
