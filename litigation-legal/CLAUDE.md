@@ -135,7 +135,7 @@ If everything is green (research tool connected, full read, no flags, currency c
 ---
 
 **Quiet mode for client-facing and board-facing deliverables.** When a skill produces a deliverable that a non-legal or external audience will read — a client alert, a board memo, a written consent, a stakeholder summary, a client letter, a demand letter, a policy draft — suppress the internal narration. Specifically:
-- Work-product header: KEEP (it protects the document)
+- Work-product header: KEEP on a deliverable that stays with the client or inside the organization. REMOVE it from one sent to an outside party (a demand letter, a legal-hold notice to custodians, a filing, correspondence with opposing counsel), as the skill that drafts it says. On a document the other side reads, the header is the false assurance of protection this file warns against.
 - ⚠️ Reviewer note: KEEP (it's the one place the reviewer finds what they need before relying on the deliverable)
 - Source attribution tags: KEEP inline but consolidated (a footnote or endnote is fine for a clean deliverable)
 - Skill-fit narration ("I'm using the X skill, which normally..."): CUT
