@@ -206,9 +206,9 @@ systems → those feed here when a regulation is new or coverage is uncertain.
 **From use case triage:** Newly triaged use cases that hit regulatory triggers →
 gap analysis runs on the specific requirement for that use case type.
 
-**To regulatory-legal plugin, if the plugin is installed:** This skill is the manual
-version. The monitor plugin watches feeds and triggers this analysis automatically
-when something relevant changes.
+**To regulatory-legal plugin, if the plugin is installed:** Its `reg-change-monitor`
+agent watches the feeds on a schedule and runs `policy-diff` on what is always material.
+It doesn't run this skill: run this analysis on an item the monitor flags.
 
 ---
 
