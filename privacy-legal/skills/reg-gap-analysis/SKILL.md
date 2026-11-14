@@ -161,7 +161,7 @@ For each category relevant to the new regulation, **research the currently opera
 
 **From PIA generation:** PIAs flag privacy policy inconsistencies → those feed here as known gaps.
 
-**To the regulatory-legal plugin (if installed):** This skill is the manual version. The monitor plugin watches feeds and triggers this analysis automatically when something changes.
+**To the regulatory-legal plugin (if installed):** Its `reg-change-monitor` agent watches the feeds on a schedule and runs `policy-diff` on what is always material. It doesn't run this skill: run this analysis on an item the monitor flags.
 
 ## Output
 
