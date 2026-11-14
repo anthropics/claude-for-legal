@@ -82,7 +82,7 @@ allowed to influence whether an identifier ends up on the allowlist.
 
 ## Modes
 
-### `permissive` (default)
+### `permissive`
 
 Intended for individual practitioners experimenting with community skills.
 
@@ -106,13 +106,14 @@ installer.
 
 ## Default behavior when the file is absent
 
-If `allowlist.yaml` does not exist, the installer treats the environment as
-`permissive` with an empty allowlist — everything is "not on the list," so
-every install surfaces a warning, and the user must explicitly accept before
-anything is written.
+If `allowlist.yaml` does not exist, the installer uses the shipped default,
+`references/allowlist-default.yaml` at the plugin root: `restrictive`, with the
+community registries the plugin has reviewed already listed. A source not on
+it is refused, and the user is told why and how to set up their own allowlist.
 
-The installer does NOT silently default to "allow all." Absent allowlist =
-visible warning every time.
+The allowlist is the one gate that does not depend on Claude analyzing
+attacker-controlled text correctly, so a missing file fails closed, not open.
+Permissive mode is a choice the cold-start interview offers, never a fallback.
 
 ## How the installer uses this
 

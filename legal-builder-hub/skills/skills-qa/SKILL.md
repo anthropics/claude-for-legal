@@ -212,7 +212,7 @@ When `/legal-builder-hub:skills-qa` is invoked directly by the user (not as part
 
 Behavior:
 
-- If `allowlist.yaml` does not exist: skip this step (no allowlist configured).
+- If `allowlist.yaml` does not exist: check against the shipped default, `references/allowlist-default.yaml` at the plugin root, which is what the installer would use.
 - If source is on the allowlist (`permissive` or `restrictive` mode): emit a one-line "Allowlist: ✅ source on allowlist; install would not be blocked in restrictive mode" note at the top of the QA output.
 - If source is NOT on the allowlist and mode is `permissive`: emit "Allowlist: ⚠️ source is not on allowlist but allowlist mode is permissive; install would proceed with a warning."
 - If source is NOT on the allowlist and mode is `restrictive`: emit a prominent callout:
