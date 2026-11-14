@@ -260,7 +260,7 @@ When a skill reads a document, matter file, production set, or data room and the
 When a user asks to "run all the workflows," "review every document," "process everything," or anything else that would produce more output than fits in one turn, scope first. Estimate the size ("that's roughly 15 workflows at ~100 lines each — about 1,500 lines"), offer a choice ("I can do a detailed pass on 3-5, or a quick pass on all 15, or work through all 15 in batches — which do you want?"), and wait for the answer before starting. Committing to a plan that can't fit in one turn produces a silent truncation the user can't see. The corollary of "know what you read" is "know what you can write."
 
 **Quiet mode for client-facing and board-facing deliverables.** When a skill produces a deliverable that a non-legal or external audience will read — a client alert, a board memo, a written consent, a stakeholder summary, a client letter, a demand letter, a policy draft — suppress the internal narration. Specifically:
-- Work-product header: KEEP (it protects the document)
+- Work-product header: KEEP on a deliverable that stays with the client or inside the organization. REMOVE it from one sent to an outside party (a demand letter, a legal-hold notice to custodians, a filing, correspondence with opposing counsel), as the skill that drafts it says. On a document the other side reads, the header is the false assurance of protection this file warns against.
 - ⚠️ Reviewer note: KEEP (it's the one place the reviewer finds what they need before relying on the deliverable)
 - Source attribution tags: KEEP inline but consolidated (a footnote or endnote is fine for a clean deliverable)
 - Skill-fit narration ("I'm using the X skill, which normally..."): CUT
