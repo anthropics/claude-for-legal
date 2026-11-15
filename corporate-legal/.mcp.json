@@ -41,6 +41,12 @@
       "url": "https://api.solveintelligence.com/mcp/",
       "title": "Solve Intelligence",
       "description": "Patent workflows — search patent and non-patent literature, legal texts, SEP technical standards, prior art, claim analysis."
+    },
+    "IFG": {
+      "type": "http",
+      "url": "https://ifg.tax/v1/mcp",
+      "title": "IFG",
+      "description": "Official tax law for the EU member states, Switzerland, the UK, Monaco and Andorra, plus tax treaties, EU law and OECD texts: the provision text in force on the date of the facts, its versions and status, and a link to the official publisher."
     }
   },
   "recommendedCategories": [

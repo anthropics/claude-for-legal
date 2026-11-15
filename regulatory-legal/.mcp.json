@@ -11,6 +11,12 @@
       "url": "https://drivemcp.googleapis.com/mcp/v1",
       "title": "Google Drive",
       "description": "Search, read, and fetch documents from Google Drive."
+    },
+    "IFG": {
+      "type": "http",
+      "url": "https://ifg.tax/v1/mcp",
+      "title": "IFG",
+      "description": "Official tax law for the EU member states, Switzerland, the UK, Monaco and Andorra, plus tax treaties, EU law and OECD texts: the provision text in force on the date of the facts, its versions and status, and a link to the official publisher."
     }
   },
   "recommendedCategories": [
