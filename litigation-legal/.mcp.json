@@ -41,6 +41,12 @@
       "url": "https://mcp.trellis.law/anthropic",
       "title": "Trellis",
       "description": "The largest state trial court dataset in the U.S. — dockets, rulings, verdicts, filings, judge and opposing counsel analytics, expert witness vetting."
+    },
+    "CasexAtlas": {
+      "type": "http",
+      "url": "https://www.casexatlas.com/api/mcp",
+      "title": "CasexAtlas",
+      "description": "Practice management for plaintiff, family and criminal firms: search cases, open a case record, list deadlines and statutes of limitations, tasks, contacts and the case timeline. Read only; each person signs in and sees what their role allows."
     }
   },
   "recommendedCategories": [

@@ -314,6 +314,7 @@ These plugins ship connectors for the systems legal teams live in. A connector g
 | **CourtListener** | Federal dockets and opinions | `legal-clinic`, `ip-legal`, `litigation-legal`, `law-student` | Public; optional API key |
 | **Trellis** | State court dockets and motions | `litigation-legal` | Customer subscription |
 | **Aurora** | Clinic-style matter management and calendaring | `litigation-legal` | Customer subscription |
+| **CasexAtlas** | Case records, deadlines and statutes of limitations, tasks, contacts, case timeline from the firm's practice management system | `litigation-legal`, `legal-clinic` | Customer subscription; OAuth sign in per user, role scoped |
 | **Definely** | In-document drafting and defined-terms checks | `commercial-legal`, `corporate-legal` | Customer subscription |
 | **Lawve AI** | Contract review assist and clause libraries | `legal-builder-hub` | Customer subscription |
 | **Courtroom5** | Self-represented litigant workflow | `legal-clinic` | Customer subscription |

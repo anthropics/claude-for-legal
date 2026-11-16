@@ -129,6 +129,7 @@ Ships with the general bucket of connectors in `.mcp.json`:
 
 - **Slack** — search messages, read channels, find discussions
 - **Google Drive** — search, read, and fetch documents
+- **CasexAtlas**: the firm's practice management system. Search cases, open a case record, list deadlines and statutes of limitations, tasks, contacts and the case timeline. Read only. Each person signs in with their own CasexAtlas account, so results follow their role and financial figures the role may not see are withheld rather than shown as zero.
 
 Designed to be useful with nothing connected. If/when you want to pull from Relativity, DISCO, CLMs, or email, integration skills can be added without changing the core architecture.
 
