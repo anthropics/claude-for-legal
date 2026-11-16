@@ -37,6 +37,7 @@ Connectors shipped in the default `.mcp.json` of each plugin:
 | **Everlaw** | litigation-legal |
 | **Trellis** | litigation-legal |
 | **Aurora** | litigation-legal |
+| **CasexAtlas** | litigation-legal, legal-clinic |
 | **Courtroom5** | legal-clinic |
 | **Lawve AI** | legal-builder-hub |
 | **Linear** | product-legal |

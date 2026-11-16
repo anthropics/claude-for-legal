@@ -29,6 +29,12 @@
       "url": "https://mcp.descrybe.com/mcp",
       "title": "Descrybe",
       "description": "Primary law research — search cases by concept or wording, find cases from citations, extract authorities, check treatment, verify quoted language."
+    },
+    "CasexAtlas": {
+      "type": "http",
+      "url": "https://www.casexatlas.com/api/mcp",
+      "title": "CasexAtlas",
+      "description": "Practice management for plaintiff, family and criminal firms: search cases, open a case record, list deadlines and statutes of limitations, tasks, contacts and the case timeline. Read only; each person signs in and sees what their role allows."
     }
   },
   "recommendedCategories": [

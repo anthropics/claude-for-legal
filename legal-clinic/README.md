@@ -134,6 +134,7 @@ Ships with the general bucket of connectors in `.mcp.json`:
 
 - **Slack** — search messages, read channels, find discussions
 - **Google Drive** — search, read, and fetch documents
+- **CasexAtlas**: case management for clinics that run matters in CasexAtlas. `/client-intake` and `/status` can read cases, deadlines, tasks and contacts directly instead of relying on file upload. Read only; each student or supervisor signs in with their own account.
 
 Clio is noted as an optional future integration — 120+ law schools use Clio for case management. Starting with file upload; Clio connector would let `/client-intake` and `/status` pull case data directly.
 
