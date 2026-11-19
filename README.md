@@ -276,6 +276,7 @@ Plugins under [`external_plugins/`](./external_plugins) are built and maintained
 | Plugin | Built by | What it adds |
 |---|---|---|
 | **[cocounsel-legal](./external_plugins/cocounsel-legal)** | Thomson Reuters | Westlaw Deep Research with fully cited reports — caselaw, statutes, regulations, Practical Law, and secondary sources across up to three U.S. jurisdictions per run. Requires a CoCounsel Legal subscription with the MCP connector enabled. Support: cocounselsupport@tr.com. |
+| **[broker-dealer-legal](./external_plugins/broker-dealer-legal)** | UnyKorn LLC | Ten skills for a small US broker-dealer doing private placements and tokenized securities: customer onboarding review, Rule 506(c) verification, offering file review, communications review, intermediary compensation check, outside activity notice, diligence memo, books-and-records map and token controls review. No subscription or connector required. Every output is a draft for a registered principal and counsel. |
 
 ## The trust layer for community legal skills
 
