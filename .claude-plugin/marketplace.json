@@ -122,6 +122,15 @@
       "author": {
         "name": "Thomson Reuters"
       }
+    },
+    {
+      "name": "broker-dealer-legal",
+      "displayName": "Broker-Dealer Legal",
+      "source": "./external_plugins/broker-dealer-legal",
+      "description": "Reviews customer onboarding files, Rule 506(c) verification records, offering files, communications, intermediary payments, outside activity notices, issuer diligence, books-and-records maps and tokenized security controls for a small US broker-dealer. Every output is a draft for a registered principal and counsel.",
+      "author": {
+        "name": "UnyKorn LLC"
+      }
     }
   ]
 }

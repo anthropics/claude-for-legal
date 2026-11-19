@@ -1,0 +1,8 @@
+{
+  "name": "broker-dealer-legal",
+  "version": "0.1.0",
+  "description": "Reviews customer onboarding files, Rule 506(c) verification records, offering files, communications, intermediary payments, outside activity notices, issuer diligence, books-and-records maps, and tokenized security controls for a small US broker-dealer — every output a draft for a registered principal and counsel.",
+  "author": {
+    "name": "UnyKorn LLC"
+  }
+}
