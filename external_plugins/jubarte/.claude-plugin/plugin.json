@@ -1,0 +1,9 @@
+{
+  "name": "jubarte",
+  "version": "0.1.0",
+  "description": "Read, redline, compare and render Word documents with real tracked changes. One open-source engine (Apache-2.0) that runs on the user's machine; no document leaves it.",
+  "author": {
+    "name": "Jandira Technologies",
+    "url": "https://github.com/jandira-tech/jubarte"
+  }
+}
