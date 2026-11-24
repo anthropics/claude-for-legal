@@ -276,6 +276,7 @@ Plugins under [`external_plugins/`](./external_plugins) are built and maintained
 | Plugin | Built by | What it adds |
 |---|---|---|
 | **[cocounsel-legal](./external_plugins/cocounsel-legal)** | Thomson Reuters | Westlaw Deep Research with fully cited reports — caselaw, statutes, regulations, Practical Law, and secondary sources across up to three U.S. jurisdictions per run. Requires a CoCounsel Legal subscription with the MCP connector enabled. Support: cocounselsupport@tr.com. |
+| **[jubarte](./external_plugins/jubarte)** | Jandira Technologies | Real tracked changes for Word documents: redline with comments, compare two drafts, accept or reject changes, validate and render to PDF. Open source (Apache-2.0); runs locally over stdio, no account and no upload. Requires `uv`. Support: https://github.com/jandira-tech/jubarte/issues. |
 
 ## The trust layer for community legal skills
 
