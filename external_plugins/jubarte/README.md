@@ -32,7 +32,7 @@ and adds a skill that tells Claude how to deliver a redline a lawyer can send.
 ## Requirements
 
 [`uv`](https://docs.astral.sh/uv/) on the machine running Claude. The server is
-started with `uvx --from 'jubarte-docx[mcp]==0.19.0' jubarte-mcp --root .`, which
+started with `uvx --from 'jubarte-docx[mcp]==0.20.0' jubarte-mcp --root .`, which
 downloads the `jubarte-docx` wheel from PyPI on first use. Nothing else is installed:
 no LibreOffice, pandoc or Word.
 
@@ -48,7 +48,7 @@ replaces an existing file unless asked to. Details:
 
 [`artifacts/`](./artifacts) holds three single-file pages that run the same engine
 in the browser as WebAssembly. Paste one into Claude as an artifact, or open it
-from disk. Each fetches the engine from cdn.jsdelivr.net (`jubarte-wasm@0.19.0`);
+from disk. Each fetches the engine from cdn.jsdelivr.net (`jubarte-wasm@0.20.0`);
 the documents stay in the tab.
 
 | File | What it does |

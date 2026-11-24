@@ -146,16 +146,16 @@ iframe.pdf{width:100%;height:78vh;min-height:460px;border:1px solid var(--line);
 </div>
 </main>
 <footer class="foot">
-<p>The layout engine is <a href="https://github.com/jandira-tech/jubarte" target="_blank" rel="noopener">jubarte</a> 0.19.0, compiled to WebAssembly. It is downloaded once from cdn.jsdelivr.net (11 MB); your document is converted in this tab and is not sent anywhere.</p>
+<p>The layout engine is <a href="https://github.com/jandira-tech/jubarte" target="_blank" rel="noopener">jubarte</a> 0.20.0, compiled to WebAssembly. It is downloaded once from cdn.jsdelivr.net (11 MB); your document is converted in this tab and is not sent anywhere.</p>
 <p>jubarte targets Word's layout and is scored against Word page by page on 808 documents. A dense document can still differ by a line or a page. Fonts Word would take from your computer are replaced by metric-compatible ones. Not affiliated with Microsoft.</p>
 <p class="powered"><a href="https://jubarte.pro" target="_blank" rel="noopener"><svg class="ico" viewBox="60 80 490 256" aria-hidden="true"><path d="M 76 192 C 82 172 112 156 150 146 C 196 132 258 112 310 110 C 356 108 402 118 448 148 C 458 152 464 150 470 144 C 478 128 494 106 520 92 C 512 112 508 126 502 134 C 514 140 526 148 540 160 C 520 164 498 160 480 162 C 470 164 460 166 452 166 C 420 190 382 228 328 252 C 270 278 194 286 148 268 C 114 254 88 230 81 208 C 76 198 74 194 76 192 Z" fill="currentColor"/><path d="M 208 228 C 246 240 286 268 322 298 C 334 308 338 320 330 326 C 296 326 254 306 226 280 C 206 260 200 240 208 228 Z" fill="currentColor"/></svg>Powered by jubarte</a></p>
 </footer>
 </div>
 <script>
 (() => { 'use strict';
-const VERSION = '0.19.0';
+const VERSION = '0.20.0';
 const CDN = 'https://cdn.jsdelivr.net/npm/jubarte-wasm@' + VERSION + '/';
-const SIZES = { 'web-redlines': 3811711, 'web-pdf': 11219244, 'web-slim': 13425281 };
+const SIZES = { 'web-redlines': 3831804, 'web-pdf': 11229823, 'web-slim': 13558938 };
 const W = 'http://schemas.openxmlformats.org/wordprocessingml/2006/main';
 const $ = id => document.getElementById(id);
 const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };

@@ -3,7 +3,7 @@
     "jubarte": {
       "type": "stdio",
       "command": "uvx",
-      "args": ["--from", "jubarte-docx[mcp]==0.19.0", "jubarte-mcp", "--root", "."]
+      "args": ["--from", "jubarte-docx[mcp]==0.20.0", "jubarte-mcp", "--root", "."]
     }
   }
 }
