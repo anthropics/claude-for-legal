@@ -24,7 +24,7 @@ Weekly, Monday morning. Configurable — if the contracts volume is high, daily 
 1. Read `~/.claude/plugins/config/claude-for-legal/commercial-legal/CLAUDE.md` to get the alert destination (Slack channel or email list).
 2. Load the renewal-tracker skill, run Mode 2 (next 90 days).
 3. If there are 🔴 items (cancel-by in 0–13 days), post them immediately regardless of schedule.
-4. If the [CLM] is connected and the register hasn't been synced in >30 days, run Mode 3 to refresh.
+4. If the [CLM] is connected and the register hasn't been synced in >30 days, say so in the report and suggest running `/commercial-legal:renewal-tracker` Mode 3 yourself. Do not run Mode 3 from this agent; it writes the register.
 5. Post the report to the destination.
 
 ## Output format
